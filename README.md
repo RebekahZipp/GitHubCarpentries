@@ -4,21 +4,39 @@
 
 This repository is a companion to the OSU Libraries Git and GitHub workshop.
 
-We will use the repository itself as part of the lesson. As we build it, Git will record what changes, what we choose to keep, and how the project develops.
+We use the repository itself as part of the lesson. As we build it, Git records what changes, what we choose to keep, how we recover when something goes wrong, and how the project develops.
 
 ## Read the workflow
 
-**CHANGE → INSPECT → CHOOSE → RECORD → REVIEW**
+**CHANGE → INSPECT → CHOOSE → RECORD → REVIEW → SHARE**
 
 We are not learning commands just to memorize commands.
 
 We are learning to ask:
 
+- Where am I?
+- What did I expect?
+- What actually happened?
 - What changed?
 - What does Git know?
+- What do I need to know next?
 - What belongs in the project?
 - What should be recorded?
+- How will I verify the result?
+- Who else can help us understand the work?
 - Can another person understand what we did?
+
+When something unexpected happens, use a second rhythm:
+
+**EXPECT → OBSERVE → EXPLAIN → TEST → ACT → VERIFY**
+
+## Questions are part of the practice
+
+Questions in this workshop are invitations, not quizzes. They give learners and helpers room to contribute, but they also help the instructor make reasoning visible. In a small or quiet class, the instructor may ask and answer the prompt while thinking aloud.
+
+Feedback is not saved for the end. Learners, helpers, and instructors can notice something, ask a question, suggest another interpretation, test it against the evidence, and make that knowledge available to the group.
+
+See [PEDAGOGY_RUBRIC.md](PEDAGOGY_RUBRIC.md) for the reasoning, mistake-as-teaching-case, feedback, repetition, and community-of-practice rubric used throughout the lesson.
 
 ## Git is not GitHub
 
@@ -32,17 +50,16 @@ We start with Git. Then we add GitHub.
 
 ### 1. Learn Git and GitHub
 
-Follow a small project from local files through version control and collaboration.
+Follow a small project from local files through version control, troubleshooting, and collaboration.
 
 ### 2. Teach Git and GitHub
 
-Instructor notes document teaching choices, troubleshooting, and lessons learned while building the workshop.
+Instructor notes document teaching choices, questions, mistakes, recovery, feedback, and lessons learned while building the workshop.
 
 ### 3. Show the work
 
-The repository itself becomes evidence of project organization, documentation, collaboration, and technical practice.
+The repository itself becomes evidence of project organization, documentation, collaboration, technical practice, and reasoning.
 
 That means the history matters.
 
-We are building the lesson with the tools the lesson teaches.
-
+We are building the lesson with the tools and community practices the lesson teaches.
