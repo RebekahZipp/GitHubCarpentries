@@ -57,3 +57,22 @@ Do not paste credentials, tokens, private project information, or personal data 
 When something surprises you:
 
 **EXPECT → OBSERVE → EXPLAIN → TEST → ACT → VERIFY**
+
+
+## Workshop continuity: keep the Carpentries thread
+
+Oct. 8 continues the earlier Carpentries Git session. Keep the same conceptual object and vocabulary as responsibility moves from local Git into GitHub collaboration.
+
+**Session 1 foundation:** version control benefits -> Git vs. GitHub -> repository -> modify/add/commit -> meaningful commit messages -> history/HEAD -> ignore -> remotes/collaboration.
+
+**Oct. 8 continuation:** orient -> clone/investigate -> BUILD -> pull/change/inspect/add/commit/review/push -> rejected push/conflict -> human decision -> history/recovery -> documentation -> explain-back.
+
+### Guacamole is the running specimen
+
+Keep `guacamole.md` visible across the handoff instead of replacing it with disconnected exercises. Use it to recognize prior history, make and record a meaningful change, share with a partner, create and resolve a same-line conflict, and review the result with `HEAD`, `HEAD~1`, log, show, and diff.
+
+**Teaching line:** Git can tell us that two versions of guacamole exist. Git cannot tell us which guacamole tastes better.
+
+**Commit-message prompt:** "Six months from now, will this message tell another person why this version exists?"
+
+The responsibility progression is **FOLLOW -> RECOGNIZE -> PREDICT -> EXPLAIN -> ACT -> HELP OTHERS.**
