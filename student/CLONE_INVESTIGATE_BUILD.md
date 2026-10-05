@@ -40,6 +40,54 @@ If you are unsure where a command belongs, ask before running it.
 
 You will have a **7-minute break at about 2:00 and another at about 3:00**. We will protect those breaks even if an optional activity has to be shortened.
 
+## Stay-with-the-class strip
+
+If you fall behind, do **not** try to recreate every keystroke. Rejoin at the next checkpoint.
+
+| Point in class | You are caught up when... |
+| --- | --- |
+| Before first break | You can run `git status`, know whether you are in TRY or BUILD, and know your repository/role. |
+| After first collaboration | One commit is visible on GitHub and you can explain whether it is local, pushed, or pulled. |
+| Before second break | You can explain why a push was rejected and what a conflict asks a human to decide. |
+| Final hour | You can inspect history, make one track/ignore/investigate decision, and improve your README. |
+| End | You can explain one decision using evidence and name your next step. |
+
+When you need help, tell a helper:
+
+> "I am at ___. I expected ___. I see ___. I need to get to the next checkpoint."
+
+## Pocket cheat sheet
+
+**ORIENT**
+```bash
+pwd
+git rev-parse --show-toplevel
+git status
+```
+
+**INSPECT**
+```bash
+git diff
+git diff --staged
+git log --oneline
+git show HEAD
+```
+
+**CONNECT**
+```bash
+git remote -v
+git pull origin main
+git push origin main
+```
+
+**NORMAL WORK**
+
+**CHANGE → INSPECT → CHOOSE → RECORD → REVIEW → SHARE**
+
+**WHEN SURPRISED**
+
+**EXPECT → OBSERVE → EXPLAIN → TEST → ACT → VERIFY**
+
 ## 1. Orient before acting
 
 Before a clone, pull, push, or repair, establish where you are.
