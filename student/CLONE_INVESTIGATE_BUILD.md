@@ -119,8 +119,8 @@ A clone is not the same as downloading a ZIP. The clone includes the repository 
 Before cloning, decide where the new directory should be created. Do not clone a repository inside another copy of the same project.
 
 ```bash
-git clone REPOSITORY-URL NEW-DIRECTORY
-cd NEW-DIRECTORY
+git clone https://github.com/RebekahZipp/GitHubCarpentries-Examples.git
+cd GitHubCarpentries-Examples
 git status
 git log --oneline
 git remote -v
@@ -151,7 +151,7 @@ git status
 git diff
 git add FILE
 git diff --staged
-git commit -m "Describe the change"
+git commit -m "Clarify guacamole instructions"
 git log --oneline
 git push origin main
 ```
@@ -159,6 +159,8 @@ git push origin main
 Do not treat these as a magic recipe. At each step, be able to explain what state is changing.
 
 Small, meaningful commits are easier to read, review, recover, and collaborate around.
+
+For continuity with the earlier Carpentries session, use `guacamole.md` as the familiar specimen. Ask: **"Six months from now, will this commit message tell another person why this version exists?"**
 
 ## 4. Remotes are relationships
 
