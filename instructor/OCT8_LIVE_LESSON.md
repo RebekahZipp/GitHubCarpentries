@@ -62,6 +62,44 @@ If a Code of Conduct concern arises, stop the technical exercise and follow the 
 
 ---
 
+# Activity key: know where the work happens
+
+Every activity is labeled so learners know whether to watch, try, or build.
+
+- **DEMO — Watch:** Rebekah models the idea. Learners predict, observe, and discuss.
+- **TRY — Local example:** learners clone or inspect an example repository. They may experiment in their own local clone. They do not push changes to the teaching source.
+- **BUILD — Your repository:** learners create, change, commit, push, document, and collaborate in a repository they own or control with a partner.
+- **TALK — Group discourse:** answer aloud **or add a note/question to the Teams chat**. Short answers are welcome. The purpose is to make reasoning visible, not to quiz learners.
+
+When asking a question, pause long enough for thinking. Invite responses in both modes:
+
+> "Say it out loud, or put your thought in Teams."
+
+Use Teams as a shared learning notebook: predictions, questions, useful errors, explanations, and takeaways can remain available after class. Do not require learners to post personal information, credentials, or private project content.
+
+# 1:00–4:00 run of show
+
+The published Carpentries sequence remains the backbone: **Remotes in GitHub first, then the custom GitHub lesson.** The added teaching layer is repetition, prediction, evidence, discussion, controlled practice, and transfer.
+
+| Time | Mode | Teaching move |
+| --- | --- | --- |
+| **1:00–1:10** | TALK + DEMO | Welcome, Code of Conduct, re-entry diagnostic: Where am I? What did Git teach us last week? |
+| **1:10–1:25** | DEMO + TRY | Git vs GitHub; local vs remote; clone an example and inspect it |
+| **1:25–1:40** | DEMO + TRY | Remotes and `origin`; read `remote -v`; predict where push/pull travel |
+| **1:40–1:53** | BUILD | Set up Owner/Collaborator pairs and begin one small shared change |
+| **1:53–2:00** | **BREAK** | **7-minute break. Stop typing. Save questions for return or add them to Teams.** |
+| **2:00–2:18** | BUILD | Finish first collaboration cycle: inspect → choose → commit → review → push → pull |
+| **2:18–2:33** | BUILD + TALK | Switch roles; second cycle with less instructor prompting; explain the next move |
+| **2:33–2:53** | BUILD | Controlled rejected push and merge conflict; read evidence; resolve and verify |
+| **2:53–3:00** | **BREAK** | **7-minute break.** |
+| **3:00–3:15** | TRY + TALK | History/recovery and authentic safe errors; distinguish malformed command from repository state |
+| **3:15–3:27** | TRY + BUILD | Track / Ignore / Investigate; decide what belongs in the durable record |
+| **3:27–3:40** | TALK + BUILD | README, provenance, license, citation, visibility; constructive GitHub review |
+| **3:40–3:50** | DEMO + BUILD | RStudio translation; optional GitHub Pages only if core lesson is on time |
+| **3:50–4:00** | TALK + BUILD | Learner artifact, explain-back, Teams takeaways/questions, continuing practice and close |
+
+**Timing rule:** protect the two seven-minute breaks. If the class runs behind, shorten the optional Pages/RStudio extension or the mystery-repository extension. Do not remove collaboration, conflict reasoning, verification, or learner explain-back.
+
 # The recurring language
 
 ## Normal work
@@ -92,6 +130,8 @@ If a Code of Conduct concern arises, stop the technical exercise and follow the 
 ---
 
 # 0. Re-entry: What did Git already teach us?
+
+**TALK + DEMO**
 
 ### Carpentries foundation
 
@@ -139,6 +179,8 @@ Explain that `pwd` and `git rev-parse --show-toplevel` answer different question
 
 # 1. Git is not GitHub
 
+**DEMO + TALK**
+
 ### Carpentries foundation
 
 Git records repository history locally. GitHub is a hosting and collaboration service for Git repositories.
@@ -173,6 +215,8 @@ Use a physical gesture or point to the three locations every time work moves. Ma
 ---
 
 # 2. Clone is not Download
+
+**DEMO → TRY**
 
 ### Carpentries foundation
 
@@ -254,6 +298,8 @@ Explain that instructional placeholders must be replaced with real values.
 
 # 3. Remotes are relationships
 
+**DEMO → TRY**
+
 ### Carpentries foundation
 
 A remote is another repository Git can fetch from or push to. `origin` is a conventional local alias, automatically created by clone. It is not an intrinsic GitHub object.
@@ -296,6 +342,8 @@ No. We changed a local relationship.
 ---
 
 # 4. Owner and Collaborator
+
+**BUILD**
 
 ### Carpentries foundation
 
@@ -382,6 +430,8 @@ Have learners point to the state their change is currently in.
 
 # 5. Owner pulls and reviews the collaborator's work
 
+**BUILD + TALK**
+
 ### Carpentries foundation
 
 The Owner downloads the Collaborator's new commit with:
@@ -438,6 +488,8 @@ Avoid person-centered judgments such as "you did this wrong." Review the change,
 
 # 6. Switch roles
 
+**BUILD**
+
 Do the collaboration cycle again with Owner and Collaborator reversed.
 
 This repetition is deliberate.
@@ -456,6 +508,8 @@ Do not answer immediately.
 ---
 
 # 7. Controlled conflict: Git refuses to guess
+
+**BUILD + TALK**
 
 ### Carpentries foundation
 
@@ -567,6 +621,8 @@ A conflict is Git refusing to invent human intent.
 
 # 8. Error messages are evidence
 
+**DEMO + TRY + TALK**
+
 Use authentic, safe examples when they arise.
 
 ## Placeholder as literal input
@@ -629,6 +685,8 @@ Use occasionally, not after every error.
 
 # 9. History and recovery
 
+**DEMO → TRY**
+
 ### Carpentries foundation
 
 Git's history allows learners to inspect earlier states and recover deliberately.
@@ -675,6 +733,8 @@ Do not generalize `git restore` into a universal undo button.
 ---
 
 # 10. Track, Ignore, Investigate
+
+**TRY → BUILD**
 
 ### Carpentries foundation
 
@@ -738,6 +798,8 @@ Also explain that ignore rules do not automatically stop tracking something alre
 
 # 11. License, Citation, Hosting: making a repository usable
 
+**TALK + BUILD**
+
 ### Carpentries foundation
 
 The Carpentries lesson distinguishes making work public from granting permission to reuse it, and recommends explicit licensing. It also introduces citation files, including `CITATION.cff`, and asks learners to consider where work should be hosted.
@@ -781,6 +843,8 @@ For their own repository, learners identify:
 
 # 11A. Optional extension: publish with GitHub Pages
 
+**OPTIONAL DEMO**
+
 Use this only if the core collaboration lesson is on time. GitHub Pages is an extension, not a prerequisite.
 
 ### Teaching purpose
@@ -814,6 +878,8 @@ Learners should check privacy, permissions, provenance, licensing, and instituti
 ---
 
 # 12. RStudio: same states, different interface
+
+**DEMO + TRANSFER**
 
 ### Carpentries foundation
 
@@ -863,6 +929,8 @@ Friendly interfaces do not remove filesystem scope, repository scope, or consequ
 
 # 13. Mystery repository investigation
 
+**OPTIONAL TRY + TALK**
+
 Give learners a small approved public or prepared repository without explaining it first.
 
 Mission:
@@ -893,6 +961,8 @@ This is the transition from following commands to investigating repositories.
 ---
 
 # 14. Build something worth keeping
+
+**BUILD**
 
 Learners now create or improve a repository they own.
 
@@ -929,6 +999,8 @@ Say:
 ---
 
 # 15. Final transfer: help without taking over
+
+**TALK + BUILD**
 
 Pair learners one final time.
 
@@ -998,6 +1070,42 @@ Stop and escalate when:
 - force-pushing or shared-history rewriting appears necessary.
 
 Prefer reversible moves and inspection.
+
+---
+
+# Discourse and repetition protocol
+
+The lesson should repeatedly move learners through **hear → predict → try → explain → repeat → transfer**.
+
+For each important concept:
+
+1. **Ask before showing.** "What do you expect?"
+2. **Invite two response routes.** "Say it out loud, or put it in Teams."
+3. **Run the smallest useful command or action.**
+4. **Read the evidence together.** Do not rush past output.
+5. **Ask again.** "What changed? What did not change?"
+6. **Repeat with less support.**
+7. **Transfer responsibility.** "What would you do next, and why?"
+
+Useful whole-group prompts:
+
+> "What are you noticing?"
+
+> "Who got a different result?"
+
+> "Put the exact message you are seeing in Teams if you want us to reason through it together."
+
+> "What evidence supports that answer?"
+
+> "What are we assuming?"
+
+> "Would someone explain that in their own words?"
+
+> "What should we verify before we move on?"
+
+Questions are not gotchas. If nobody answers, pause, model your own reasoning, and continue. Learner silence is not failure.
+
+Teams contributions may be brief: one observation, one command, one error message, one question, or one takeaway. Helpers can watch Teams and surface patterns to the instructor while learners continue working.
 
 ---
 
