@@ -1,50 +1,124 @@
-# Clone → Investigate → Build
+# Clone → Collaborate → Investigate → Build
 
 ## Your mission
 
 A GitHub repository is not only code. It can be a research record, dataset, lesson, documentation site, analysis, or professional portfolio.
 
-Today you will enter a project that already has a history, investigate the evidence it carries, explain what you think it means, and then build a repository you can keep.
+This lesson continues the Software Carpentry **Version Control with Git** sequence. You already know the local cycle of changing, inspecting, staging, committing, and reviewing history. Now we connect that record to other people and places.
 
-## Part 1 — Clone
+Our rhythm remains:
 
-Cloning creates a connected local working copy of a Git repository.
+**CHANGE → INSPECT → CHOOSE → RECORD → REVIEW → SHARE**
+
+## 1. Orient before acting
+
+Before a clone, pull, push, or repair, establish where you are.
+
+```bash
+pwd
+git status
+git remote -v
+```
+
+Ask:
+
+- Where am I?
+- Which repository am I in?
+- Which branch am I on?
+- What does Git know?
+- Where will shared work come from or go to?
+
+Git is being extremely literal. Location and repository identity matter.
+
+## 2. Clone: GitHub → local
+
+Cloning creates a connected local copy of a Git repository.
 
 **GitHub → CLONE → LOCAL**
 
-A clone is different from downloading a single file or ZIP because Git history and the remote connection come with the working repository.
+A clone is not the same as downloading a ZIP. The clone includes the repository history and automatically configures a remote named `origin`.
 
-Before cloning, make a prediction: **What do you expect to arrive on your computer?**
+Before cloning, decide where the new directory should be created. Do not clone a repository inside another copy of the same project.
 
-After cloning, check the prediction against what you actually received.
+```bash
+git clone REPOSITORY-URL NEW-DIRECTORY
+cd NEW-DIRECTORY
+git status
+git log --oneline
+git remote -v
+```
 
-## Part 2 — Investigate before changing
+Read those commands as questions:
 
-Ask the repository four questions:
+- What state is my local copy in?
+- What happened before I arrived?
+- Where did this repository come from?
+
+## 3. Collaborate: pull before new shared work
+
+In the Carpentries Owner/Collaborator exercise, one person owns the GitHub repository and another person works from a clone.
+
+A basic shared workflow is:
+
+```text
+PULL → CHANGE → INSPECT → ADD → COMMIT → REVIEW → PUSH
+```
+
+Typical commands are:
+
+```bash
+git pull origin main
+# edit a file
+git status
+git diff
+git add FILE
+git diff --staged
+git commit -m "Describe the change"
+git log --oneline
+git push origin main
+```
+
+Do not treat these as a magic recipe. At each step, be able to explain what state is changing.
+
+Small, meaningful commits are easier to read, review, recover, and collaborate around.
+
+## 4. Remotes are relationships
+
+`origin` is a local name for a remote repository. It is not a special place built into Git.
+
+Inspect configured remotes with:
+
+```bash
+git remote -v
+```
+
+Useful remote operations include:
+
+```bash
+git remote add NAME URL
+git remote set-url NAME NEW-URL
+git remote rename OLD-NAME NEW-NAME
+git remote remove NAME
+```
+
+Removing a remote removes the local relationship. It does not delete the hosted repository.
+
+## 5. Review somebody else's change
+
+After a collaborator pushes, inspect the record before editing again.
+
+From the command line, use tools such as:
 
 ```bash
 git status
 git log --oneline
-git remote -v
-ls
+git show
+git diff
 ```
 
-Read them as questions, not magic words:
+On GitHub, inspect the commit and its diff. Comments on a commit or pull request can make review part of the project record.
 
-- What state is my copy in?
-- What happened before I arrived?
-- Where did this come from?
-- What is here?
-
-Now find the README. Look for a license, data/source notes, authors or contributors, and instructions.
-
-Do not rush to change the project. First be able to say what evidence you found and what you still do not know.
-
-## Part 3 — Read a change
-
-Use GitHub Desktop or GitHub History to inspect a commit and its diff.
-
-Prompt yourself:
+Ask:
 
 **What can I know about this change from the record?**
 
@@ -52,21 +126,100 @@ Then:
 
 **What can I not know from Git alone?**
 
-If someone else reads the change differently, compare both explanations with the evidence. Git records changes. Documentation, people, and community discussion help explain meaning and decisions.
+Git records change. Documentation, people, and community discussion help explain meaning and decisions.
 
-## Part 4 — When something is unexpected
+## 6. When a push is rejected
+
+A rejected push is evidence, not a cue to force the push.
 
 Use:
 
 **EXPECT → OBSERVE → EXPLAIN → TEST → ACT → VERIFY**
 
-Try to complete this sentence before reaching for a fix:
+Start by reading the rejection. Then inspect the repository and remote state.
 
-> “I expected ___, but I observed ___. I think ___ may explain it. I can test that by ___.”
+A common case is that GitHub contains commits your local branch does not yet contain. Integrate the shared work before trying to publish your own work.
 
-Ask for help when another person, the documentation, or the repository community may know something you do not. A well-formed question is part of technical practice.
+If overlapping changes produce a conflict, Git stops and asks a human to decide the intended content.
 
-## Part 5 — Build something you keep
+Conflict markers look like:
+
+```text
+<<<<<<< HEAD
+local version
+=======
+remote version
+>>>>>>> commit
+```
+
+Resolve the content deliberately, remove the markers, then:
+
+```bash
+git add FILE
+git status
+git commit -m "Merge changes from GitHub"
+git push origin main
+```
+
+A conflict is not Git failing. It is Git refusing to guess which human decision is correct.
+
+## 7. Inspect and recover history
+
+`HEAD` refers to the current commit. Earlier commits can be inspected with commit IDs or relative names such as `HEAD~1`.
+
+Useful commands include:
+
+```bash
+git log --oneline
+git show HEAD
+git diff HEAD~1
+```
+
+For an uncommitted working-file change that you intentionally want to discard, `git restore FILE` can restore the version recorded in `HEAD`.
+
+Do not use recovery commands until you can say which version you intend to keep.
+
+## 8. Decide what belongs in the repository
+
+When Git notices files, do not automatically stage everything.
+
+Use:
+
+**TRACK → IGNORE → INVESTIGATE**
+
+A `.gitignore` file records patterns for files the project intentionally does not track. Track the `.gitignore` itself when collaborators should share those rules.
+
+Remember: ignoring a file does not delete it, and adding a pattern does not automatically stop tracking a file that is already tracked.
+
+## 9. Make the repository reusable
+
+A professional repository should help another person understand whether and how they may use the work.
+
+Consider:
+
+- `README.md` for purpose, context, sources, and instructions;
+- `.gitignore` for intentional exclusions;
+- `LICENSE` for reuse permissions;
+- `CITATION.cff` or another citation file when the work should be cited;
+- clear provenance for data and other source material.
+
+Public visibility is not the same as permission to reuse. Institutional, intellectual-property, privacy, human-subjects, and sensitive-data rules still apply wherever a repository is hosted.
+
+## 10. RStudio is another view of the same Git states
+
+RStudio can expose common Git actions through its Git pane: stage, commit, inspect diffs, view history, pull, and push.
+
+The interface changes. The reasoning does not.
+
+Before clicking, ask:
+
+- What repository is this project connected to?
+- What is staged?
+- What will this button change?
+- Where will the result be recorded?
+- How will I verify it?
+
+## 11. Build something you keep
 
 Create or develop a repository that represents your own learning or work. It might contain research notes, a small dataset, an R script, documentation, a class project, metadata work, or another appropriate artifact.
 
@@ -79,18 +232,35 @@ Your README should tell another person:
 - how to understand or reproduce it;
 - what skills the project demonstrates.
 
-## Part 6 — Explain without taking over
+## 12. Explain without taking over
 
-Before leaving, work with another learner, helper, or instructor if available.
+Before leaving, explain one repository decision or diagnose one small Git situation aloud with another learner, helper, or instructor.
 
-Explain one part of your repository or diagnose one small Git situation aloud. If you are helping another person, resist taking their keyboard. Ask what they expected, what they observe, and what evidence could help them decide what to do next.
+Use:
 
-In a very small class, the instructor may model both sides of this conversation and invite you to interrupt, correct, or add another interpretation.
+**EXPECT → OBSERVE → EXPLAIN → TEST → ACT → VERIFY**
 
-## The rhythm
+A useful sentence is:
 
-**CHANGE → INSPECT → CHOOSE → RECORD → REVIEW → SHARE**
+> "I expected ___, but I observed ___. I think ___ may explain it. I can test that by ___."
 
-The goal is not to leave class remembering every Git command.
+If you help another person, do not take their keyboard. Help them read the evidence and decide.
 
-The goal is to leave knowing how to ask Git what happened, how to reason from the evidence, how to seek and contribute help, and how to continue developing a repository that can serve as evidence of your work.
+## What you should leave able to do
+
+You do not need to memorize every command.
+
+You should be able to:
+
+- locate yourself and the repository before acting;
+- distinguish Git from GitHub and local from remote;
+- clone and inspect an unfamiliar repository;
+- pull, make a reasoned change, stage, commit, review, and push;
+- read a rejected push or conflict as evidence;
+- inspect and recover history deliberately;
+- decide what to track or ignore;
+- explain licensing, citation, and hosting as repository decisions;
+- recognize the same Git states in RStudio; and
+- continue developing a repository that can serve as evidence of your work.
+
+The commands may change. The reasoning should become familiar.
