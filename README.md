@@ -67,6 +67,7 @@ We are building the lesson with the tools and community practices the lesson tea
 
 ## Workshop paths
 
+- [Oct. 8 Live Teaching Lesson](instructor/OCT8_LIVE_LESSON.md) — the actual room-ready lesson: Carpentries notes, controlled practice, instructor prompts, student questions, helper questions, authentic teaching moments, conflict practice, safety boundaries, and final portfolio transfer.
 Use the repository by role:
 
 - [Student Path](student/README.md) — learn the reasoning rhythm and continue into the hands-on lesson.
