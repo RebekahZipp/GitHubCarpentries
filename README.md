@@ -1,10 +1,75 @@
 # GitHub Carpentries
 
+# START HERE: OCT. 8 LIVE LESSON
+
+This repository is the course front door. **You should not have to hunt through folders to find the lesson.**
+
+## Training-day map
+
+| I am... | Start here | What it is for |
+| --- | --- | --- |
+| **Instructor** | **[OPEN THE OCT. 8 LIVE TEACHING LESSON](instructor/OCT8_LIVE_LESSON.md)** | The 1:00–4:00 running script: what to say, ask, demonstrate, practice, review, breaks, catch-up points, common mistakes, helper cues, and cheat-sheet reminders. |
+| **Learner** | **[OPEN THE STUDENT LESSON](student/CLONE_INVESTIGATE_BUILD.md)** | Follow-along GitHub lesson, catch-up checkpoints, collaboration, conflict, recovery, and BUILD work. |
+| **Helper** | **[OPEN THE HELPER CUE SHEET](helper/README.md)** | Timed room cues, learner checkpoints, common problems, Teams monitoring, and safe handoff. |
+| **Everyone** | **[OPEN THE GIT & GITHUB CHEAT SHEET](GIT_CHEAT_SHEET.md)** | Commands and reasoning in lesson order. Keep this open during class. |
+| **TRY practice** | **[OPEN / CLONE THE EXAMPLE REPOSITORY](https://github.com/RebekahZipp/GitHubCarpentries-Examples)** | Safe shared example to clone and investigate locally. Do substantive BUILD work in your own repository. |
+
+## The course in one map
+
+```text
+                         OCT. 8 WORKSHOP
+                               |
+                +--------------+--------------+
+                |              |              |
+           INSTRUCTOR       STUDENT         HELPER
+          running script   follow-along     cue sheet
+                |              |              |
+                +--------------+--------------+
+                               |
+                         WHOLE-CLASS
+                         CHEAT SHEET
+                               |
+                    +----------+----------+
+                    |                     |
+                   TRY                  BUILD
+          class example repo      learner-owned repo
+          clone + investigate     change + collaborate
+                    |                     |
+                    +----------+----------+
+                               |
+                            EXPLAIN
+                     evidence + reasoning
+```
+
+## Training-day rhythm
+
+**DEMO** — watch, predict, discuss.  
+**TRY** — use your local clone of the class example.  
+**BUILD** — work in your own or your partner's repository.  
+**TALK** — speak up or add your thought/question to Teams.
+
+### 1:00–1:53 — Beginning
+**WHERE AM I? → WHERE CAN THE WORK GO?**
+
+Git/GitHub → clone → inspect → remotes → move from TRY to BUILD.
+
+### 1:53–2:00 — 7-minute break
+
+### 2:00–2:53 — Middle
+**HOW DOES WORK MOVE BETWEEN PEOPLE?**
+
+Collaboration → repeat → rejected push → conflict → human decision → verify.
+
+### 2:53–3:00 — 7-minute break
+
+### 3:00–4:00 — End
+**HOW DO I UNDERSTAND, RECOVER, AND LEAVE GOOD WORK BEHIND?**
+
+History → recovery → ignore decisions → documentation/provenance → transfer → explain-back.
+
 ## Git records the work. GitHub makes the work visible.
 
 This repository is a companion to the OSU Libraries Git and GitHub workshop.
-
-We use the repository itself as part of the lesson. As we build it, Git records what changes, what we choose to keep, how we recover when something goes wrong, and how the project develops.
 
 ## Read the workflow
 
@@ -65,16 +130,9 @@ That means the history matters.
 We are building the lesson with the tools and community practices the lesson teaches.
 
 
-## Workshop paths
 
-- [GitHubCarpentries-Examples](https://github.com/RebekahZipp/GitHubCarpentries-Examples) — the standalone read/clone **TRY** environment. Learners inspect and experiment in their own local clone; substantive **BUILD** work belongs in repositories they own.
-- [Oct. 8 Live Teaching Lesson](instructor/OCT8_LIVE_LESSON.md) — the actual room-ready lesson: Carpentries notes, controlled practice, instructor prompts, student questions, helper questions, authentic teaching moments, conflict practice, safety boundaries, and final portfolio transfer.
-Use the repository by role:
+## Course files and design documentation
 
-- [Student Path](student/README.md) — learn the reasoning rhythm and continue into the hands-on lesson.
-- [Clone → Collaborate → Investigate → Build](student/CLONE_INVESTIGATE_BUILD.md) — the GitHub collaboration lesson aligned to the Software Carpentry Git sequence.
-- [Instructor Path](instructor/README.md) — teach the Carpentries foundation with the workshop reasoning layer and live teaching moves.
-- [Helper Path](helper/README.md) — support learners by locating, observing, asking, verifying, and handing control back.
-- [Live Lesson Log](instructor/LIVE_LESSON_LOG.md) — teaching cases, authentic mistakes, prompts, and portfolio transfer.
+The role-specific links above are the training-day paths. Supporting design and community documents remain in this repository, including [PEDAGOGY_RUBRIC.md](PEDAGOGY_RUBRIC.md), [CONTRIBUTING.md](CONTRIBUTING.md), and the instructor/student/helper folders.
 
 The Software Carpentry lesson remains the canonical Git foundation. This repository adds the OSU Libraries teaching, reasoning, troubleshooting, collaboration, and professional-practice layer.
