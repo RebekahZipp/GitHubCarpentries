@@ -159,6 +159,50 @@ When useful, invite a learner to add the **exact non-sensitive error message** t
 
 At the 7-minute breaks around 2:00 and 3:00, stop active troubleshooting unless a learner specifically asks to continue. Use the break to collect patterns for the instructor and let learners step away.
 
+## Training-day cue sheet
+
+Use these as place points so you know what the room should be doing without needing to follow every instructor sentence.
+
+| Time | Learner state | Helper priority |
+| --- | --- | --- |
+| **1:00–1:10** | Re-entry | Console, directory, repository root, status |
+| **1:10–1:25** | TRY clone | Clone location, exact error, verify remote/history |
+| **1:25–1:40** | Remotes | Help learners explain `origin`; do not overteach remote commands |
+| **1:40–1:53** | BUILD setup | Owner/Collaborator identity, access, correct clone |
+| **1:53–2:00** | **BREAK** | Stop active troubleshooting; give Rebekah pattern report |
+| **2:00–2:18** | First collaboration | State transitions: modified → staged → committed → pushed |
+| **2:18–2:33** | Role switch | Reduce help; ask learner for next move and evidence |
+| **2:33–2:53** | Conflict | Preserve rejection/conflict evidence; no reflex force push |
+| **2:53–3:00** | **BREAK** | Identify learners mid-conflict and recurring misconceptions |
+| **3:00–3:15** | History/recovery | Intended target state before recovery command |
+| **3:15–3:27** | Ignore decisions | TRACK / IGNORE / INVESTIGATE |
+| **3:27–3:40** | Context/reuse | README, provenance, license, citation questions |
+| **3:40–3:50** | Interface transfer | Same Git states in RStudio/GitHub |
+| **3:50–4:00** | Explain-back | Learner explains; helper does not take over |
+
+### Catch-up rule
+
+If a learner falls behind, do not reconstruct the whole lesson. Bring them to the **next checkpoint**.
+
+Ask:
+
+> "What is the smallest state we need so you can rejoin the group?"
+
+Examples:
+
+- clone exists + `git status` works;
+- one commit is visible on GitHub;
+- learner can explain the rejected push even if conflict cleanup is unfinished;
+- README is open and one meaningful next change is identified.
+
+### Signal Rebekah
+
+Surface a pattern when **two or more learners** are showing the same conceptual problem, or immediately when a safety/privacy issue appears.
+
+Useful handoff:
+
+> "Several people are seeing ___. The common evidence is ___. I think the room may need a 60-second reset on ___."
+
 ## Helper checkpoints during the lesson
 
 ### Before cloning
