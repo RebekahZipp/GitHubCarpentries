@@ -32,6 +32,34 @@ By the end, learners should be able to:
 
 The commands may change. **The reasoning should become familiar.**
 
+## How we work together
+
+This workshop follows **The Carpentries Code of Conduct** in the room and in our GitHub collaboration spaces.
+
+We will make mistakes, ask questions, review one another's work, and sometimes create conflicts on purpose. Treat those moments as evidence, not embarrassment.
+
+- Use welcoming and inclusive language.
+- Respect different viewpoints, experiences, technical choices, and experience levels.
+- Accept constructive feedback gracefully.
+- Focus review on the work and the evidence, not on the person.
+- Help without taking over.
+- Ask before touching another learner's keyboard or files.
+- Do not publish another person's private communication, credentials, or project material without permission.
+
+Instructor framing:
+
+> "The goal is not to be the fastest person in the room. The goal is to make the work understandable, inspectable, and reusable."
+
+During collaboration and review, model questions such as:
+
+> "Can you walk me through what you expected this change to do?"
+
+> "What does the diff show us?"
+
+> "How can we ask about this change without assuming the other person made a mistake?"
+
+If a Code of Conduct concern arises, stop the technical exercise and follow the workshop's Carpentries reporting and response process.
+
 ---
 
 # The recurring language
@@ -398,6 +426,14 @@ Documentation and human review supply context.
 
 Show how a change can be discussed in GitHub. The point is not merely that GitHub has comments. The point is that technical review and discussion can become part of the collaborative record.
 
+Model community-centered review:
+
+> "I see this line changed from ___ to ___. What were you trying to accomplish?"
+
+> "What evidence would help us decide between these approaches?"
+
+Avoid person-centered judgments such as "you did this wrong." Review the change, evidence, and intended outcome. Different experience levels and technical choices are expected in the room.
+
 ---
 
 # 6. Switch roles
@@ -743,6 +779,40 @@ For their own repository, learners identify:
 
 ---
 
+# 11A. Optional extension: publish with GitHub Pages
+
+Use this only if the core collaboration lesson is on time. GitHub Pages is an extension, not a prerequisite.
+
+### Teaching purpose
+
+A repository can become more than a storage location: selected repository content can be published as a static website.
+
+Before publishing, ask:
+
+> "What will become public if I publish this?"
+
+> "Does this repository contain anything that should not be on a public website?"
+
+### Controlled demonstration
+
+Use a **separate learner-owned or instructor-prepared repository**, never the production OSU Carpentry workshop website.
+
+Show the relationship:
+
+```text
+REPOSITORY → PUBLISHING SOURCE → ENTRY FILE → GITHUB PAGES SITE
+```
+
+Explain that a Pages site needs a publishing source and an entry file such as `index.html`, `index.md`, or `README.md`.
+
+Keep the conceptual lesson:
+
+**VISIBLE ≠ APPROPRIATE TO PUBLISH**
+
+Learners should check privacy, permissions, provenance, licensing, and institutional constraints before publication.
+
+---
+
 # 12. RStudio: same states, different interface
 
 ### Carpentries foundation
@@ -892,6 +962,21 @@ Then:
 Close with:
 
 > "Git is not valuable because experts never make mistakes. It is valuable because we can inspect what changed, preserve decisions, recover history, collaborate, and make our reasoning easier for the next person to follow."
+
+---
+
+# Continue practicing after the workshop
+
+Offer these after the core lesson so they extend rather than interrupt the Git/GitHub sequence:
+
+- **Exercism** — free coding-literacy practice.
+- **Stack Overflow** — community questions and searchable technical discussions; encourage learners to read context and evaluate answers rather than copy commands blindly.
+- **Alliance for Data Science and AI** — continuing education, community events, hackathons, practice, and workshops.
+- **sandbox.bio** — interactive practice with Carpentries Programming with Python exercises.
+
+Invite learners to keep using the same reasoning outside this workshop:
+
+**EXPECT → OBSERVE → EXPLAIN → TEST → ACT → VERIFY**
 
 ---
 
