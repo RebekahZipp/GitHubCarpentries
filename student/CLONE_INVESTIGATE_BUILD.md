@@ -353,3 +353,30 @@ After the workshop, you can continue with:
 - **sandbox.bio** for interactive Carpentries Programming with Python exercises.
 
 When using community answers or unfamiliar commands, keep the same habit: understand what a command is expected to do, establish its scope, test safely, and verify the result.
+
+
+## Workshop continuity: keep the Carpentries thread
+
+Oct. 8 is a continuation of the earlier Carpentries Git session, not a replacement lesson. Keep the same conceptual object and vocabulary as responsibility moves from local Git into GitHub collaboration.
+
+**Session 1 foundation:** version control benefits -> Git vs. GitHub -> repository -> modify/add/commit -> meaningful commit messages -> history/HEAD -> ignore -> remotes/collaboration.
+
+**Oct. 8 continuation:** orient -> clone/investigate -> BUILD -> pull/change/inspect/add/commit/review/push -> rejected push/conflict -> human decision -> history/recovery -> documentation -> explain-back.
+
+### Guacamole is the running specimen
+
+Keep `guacamole.md` visible across the handoff instead of replacing it with disconnected exercises.
+
+1. **RECOGNIZE:** inspect the familiar recipe and its recorded history.
+2. **RECORD:** make one intentional recipe change and write a commit message that will still explain the decision later.
+3. **SHARE:** push the recorded change so another copy can receive it.
+4. **COLLABORATE:** a partner pulls, changes, records, and pushes.
+5. **CONFLICT:** two people deliberately change the same recipe line differently. Git preserves both claims and stops rather than inventing human intent.
+6. **RESOLVE:** people decide the intended wording, record the resolution, and verify it.
+7. **REVIEW:** use `HEAD`, `HEAD~1`, commit IDs, log, show, and diff to explain how the recipe became its current version.
+
+**Teaching line:** Git can tell us that two versions of guacamole exist. Git cannot tell us which guacamole tastes better.
+
+**Commit-message prompt:** "Six months from now, will this message tell another person why this version exists?"
+
+This continuity preserves the Carpentries learning progression while increasing learner responsibility: **FOLLOW -> RECOGNIZE -> PREDICT -> EXPLAIN -> ACT -> HELP OTHERS.**
