@@ -509,7 +509,7 @@ Ask:
 ## RECORD
 
 ```bash
-git commit -m "Describe the change"
+git commit -m "Clarify guacamole instructions"
 ```
 
 Ask:
@@ -711,7 +711,7 @@ Resolve the intended text and remove the markers.
 ```bash
 git add FILE
 git status
-git commit -m "Resolve conflicting changes"
+git commit -m "Resolve guacamole wording conflict"
 git push origin main
 ```
 
