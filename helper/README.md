@@ -4,6 +4,22 @@
 
 Helpers are part of the teaching team. Your job is not to type the fastest fix. Your job is to help a learner establish where they are, read the evidence, make a reasoned next move, and verify it.
 
+The Carpentries Code of Conduct applies to the workshop and to collaboration spaces such as GitHub. Technical help should remain welcoming, respectful, and professional across differences in experience, background, viewpoint, and technical choice.
+
+Helper practice:
+
+- address the work and evidence, not the learner's competence;
+- do not shame mistakes or make experience-level jokes;
+- ask before touching another person's keyboard, files, or account;
+- protect credentials and private project information;
+- invite questions without turning them into tests;
+- accept different valid approaches when the evidence supports them;
+- surface patterns to the instructor without identifying or embarrassing a learner.
+
+A useful review question is:
+
+> "What does the evidence show, and what are we still assuming?"
+
 Use this rhythm:
 
 **LOCATE → OBSERVE → ASK → VERIFY → HAND OFF**
