@@ -10,6 +10,23 @@ Our rhythm remains:
 
 **CHANGE → INSPECT → CHOOSE → RECORD → REVIEW → SHARE**
 
+## How we work together
+
+This workshop follows The Carpentries Code of Conduct in class and in our GitHub collaboration.
+
+Mistakes, questions, rejected pushes, and conflicts are normal learning material. We review the **work and evidence**, not the person.
+
+- Use welcoming and inclusive language.
+- Respect different viewpoints, experience levels, and technical choices.
+- Ask before touching another person's keyboard or files.
+- Protect credentials and private information.
+- Give constructive feedback about the change and intended outcome.
+- Help another learner reason rather than simply taking over.
+
+A useful collaboration question is:
+
+> "What did you expect, and what does the evidence show?"
+
 ## 1. Orient before acting
 
 Before a clone, pull, push, or repair, establish where you are.
@@ -264,3 +281,14 @@ You should be able to:
 - continue developing a repository that can serve as evidence of your work.
 
 The commands may change. The reasoning should become familiar.
+
+## Continue practicing
+
+After the workshop, you can continue with:
+
+- **Exercism** for free coding-literacy practice;
+- **Stack Overflow** for searching and asking technical questions;
+- **Alliance for Data Science and AI** for continuing education and community practice opportunities; and
+- **sandbox.bio** for interactive Carpentries Programming with Python exercises.
+
+When using community answers or unfamiliar commands, keep the same habit: understand what a command is expected to do, establish its scope, test safely, and verify the result.
