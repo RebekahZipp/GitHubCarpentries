@@ -27,6 +27,19 @@ A useful collaboration question is:
 
 > "What did you expect, and what does the evidence show?"
 
+## Know where to work
+
+The lesson uses four simple labels:
+
+- **DEMO:** watch, predict, and discuss.
+- **TRY:** work in your own local clone of the class example. You are not changing the instructor's source repository.
+- **BUILD:** work in a repository you own or share with your partner.
+- **TALK:** answer aloud or add your observation, question, error message, or takeaway to the Teams chat.
+
+If you are unsure where a command belongs, ask before running it.
+
+You will have a **7-minute break at about 2:00 and another at about 3:00**. We will protect those breaks even if an optional activity has to be shortened.
+
 ## 1. Orient before acting
 
 Before a clone, pull, push, or repair, establish where you are.
