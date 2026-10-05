@@ -63,3 +63,16 @@ The repository itself becomes evidence of project organization, documentation, c
 That means the history matters.
 
 We are building the lesson with the tools and community practices the lesson teaches.
+
+
+## Workshop paths
+
+Use the repository by role:
+
+- [Student Path](student/README.md) — learn the reasoning rhythm and continue into the hands-on lesson.
+- [Clone → Collaborate → Investigate → Build](student/CLONE_INVESTIGATE_BUILD.md) — the GitHub collaboration lesson aligned to the Software Carpentry Git sequence.
+- [Instructor Path](instructor/README.md) — teach the Carpentries foundation with the workshop reasoning layer and live teaching moves.
+- [Helper Path](helper/README.md) — support learners by locating, observing, asking, verifying, and handing control back.
+- [Live Lesson Log](instructor/LIVE_LESSON_LOG.md) — teaching cases, authentic mistakes, prompts, and portfolio transfer.
+
+The Software Carpentry lesson remains the canonical Git foundation. This repository adds the OSU Libraries teaching, reasoning, troubleshooting, collaboration, and professional-practice layer.
