@@ -67,7 +67,7 @@ We are building the lesson with the tools and community practices the lesson tea
 
 ## Workshop paths
 
-- [Example Repository Seed](example-repository/README.md) — the small read/clone **TRY** environment. Learners inspect and experiment locally here; substantive **BUILD** work belongs in repositories they own.
+- [GitHubCarpentries-Examples](https://github.com/RebekahZipp/GitHubCarpentries-Examples) — the standalone read/clone **TRY** environment. Learners inspect and experiment in their own local clone; substantive **BUILD** work belongs in repositories they own.
 - [Oct. 8 Live Teaching Lesson](instructor/OCT8_LIVE_LESSON.md) — the actual room-ready lesson: Carpentries notes, controlled practice, instructor prompts, student questions, helper questions, authentic teaching moments, conflict practice, safety boundaries, and final portfolio transfer.
 Use the repository by role:
 
