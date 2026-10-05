@@ -135,6 +135,30 @@ On institutional, shared, or borrowed equipment, involve the responsible IT staf
 
 Never teach `rm -rf` as a casual recovery command. Prefer reversible moves and explicit verification of the target.
 
+## Teams and whole-room discourse
+
+Learners can answer aloud or contribute to the Teams chat. Treat both as participation.
+
+While the instructor is teaching, helpers can watch for:
+
+- repeated questions;
+- different results from the same exercise;
+- useful error messages;
+- learners who have a good explanation but may not want to speak to the whole room; and
+- questions that should be brought back to everyone.
+
+Ask permission before quoting or identifying a learner. Prefer summarizing the pattern:
+
+> "A couple of people are seeing a different branch name."
+
+rather than:
+
+> "Jordan did this wrong."
+
+When useful, invite a learner to add the **exact non-sensitive error message** to Teams so the group can reason from the same evidence.
+
+At the 7-minute breaks around 2:00 and 3:00, stop active troubleshooting unless a learner specifically asks to continue. Use the break to collect patterns for the instructor and let learners step away.
+
 ## Helper checkpoints during the lesson
 
 ### Before cloning
