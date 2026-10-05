@@ -1,155 +1,138 @@
-# GitHub Carpentries: Live Teaching Lesson
+# GitHub Carpentries: Oct. 8 Live Lesson
 
-## Oct. 8 | From Local Git to Shared, Inspectable Work
+## From Local Git to Shared, Inspectable Work
 
-This is the **actual live lesson** for the second workshop session. It continues the Software Carpentry *Version Control with Git* lesson rather than replacing it.
-
-Kevin's first session establishes the local Git foundation. This session moves learners from a local repository into GitHub collaboration, review, recovery, professional repository practice, and transfer into their own work.
-
-The instructor teaches from this page. Students use the linked Student Path. Helpers use the linked Helper Path.
-
+**Time:** 1:00–4:00 PM  
 **Instructor:** Rebekah Silverstein  
 **Helpers:** Frances and Dani  
-**Setting:** in person, Digital Scholarship Center
+**Setting:** Digital Scholarship Center  
+**Canonical foundation:** Software Carpentry, *Version Control with Git*  
+**TRY repository:** https://github.com/RebekahZipp/GitHubCarpentries-Examples
+
+This page is the **running teaching script**. Teach from top to bottom. Commands, learner practice, prompts, helper cues, catch-up points, common mistakes, review questions, and cheat-sheet reminders are embedded where they are needed.
+
+The Carpentries sequence remains the technical backbone. Our added layer is deliberate repetition, prediction, evidence, discussion, safe intervention, and transfer into learner-owned work.
 
 ---
 
-## What learners should leave able to do
+## Questions
 
-By the end, learners should be able to:
+- How does a local Git repository connect to GitHub?
+- What do clone, remote, pull, and push actually move?
+- How do two people work on the same repository without guessing?
+- What should we do when Git rejects a push or reports a conflict?
+- How do we decide what belongs in a durable repository?
+- How can we use Git evidence to ask better technical questions?
 
-- distinguish Git, GitHub, a local repository, and a remote repository;
-- establish where they are before acting;
-- clone and inspect a repository;
+## Objectives
+
+By 4:00, learners should be able to:
+
+- distinguish Git, GitHub, local, and remote;
+- locate themselves and the repository before acting;
+- clone and inspect an unfamiliar repository;
 - explain what `origin` means;
-- collaborate using pull, change, stage, commit, review, and push;
-- read a rejected push or merge conflict as evidence;
+- pull, change, inspect, stage, commit, review, and push;
+- collaborate with another person;
+- read a rejected push or conflict as evidence;
 - inspect history and recover deliberately;
-- decide what should be tracked, ignored, documented, licensed, and cited;
-- recognize the same Git states in RStudio and GitHub interfaces;
-- ask a useful technical question and help another learner without taking over; and
-- leave with a repository that can become evidence of their work.
+- decide whether a file should be tracked, ignored, or investigated;
+- identify the roles of README, license, citation, and provenance;
+- recognize the same Git states in RStudio; and
+- explain a Git decision using evidence rather than memorized commands.
 
-The commands may change. **The reasoning should become familiar.**
-
-## How we work together
-
-This workshop follows **The Carpentries Code of Conduct** in the room and in our GitHub collaboration spaces.
-
-We will make mistakes, ask questions, review one another's work, and sometimes create conflicts on purpose. Treat those moments as evidence, not embarrassment.
-
-- Use welcoming and inclusive language.
-- Respect different viewpoints, experiences, technical choices, and experience levels.
-- Accept constructive feedback gracefully.
-- Focus review on the work and the evidence, not on the person.
-- Help without taking over.
-- Ask before touching another learner's keyboard or files.
-- Do not publish another person's private communication, credentials, or project material without permission.
-
-Instructor framing:
-
-> "The goal is not to be the fastest person in the room. The goal is to make the work understandable, inspectable, and reusable."
-
-During collaboration and review, model questions such as:
-
-> "Can you walk me through what you expected this change to do?"
-
-> "What does the diff show us?"
-
-> "How can we ask about this change without assuming the other person made a mistake?"
-
-If a Code of Conduct concern arises, stop the technical exercise and follow the workshop's Carpentries reporting and response process.
+> **Course refrain:** The commands may change. The reasoning should become familiar.
 
 ---
 
-# Activity key: know where the work happens
+# Instructor dashboard: keep this visible
 
-Every activity is labeled so learners know whether to watch, try, or build.
+## Four activity labels
 
-- **DEMO — Watch:** Rebekah models the idea. Learners predict, observe, and discuss.
-- **TRY — Local example:** learners clone or inspect an example repository. They may experiment in their own local clone. They do not push changes to the teaching source.
-- **BUILD — Your repository:** learners create, change, commit, push, document, and collaborate in a repository they own or control with a partner.
-- **TALK — Group discourse:** answer aloud **or add a note/question to the Teams chat**. Short answers are welcome. The purpose is to make reasoning visible, not to quiz learners.
+**DEMO** = watch, predict, discuss.  
+**TRY** = work in a local clone of the class example.  
+**BUILD** = work in a learner-owned or partner-owned repository.  
+**TALK** = answer aloud or add a thought to Teams.
 
-When asking a question, pause long enough for thinking. Invite responses in both modes:
+Say often:
 
 > "Say it out loud, or put your thought in Teams."
 
-Use Teams as a shared learning notebook: predictions, questions, useful errors, explanations, and takeaways can remain available after class. Do not require learners to post personal information, credentials, or private project content.
+## Three recurring reasoning strips
 
-# 1:00–4:00 run of show
-
-The published Carpentries sequence remains the backbone: **Remotes in GitHub first, then the custom GitHub lesson.** The added teaching layer is repetition, prediction, evidence, discussion, controlled practice, and transfer.
-
-| Time | Mode | Teaching move |
-| --- | --- | --- |
-| **1:00–1:10** | TALK + DEMO | Welcome, Code of Conduct, re-entry diagnostic: Where am I? What did Git teach us last week? |
-| **1:10–1:25** | DEMO + TRY | Git vs GitHub; local vs remote; clone an example and inspect it |
-| **1:25–1:40** | DEMO + TRY | Remotes and `origin`; read `remote -v`; predict where push/pull travel |
-| **1:40–1:53** | BUILD | Set up Owner/Collaborator pairs and begin one small shared change |
-| **1:53–2:00** | **BREAK** | **7-minute break. Stop typing. Save questions for return or add them to Teams.** |
-| **2:00–2:18** | BUILD | Finish first collaboration cycle: inspect → choose → commit → review → push → pull |
-| **2:18–2:33** | BUILD + TALK | Switch roles; second cycle with less instructor prompting; explain the next move |
-| **2:33–2:53** | BUILD | Controlled rejected push and merge conflict; read evidence; resolve and verify |
-| **2:53–3:00** | **BREAK** | **7-minute break.** |
-| **3:00–3:15** | TRY + TALK | History/recovery and authentic safe errors; distinguish malformed command from repository state |
-| **3:15–3:27** | TRY + BUILD | Track / Ignore / Investigate; decide what belongs in the durable record |
-| **3:27–3:40** | TALK + BUILD | README, provenance, license, citation, visibility; constructive GitHub review |
-| **3:40–3:50** | DEMO + BUILD | RStudio translation; optional GitHub Pages only if core lesson is on time |
-| **3:50–4:00** | TALK + BUILD | Learner artifact, explain-back, Teams takeaways/questions, continuing practice and close |
-
-**Timing rule:** protect the two seven-minute breaks. If the class runs behind, shorten the optional Pages/RStudio extension or the mystery-repository extension. Do not remove collaboration, conflict reasoning, verification, or learner explain-back.
-
-# The recurring language
-
-## Normal work
-
+### Normal Git work
 **CHANGE → INSPECT → CHOOSE → RECORD → REVIEW → SHARE**
 
-- **CHANGE:** make one intentional change.
-- **INSPECT:** ask what Git sees.
-- **CHOOSE:** decide what belongs in the next version.
-- **RECORD:** commit that decision.
-- **REVIEW:** inspect the resulting history.
-- **SHARE:** move recorded work beyond this computer when it is ready.
-
-## When something is unexpected
-
+### Something unexpected
 **EXPECT → OBSERVE → EXPLAIN → TEST → ACT → VERIFY**
 
-> "I expected ___. I observed ___. I think ___ may explain it. I can test that by ___."
-
-## Before risky intervention
-
+### Before risky intervention
 **LOCATE → DEFINE → SCOPE → PREDICT → ACT → VERIFY → HAND OFF**
 
-## When Git notices files
+## The board
 
-**TRACK → IGNORE → INVESTIGATE**
+Keep these visible for the entire lesson:
+
+**WHERE AM I?**  
+**WHAT CHANGED?**  
+**WHAT IS THE EVIDENCE?**  
+**WHAT SHOULD WE DO NEXT?**  
+**DID IT WORK?**
+
+Underneath:
+
+**UNTRACKED/MODIFIED ≠ STAGED ≠ COMMITTED ≠ PUSHED**
 
 ---
 
-# 0. Re-entry: What did Git already teach us?
+# Run of show
 
-**TALK + DEMO**
+| Time | Pace |
+| --- | --- |
+| 1:00–1:10 | Welcome, Code of Conduct, re-entry |
+| 1:10–1:25 | Local vs GitHub, clone the TRY repo |
+| 1:25–1:40 | Remotes, origin, push/pull mental model |
+| 1:40–1:53 | Begin learner BUILD repositories and pairs |
+| **1:53–2:00** | **7-minute break** |
+| 2:00–2:18 | First full collaboration cycle |
+| 2:18–2:33 | Switch roles and repeat with less support |
+| 2:33–2:53 | Rejected push and controlled conflict |
+| **2:53–3:00** | **7-minute break** |
+| 3:00–3:15 | History, recovery, errors as evidence |
+| 3:15–3:27 | Track / Ignore / Investigate |
+| 3:27–3:40 | README, provenance, license, citation, review |
+| 3:40–3:50 | RStudio transfer; Pages only if time |
+| 3:50–4:00 | Learner artifact, explain-back, close |
 
-### Carpentries foundation
+**If behind:** protect both breaks, collaboration, conflict reasoning, verification, and final explain-back. Cut or shorten Pages, RStudio extension, or extra mystery-repository work.
 
-Learners already encountered repositories, `.git`, `git status`, changes, staging, commits, history, and ignoring files.
+---
 
-### Instructor move
+# 1:00–1:10 | BEGINNING: Re-enter Git before GitHub
 
-Do not begin with a command list. Begin with the repository.
+**MODE: TALK + DEMO**
 
-Say:
+## Say
 
-> "Last time we taught Git how to remember our work. Today we make that record travel."
+> "Welcome back. Last time we taught Git how to remember our work. Today we make that record travel."
 
-Then:
+> "This is not a speed class. The goal is to make our work understandable, inspectable, recoverable, and reusable."
 
-> "Before I touch anything, what do I want to know?"
+> "You will see four labels today. DEMO means watch and predict. TRY means use our safe example. BUILD means work in your own repository. TALK means say it aloud or put it in Teams."
 
-Pause. Accept learner answers. Then establish location and state:
+Briefly remind learners that the Carpentries Code of Conduct applies in the room, Teams, and GitHub collaboration.
+
+> "Mistakes, questions, rejected pushes, and conflicts are learning material. We review the work and the evidence, not the person."
+
+## Ask before typing
+
+> "Before I touch a repository, what do I want to know?"
+
+Pause. Take answers aloud and from Teams.
+
+If needed, guide toward **location, repository, branch, state, history**.
+
+## DEMO
 
 ```bash
 pwd
@@ -158,422 +141,558 @@ git status
 git log --oneline
 ```
 
-### Student ask
+## Think aloud
 
-- Where am I?
-- What repository am I in?
-- What branch am I on?
-- What has already happened here?
+> "`pwd` tells me where my shell is. `git rev-parse --show-toplevel` tells me where Git thinks this repository begins. Those are related questions, but they are not the same question."
 
-### Helper ask
+## TALK
+
+> "What did `git status` tell us that `pwd` could not?"
+
+> "What did `git log` tell us that `git status` could not?"
+
+### Teams prompt
+
+**Add one word or phrase:** location, state, history, branch, or another thing you think we should check before acting.
+
+### Helper cue
+
+Frances/Dani: look for learners in the wrong console or directory. Do not fix silently. Ask:
 
 > "What does Git think the repository root is?"
 
-### Tangible teaching moment
+### Common mistake
 
-Put **WHERE AM I?** on the board. Keep it visible for the whole lesson.
+**R Console vs Terminal.** If a learner types Git commands at an R `>` prompt, stop and identify the interpreter before diagnosing Git.
 
-Explain that `pwd` and `git rev-parse --show-toplevel` answer different questions: current directory versus repository root.
+### CHEAT SHEET REMINDER 1: ORIENT
+
+```bash
+pwd
+git rev-parse --show-toplevel
+git status
+git log --oneline
+```
+
+**Catch-up point:** A learner can rejoin if they know which terminal they are in, which directory they are in, and can run `git status`.
 
 ---
 
-# 1. Git is not GitHub
+# 1:10–1:25 | GitHub adds another repository
 
-**DEMO + TALK**
+**MODE: DEMO → TRY + TALK**
 
-### Carpentries foundation
+## Say
 
-Git records repository history locally. GitHub is a hosting and collaboration service for Git repositories.
+> "Git and GitHub are related, but they are not the same thing."
 
-### Instructor move
-
-Draw three boxes:
+Draw:
 
 ```text
-MY COMPUTER        GITHUB        SOMEONE ELSE'S COMPUTER
-local repo   <-->  remote  <-->  local repo
+MY COMPUTER                GITHUB                 SOMEONE ELSE
+local repository    <-->   remote repository <--> local repository
 ```
 
-Ask:
+> "Git records change. GitHub gives us a place on the web to connect repositories and people."
 
-> "If GitHub disappeared for five minutes, would my local commits disappear?"
+## Ask
 
-Then answer from the model: no. The local repository contains its own history.
+> "If GitHub disappeared for five minutes, would the commits already stored in my local repository disappear?"
 
-### Student ask
+Let the group reason it out.
 
-> "What exists locally, and what exists on GitHub?"
+## Transition to the class example
 
-### Helper watch
+Open:
 
-If a learner uses "Git" and "GitHub" interchangeably, do not merely correct the vocabulary. Ask which location they mean.
+https://github.com/RebekahZipp/GitHubCarpentries-Examples
 
-### Tangible teaching moment
+Say:
 
-Use a physical gesture or point to the three locations every time work moves. Make **local** and **remote** spatial.
+> "This is our TRY repository. You can inspect it and experiment in your own local clone. Your substantive workshop work will happen later in a repository you own."
 
----
+Before cloning:
 
-# 2. Clone is not Download
+> "Where is this repository now?"
 
-**DEMO → TRY**
+> "Where do we want another copy?"
 
-### Carpentries foundation
+> "What do you predict cloning will give us?"
 
-`git clone` creates a local repository from a remote repository and automatically establishes a remote named `origin`.
+## TRY: clone
 
-### Instructor move
-
-Before cloning, ask:
-
-> "What do you predict will arrive on this computer?"
-
-Also ask:
-
-> "Before I click or type anything, where will Git put it?"
-
-This is the first **READ → LOCATE → PREDICT → ACT → VERIFY** GUI/command moment.
-
-Choose the destination deliberately, then clone an approved workshop repository:
+Learners move to the parent directory where they want the new project folder, then:
 
 ```bash
-git clone REPOSITORY-URL NEW-DIRECTORY
-cd NEW-DIRECTORY
+git clone https://github.com/RebekahZipp/GitHubCarpentries-Examples.git
+cd GitHubCarpentries-Examples
 ```
 
-Immediately investigate:
+Immediately:
 
 ```bash
+pwd
+git rev-parse --show-toplevel
 git status
 git log --oneline
 git remote -v
 ls
 ```
 
-Translate:
+## Say
 
-- `ls`: What is here?
-- `git status`: What state is this working copy in?
-- `git log --oneline`: What happened before I arrived?
-- `git remote -v`: Where is this copy connected?
+> "Do not edit yet. Investigate first."
 
-### Controlled practice
+## TALK
 
-Learners clone the assigned repository into a location they can identify.
+> "What arrived besides the visible files?"
 
-They must be able to finish:
+> "What evidence tells you this is a Git repository rather than a downloaded folder?"
 
-> "I cloned ___ into ___. Git says the repository came from ___."
+> "What happened in this repository before you arrived?"
 
-### Student ask
+> "Say one observation aloud or put it in Teams."
 
-> "What did cloning give me that downloading a ZIP would not?"
+### Helper cue
 
-### Helper ask
+Before helping with a failed clone, establish:
 
-> "Show me where you are going to put the clone before you run the command."
+1. terminal;
+2. current directory;
+3. whether a folder with that name already exists;
+4. exact error text.
 
-### Intentional mistake
+### Common mistakes
 
-Use a placeholder literally once, safely:
+**Cloning from the wrong location:** learner does not know where the new folder went. Use `pwd` before cloning.
+
+**Literal placeholder:** learner copies `REPOSITORY-URL` from generic notes. Ask what Git interpreted literally.
+
+**Clone inside another project:** stop and locate both repository roots before changing anything.
+
+### CHEAT SHEET REMINDER 2: CLONE AND VERIFY
 
 ```bash
-git clone REPOSITORY-URL NEW-DIRECTORY
+git clone URL
+cd REPOSITORY
+git status
+git log --oneline
+git remote -v
 ```
 
-Read the error.
+**Memory line:** **Clone gives me a repository relationship, not just a folder of files.**
 
-Ask:
-
-> "Did Git break, or did Git do exactly what I asked?"
-
-Explain that instructional placeholders must be replaced with real values.
-
-**WHY:** learners routinely paste examples literally.  
-**WHAT:** syntax can be valid while the requested object does not exist.  
-**HOW:** read the command and error as evidence.  
-**HANDOFF:** learners identify placeholders before executing examples.
+**Catch-up point:** If someone falls behind, they only need the example repo cloned and `git status` working. A helper can bring them to this exact point.
 
 ---
 
-# 3. Remotes are relationships
+# 1:25–1:40 | Remotes are relationships
 
-**DEMO → TRY**
+**MODE: DEMO + TRY + TALK**
 
-### Carpentries foundation
+The Carpentries remote lesson connects a local repository to another repository and uses `origin` as the conventional local name for that remote.
 
-A remote is another repository Git can fetch from or push to. `origin` is a conventional local alias, automatically created by clone. It is not an intrinsic GitHub object.
-
-### Instructor move
-
-Run:
+## DEMO
 
 ```bash
 git remote -v
 ```
 
-Say:
+Point to the fetch and push URLs.
 
-> "Origin is a nickname this local repository knows. We could have called it something else."
+## Say
 
-Show, but do not require learners to execute all of these:
+> "`origin` is a nickname stored in this local repository. It answers: where can this copy fetch from, and where would it try to push?"
+
+> "Origin is conventional. It is not a magical GitHub location."
+
+Draw:
+
+```text
+LOCAL REPO
+   |
+   | origin
+   v
+GITHUB REPO
+```
+
+## Ask
+
+> "If I remove the nickname `origin` from my local repository, have I deleted GitHub?"
+
+Pause.
+
+> "No. I changed a local relationship."
+
+Show for recognition, not memorization:
 
 ```bash
 git remote add NAME URL
 git remote set-url NAME NEW-URL
-git remote rename OLD-NAME NEW-NAME
+git remote rename OLD NEW
 git remote remove NAME
+```
+
+## Push and pull concept
+
+Write:
+
+```text
+LOCAL COMMIT  --push-->  GITHUB
+LOCAL REPO    <--pull--  GITHUB CHANGES
 ```
 
 Ask:
 
-> "If I remove the local nickname, have I deleted the GitHub repository?"
+> "What moves when we push: my whole computer, my working file, or recorded Git history?"
 
-No. We changed a local relationship.
+> "What should we check before we send anything?"
 
-### Student ask
+## TRY
 
-> "Where will `git push origin main` try to send my commits?"
+Learners run only:
 
-### Helper ask
+```bash
+git remote -v
+```
 
-> "What does `git remote -v` actually show on your machine?"
+and complete:
+
+> "My local example repository calls ______ its remote, and that remote points to ______."
+
+### Teams prompt
+
+**In one sentence:** What does `origin` mean on your machine?
+
+### Common mistake
+
+**Push ≠ commit.** A commit records locally. A push shares recorded commits with a remote.
+
+### CHEAT SHEET REMINDER 3: REMOTE
+
+```bash
+git remote -v
+git push origin main
+git pull origin main
+```
+
+**Memory line:** **Commit records here. Push shares there. Pull brings shared work here.**
 
 ---
 
-# 4. Owner and Collaborator
+# 1:40–1:53 | Move from TRY to BUILD
 
-**BUILD**
+**MODE: BUILD**
 
-### Carpentries foundation
+## Say the transition clearly
 
-The Carpentries collaboration exercise uses pairs. One learner is the **Owner**, the other the **Collaborator**. The Collaborator receives repository access, clones the Owner's repository, makes and commits a change, and pushes it. The Owner pulls that change. Then roles switch.
+> "We are finished using the example as our main workspace. TRY taught us how to inspect. BUILD is where you do the real work."
 
-### Instructor setup
+Put on screen:
 
-Pair learners. If necessary, create one trio with a helper participating as observer rather than owner of the keyboard.
+```text
+TRY = class example, local experimentation
+BUILD = your repository, your decisions, your collaboration
+```
 
-Before anybody edits, put this on the board:
+## BUILD: create learner repository
+
+Each learner creates or chooses a small repository they control. Keep the project small enough to understand today.
+
+Minimum starting artifact:
+
+```text
+README.md
+```
+
+Pair learners as **Owner** and **Collaborator**.
+
+Owner grants Collaborator access. Collaborator accepts and clones the Owner repository.
+
+Before anybody edits, put this rhythm on screen:
 
 **PULL → CHANGE → INSPECT → CHOOSE → RECORD → REVIEW → PUSH**
 
-Explain:
+## Ask
 
-> "This is not a magic sequence. Each arrow is a change in state."
+> "Why might we pull before starting new shared work?"
 
-### Owner
+> "Which of these steps changes the file? Which changes staging? Which creates history? Which shares history?"
 
-Grant Collaborator access through GitHub repository settings.
+### Helper cue
 
-### Collaborator
+Confirm each pair can answer:
 
-Accept access, clone the Owner's repository into a clearly named location, then verify:
+- whose repository is this?
+- who is Owner right now?
+- who is Collaborator?
+- what remote does this clone point to?
+
+Do not let access problems consume the class. If one account is blocked, pair the learner with a functioning partner and continue the reasoning exercise.
+
+### CHEAT SHEET REMINDER 4: SHARED WORK
+
+```text
+PULL → CHANGE → INSPECT → CHOOSE → RECORD → REVIEW → PUSH
+```
+
+**Catch-up point before break:** Learner has a BUILD repository or partner repository available and knows whether they are Owner or Collaborator.
+
+---
+
+# 1:53–2:00 | BREAK 1
+
+**Seven minutes. Stop teaching.**
+
+Say:
+
+> "Seven-minute break. Step away. If you want, leave a question in Teams and we will use those when we return."
+
+### Instructor reset
+
+Ask helpers quietly:
+
+- What question are you hearing more than once?
+- Are people confused about location, remote, access, or vocabulary?
+- Who needs a catch-up hand at 2:00?
+
+Write the top recurring issue on your instructor notes. Do not use the break for a mini-lecture.
+
+---
+
+# 2:00–2:18 | First complete collaboration cycle
+
+**MODE: BUILD + TALK**
+
+## Re-entry
+
+Say:
+
+> "Before we touch anything: where are we, whose repository is this, and what state is it in?"
+
+Collaborator:
 
 ```bash
 git status
 git remote -v
-git log --oneline
+git pull origin main
 ```
 
-### Controlled practice: one small contribution
+## CHANGE
 
-Create or edit one small Markdown file.
+Make one small, meaningful Markdown change.
+
+## INSPECT
+
+```bash
+git status
+git diff
+```
+
+Ask:
+
+> "Git sees a change. Does that mean it automatically belongs in our next commit?"
+
+## CHOOSE
+
+```bash
+git add FILE
+git diff --staged
+```
+
+Ask:
+
+> "What did we choose?"
+
+> "Does the staged diff match what we intend to preserve?"
+
+## RECORD
+
+```bash
+git commit -m "Describe the change"
+```
+
+Ask:
+
+> "What exists now that did not exist before the commit?"
+
+## REVIEW
+
+```bash
+git log --oneline
+git show HEAD
+```
+
+## SHARE
+
+```bash
+git push origin main
+```
+
+Ask before Enter:
+
+> "Where is this commit right now?"
+
+> "Where are we asking Git to send it?"
+
+## Owner receives the change
+
+Owner:
+
+```bash
+git pull origin main
+git status
+git log --oneline
+git show
+```
+
+### TALK
+
+> "What can the Git record tell us about this change?"
 
 Then:
+
+> "What can Git not tell us by itself?"
+
+### Teams prompt
+
+Post **one state transition** in plain language. Example: "git add moved my chosen change into staging."
+
+### Common mistakes
+
+**`git add <file>`:** angle brackets are instructional notation, not part of the filename.
+
+**`git add file .md`:** the shell sees two arguments. Check the exact filename with `ls`.
+
+**Output pasted as input:** `new file: example.md` is Git speaking to you, not a shell command.
+
+### CHEAT SHEET REMINDER 5: THE LOCAL CYCLE
 
 ```bash
 git status
 git diff
 git add FILE
 git diff --staged
-git commit -m "Describe the change"
+git commit -m "message"
 git log --oneline
 git push origin main
 ```
 
-### Instructor prompts
+**Memory line:** **Change. Inspect. Choose. Record. Review. Share.**
 
-Before `git add`:
-
-> "Git sees the change. Does that mean it automatically belongs in the next commit?"
-
-Before `git commit`:
-
-> "What decision are we preserving?"
-
-Before `git push`:
-
-> "What exists locally right now that does not yet exist on GitHub?"
-
-### Student asks
-
-- What changed?
-- What am I staging?
-- Does the staged diff match what I intend to record?
-- Where will this commit go when I push?
-
-### Helper asks
-
-- "What did `git status` say before you staged it?"
-- "Can you show me the staged diff?"
-- "Which remote and branch are you about to push to?"
-
-### Tangible teaching moment: staging is a decision
-
-Write:
-
-**UNTRACKED/MODIFIED ≠ STAGED ≠ COMMITTED ≠ PUSHED**
-
-Have learners point to the state their change is currently in.
+**Catch-up point:** A learner may rejoin once one commit is visible on GitHub. They do not need to reproduce every earlier keystroke.
 
 ---
 
-# 5. Owner pulls and reviews the collaborator's work
+# 2:18–2:33 | Switch roles: repeat with less help
 
-**BUILD + TALK**
+**MODE: BUILD + TALK**
 
-### Carpentries foundation
+## Say
 
-The Owner downloads the Collaborator's new commit with:
+> "First pass: follow. Second pass: recognize and explain."
 
-```bash
-git pull origin main
-```
+Switch Owner and Collaborator.
 
-Then the local Owner repository, GitHub repository, and Collaborator repository can be brought back into sync.
-
-### Instructor move
-
-Before pulling:
-
-> "What do I expect to change on this computer?"
-
-After pulling:
-
-```bash
-git status
-git log --oneline
-git show
-```
-
-Open the commit on GitHub and inspect the diff.
-
-### Student ask
-
-> "What can I know about this change from Git's record?"
-
-Then:
-
-> "What can I *not* know from Git alone?"
-
-### Teaching point
-
-Git can preserve the change, author metadata, time, commit message, and history relationships. It cannot independently establish that the change is meaningful, accurate, ethical, or appropriate.
-
-Documentation and human review supply context.
-
-### GitHub review moment
-
-Show how a change can be discussed in GitHub. The point is not merely that GitHub has comments. The point is that technical review and discussion can become part of the collaborative record.
-
-Model community-centered review:
-
-> "I see this line changed from ___ to ___. What were you trying to accomplish?"
-
-> "What evidence would help us decide between these approaches?"
-
-Avoid person-centered judgments such as "you did this wrong." Review the change, evidence, and intended outcome. Different experience levels and technical choices are expected in the room.
-
----
-
-# 6. Switch roles
-
-**BUILD**
-
-Do the collaboration cycle again with Owner and Collaborator reversed.
-
-This repetition is deliberate.
-
-First pass: **follow**.  
-Second pass: **recognize and explain**.
-
-Instructor and helpers reduce prompting on the second pass.
+Do not narrate every command.
 
 Ask:
 
 > "What is our next move, and why?"
 
-Do not answer immediately.
+Let the group supply the sequence.
+
+If needed, reveal only the rhythm:
+
+**PULL → CHANGE → INSPECT → CHOOSE → RECORD → REVIEW → PUSH**
+
+### Instructor restraint
+
+When someone asks "What command next?", answer first with:
+
+> "What state are you trying to change?"
+
+or:
+
+> "What evidence do you have about the current state?"
+
+Then supply syntax if syntax is the actual barrier.
+
+### Helper prompt
+
+> "Show me the evidence that you are ready for the next step."
+
+### Teams prompt
+
+**What step feels most natural now? What step still feels easy to skip?**
+
+### CHEAT SHEET REMINDER 6: DON'T MEMORIZE BLINDLY
+
+```text
+Need current shared work? → pull
+Changed a file? → status + diff
+Choose it? → add
+Check the choice? → diff --staged
+Preserve it? → commit
+Check history? → log/show
+Share it? → push
+```
 
 ---
 
-# 7. Controlled conflict: Git refuses to guess
+# 2:33–2:53 | Controlled conflict: Git refuses to guess
 
-**BUILD + TALK**
+**MODE: BUILD + TALK**
 
-### Carpentries foundation
+## Set up
 
-Create overlapping changes to the same line in the Owner and Collaborator copies. One person pushes first. The other person's later push is rejected because the remote history has changed.
+Both partners edit the **same clearly identified line** in the same small Markdown file.
 
-### Instructor setup
+Person A commits and pushes first.
 
-Tell learners only that both people will edit the same small line. Do not frame the rejection as failure.
-
-Person A commits and pushes.
-
-Person B commits locally and then tries:
+Person B commits locally and tries:
 
 ```bash
 git push origin main
 ```
 
-Stop when Git rejects the push.
-
-### Instructor move
-
-Do **not** fix it immediately.
+## STOP at the rejection
 
 Say:
 
-> "Good. This is evidence."
+> "Good. Do not fix it yet."
 
-Then:
+> "What did we EXPECT?"
 
-> "What did we expect?"
+> "What did we OBSERVE?"
 
-Expected: push succeeds.
-
-> "What did we observe?"
-
-Observed: Git rejected the push.
+Invite the exact non-sensitive rejection message into Teams.
 
 > "What explanation fits the evidence?"
 
-GitHub has history this local repository does not yet have.
+Guide toward: GitHub has history this local repository does not yet contain.
 
-Use:
+Put up:
 
 **EXPECT → OBSERVE → EXPLAIN → TEST → ACT → VERIFY**
 
-### Critical rule
+## Safety line
 
-> "Nobody type `--force`."
+> "Nobody type `--force`. A rejected push is not permission to overwrite shared history."
 
-Explain why: we do not rewrite shared history simply because Git refused an operation.
-
-### Pull the shared work
+## ACT: bring in shared work
 
 ```bash
 git pull origin main
 ```
 
-Now inspect the conflict.
+If Git asks how to reconcile divergent branches, pause and read the message. For this lesson, use the workshop's merge-based path rather than turning the moment into a rebase lesson.
 
-### Read the markers
+When the conflict appears, inspect the file:
 
 ```text
 <<<<<<< HEAD
-our local version
+local version
 =======
 incoming version
 >>>>>>> commit
@@ -581,11 +700,13 @@ incoming version
 
 Ask:
 
-> "Which line is correct?"
+> "Which one is correct?"
 
-The answer is not "the top one" or "the bottom one." A human must decide what the intended content should be.
+Wait.
 
-Edit deliberately, remove conflict markers, then:
+> "Git cannot know. This is a human decision."
+
+Resolve the intended text and remove the markers.
 
 ```bash
 git add FILE
@@ -594,104 +715,87 @@ git commit -m "Resolve conflicting changes"
 git push origin main
 ```
 
-Finally:
+## VERIFY
 
 ```bash
 git status
 git log --oneline
 ```
 
-### Student ask
+Have the partner pull and verify too.
 
-> "How do I know the conflict is actually resolved?"
+## Say
 
-### Helper ask
+> "CONFLICT does not mean DAMAGE. It means Git refused to invent human intent."
 
-> "What evidence tells you Git has stopped waiting for a decision?"
+### Helper prompts
 
-### Tangible teaching moment
+> "What changed remotely that this local copy did not know yet?"
 
-Put on the board:
+> "What evidence tells you Git is still waiting for a decision?"
 
-**CONFLICT ≠ DAMAGE**
+> "After the fix, what evidence tells you the conflict is over?"
 
-A conflict is Git refusing to invent human intent.
+### Common mistake
+
+Learner edits the conflict but forgets `git add`. Ask what tells Git the human decision is complete.
+
+### CHEAT SHEET REMINDER 7: REJECTED PUSH / CONFLICT
+
+```text
+EXPECT
+  ↓
+OBSERVE the exact message
+  ↓
+EXPLAIN before changing anything
+  ↓
+PULL shared history
+  ↓
+READ conflict markers
+  ↓
+DECIDE intended content
+  ↓
+ADD → STATUS → COMMIT → PUSH
+  ↓
+VERIFY
+```
+
+**Catch-up point before break:** It is enough to understand why the push was rejected and what the conflict represents. A helper can finish mechanical cleanup with the learner after the break if necessary.
 
 ---
 
-# 8. Error messages are evidence
+# 2:53–3:00 | BREAK 2
 
-**DEMO + TRY + TALK**
-
-Use authentic, safe examples when they arise.
-
-## Placeholder as literal input
-
-```bash
-git add FILE
-```
-
-Possible result: pathspec does not match.
-
-Ask:
-
-> "What did Git think FILE meant?"
-
-## Mistyped option
-
-```bash
-git log --online
-```
-
-Ask:
-
-> "Is the repository broken, or is the command malformed?"
-
-## Commit message without `-m`
-
-```bash
-git commit - "My message"
-```
-
-Read the pathspec error.
-
-Then compare with:
-
-```bash
-git commit -m "My message"
-```
-
-## Output is not input
-
-If Git prints:
-
-```text
-new file: example.md
-```
-
-do not paste that line as the next command.
+**Seven minutes. Stop teaching.**
 
 Say:
 
-> "The computer is talking to us. That does not make its sentence shell syntax."
+> "Second seven-minute break. When we come back, we move from collaboration problems into investigation, recovery, and making a repository understandable to somebody else."
 
-### Instructor refrain
+### Instructor/helper pulse
 
-> "Git is being extremely literal."
+Ask:
 
-Use occasionally, not after every error.
+- Are rejected push and conflict conceptually different to learners?
+- Who is still mid-conflict?
+- What error message deserves a whole-room explanation?
+- Is anyone working in the wrong repository?
+
+Helpers can prepare catch-up learners at the exact checkpoint. Do not erase their evidence before they understand it.
 
 ---
 
-# 9. History and recovery
+# 3:00–3:15 | History, recovery, and errors as evidence
 
-**DEMO → TRY**
+**MODE: DEMO → TRY + TALK**
 
-### Carpentries foundation
+Return to the safe TRY repository when useful.
 
-Git's history allows learners to inspect earlier states and recover deliberately.
+## Say
 
-Use:
+> "Git history is useful because we can inspect what happened before deciding what to do next."
+
+## DEMO / TRY
 
 ```bash
 git log --oneline
@@ -699,11 +803,13 @@ git show HEAD
 git diff HEAD~1
 ```
 
-Explain `HEAD` as the current commit.
+Ask:
 
-### Controlled practice
+> "What does HEAD mean here?"
 
-Make a small uncommitted change. Inspect it:
+> "Which command shows a commit? Which compares states?"
+
+Make a harmless uncommitted change.
 
 ```bash
 git diff
@@ -713,469 +819,410 @@ Ask:
 
 > "Do we want this change?"
 
-If the class intentionally decides no, demonstrate:
+Only after deciding no:
 
 ```bash
 git restore FILE
 git status
 ```
 
-### Teaching point
+## Say
 
-Recovery begins with a target state, not with a recovery command.
+> "Recovery begins with the state we intend to keep, not with an undo command."
 
-Ask:
+## Authentic mistake mini-cases
 
-> "Which version are we trying to keep?"
+Use one or two, not all.
 
-Do not generalize `git restore` into a universal undo button.
-
----
-
-# 10. Track, Ignore, Investigate
-
-**TRY → BUILD**
-
-### Carpentries foundation
-
-A `.gitignore` file tells Git which untracked paths should normally stay out of version control.
-
-### Instructor move
-
-Create or expose generated/example files.
-
-Run:
+### Mistyped option
 
 ```bash
-git status
+git log --online
 ```
 
 Ask:
 
-> "Git noticed these. Does that mean all of them belong in our record?"
+> "Is the repository broken, or is the command malformed?"
 
-Use:
+### Output is not input
 
-**TRACK → IGNORE → INVESTIGATE**
+If Git prints:
 
-Inspect the ignore rules:
+```text
+new file: example.md
+```
+
+say:
+
+> "The computer is talking to us. That does not make its sentence shell syntax."
+
+### Wrong place
+
+If Git says "not a git repository":
+
+```bash
+pwd
+git rev-parse --show-toplevel
+```
+
+### Instructor refrain
+
+> "Git is being extremely literal."
+
+Variation:
+
+> "Git is being annoyingly literal again. Which, for version control, is actually a feature."
+
+### Teams prompt
+
+Post one error or surprise from today and complete:
+
+> "I expected ___. I observed ___. The evidence suggests ___."
+
+### CHEAT SHEET REMINDER 8: INVESTIGATE BEFORE RECOVERY
+
+```bash
+git status
+git log --oneline
+git show HEAD
+git diff
+git diff HEAD~1
+```
+
+Then decide. Do not reach for a destructive command first.
+
+---
+
+# 3:15–3:27 | Track, Ignore, Investigate
+
+**MODE: TRY → BUILD + TALK**
+
+In the TRY repository, inspect:
 
 ```bash
 cat .gitignore
 git status --ignored
 ```
 
-If something behaves unexpectedly:
+If testing a path:
 
 ```bash
 git check-ignore -v PATH
 ```
 
-### Tangible teaching moment
+Ask:
 
-Compare:
+> "Git noticed a file. Does that mean the file belongs in our durable record?"
 
-```text
-*.png
-pictures/
-```
+Put up:
 
-Explain that file extensions and directory rules are literal. A rule for PNG files does not mean "all images."
+**TRACK → IGNORE → INVESTIGATE**
 
-Also explain that ignore rules do not automatically stop tracking something already committed.
-
-### Student ask
-
-- Can another person regenerate this?
-- Does another person need it?
-- Is it source, configuration, output, scratch work, or unknown?
-
-### Helper ask
-
-> "What rule do you think applies? How can we verify that instead of guessing?"
-
----
-
-# 11. License, Citation, Hosting: making a repository usable
-
-**TALK + BUILD**
-
-### Carpentries foundation
-
-The Carpentries lesson distinguishes making work public from granting permission to reuse it, and recommends explicit licensing. It also introduces citation files, including `CITATION.cff`, and asks learners to consider where work should be hosted.
-
-### Instructor move
-
-Open a real public repository and investigate:
-
-- README
-- LICENSE
-- CITATION/CITATION.cff
-- contributors/history
-- source/provenance notes
+Use the example rule `*.png`.
 
 Ask:
 
-> "I can see this repository. Does that mean I can do anything I want with it?"
+> "Does that mean all images are ignored?"
 
-No.
+No. Git is literal.
 
-Then:
+## BUILD transfer
 
-> "If I reuse this work, how does the creator tell me how to credit it?"
+Learners look at their own repository and identify one thing that should be:
 
-### Institutional prompt
+- tracked;
+- ignored; or
+- investigated before deciding.
 
-> "Can every project we work on at a university simply be made public?"
+### Helper prompt
 
-Discuss intellectual property, sensitive information, human-subjects material, contractual restrictions, and institutional policy at the level supported by the workshop. The lesson is to **check**, not to make learners legal experts.
+> "What rule do you think applies? How can we verify instead of guessing?"
 
-### Student controlled practice
+### Common mistake
 
-For their own repository, learners identify:
+Adding an ignore pattern does not stop tracking a file that is already tracked. First establish whether Git already tracks it.
 
-1. whether the repository should be public or private;
-2. whether they know the reuse/license status;
-3. what provenance needs to be documented; and
-4. whether a citation file would be appropriate.
-
----
-
-# 11A. Optional extension: publish with GitHub Pages
-
-**OPTIONAL DEMO**
-
-Use this only if the core collaboration lesson is on time. GitHub Pages is an extension, not a prerequisite.
-
-### Teaching purpose
-
-A repository can become more than a storage location: selected repository content can be published as a static website.
-
-Before publishing, ask:
-
-> "What will become public if I publish this?"
-
-> "Does this repository contain anything that should not be on a public website?"
-
-### Controlled demonstration
-
-Use a **separate learner-owned or instructor-prepared repository**, never the production OSU Carpentry workshop website.
-
-Show the relationship:
-
-```text
-REPOSITORY → PUBLISHING SOURCE → ENTRY FILE → GITHUB PAGES SITE
-```
-
-Explain that a Pages site needs a publishing source and an entry file such as `index.html`, `index.md`, or `README.md`.
-
-Keep the conceptual lesson:
-
-**VISIBLE ≠ APPROPRIATE TO PUBLISH**
-
-Learners should check privacy, permissions, provenance, licensing, and institutional constraints before publication.
-
----
-
-# 12. RStudio: same states, different interface
-
-**DEMO + TRANSFER**
-
-### Carpentries foundation
-
-RStudio exposes common Git operations through its Git integration: status, staging, diff, commit, history, pull, and push.
-
-### Instructor move
-
-Open an existing Git repository as an RStudio Project.
-
-Point to the Git pane.
-
-Do not teach the buttons as a second Git system.
-
-Say:
-
-> "The interface changed. Did Git's states change?"
-
-Use:
-
-**READ → LOCATE → PREDICT → ACT → VERIFY**
-
-Before clicking Commit:
-
-> "What is staged?"
-
-Before Push:
-
-> "Where will these commits travel?"
-
-Before accepting a dialog:
-
-> "What exactly am I saying yes to?"
-
-### Student ask
-
-> "Which command-line concept does this button represent?"
-
-### Helper ask
-
-> "Can you show me the repository state before we click?"
-
-### Teaching point
-
-Friendly interfaces do not remove filesystem scope, repository scope, or consequences.
-
----
-
-# 13. Mystery repository investigation
-
-**OPTIONAL TRY + TALK**
-
-Give learners a small approved public or prepared repository without explaining it first.
-
-Mission:
-
-> "What is this thing, where did it come from, and what happened before you arrived?"
-
-Learners use:
+### CHEAT SHEET REMINDER 9: IGNORE
 
 ```bash
 git status
-git log --oneline
-git remote -v
-ls
+git status --ignored
+git check-ignore -v PATH
 ```
 
-Then inspect README, license, citation/provenance, file types, and selected history.
-
-### Report back
-
-Each learner/pair gives:
-
-- one thing the evidence supports;
-- one thing they still do not know;
-- one question they would ask the project creator.
-
-This is the transition from following commands to investigating repositories.
+**Question before `git add .`:** "Do all of these files belong in the same decision?"
 
 ---
 
-# 14. Build something worth keeping
+# 3:27–3:40 | Make the repository understandable and reusable
 
-**BUILD**
+**MODE: BUILD + TALK**
 
-Learners now create or improve a repository they own.
+Open the TRY repository's:
 
-Suggested minimum:
+- `README.md`
+- `LICENSE`
+- `CITATION.cff`
+- `notes/analysis-notes.md`
+
+## Ask
+
+> "What can another person understand from the repository itself?"
+
+> "What is still missing?"
+
+> "Does public mean reusable?"
+
+Explain the distinctions:
 
 ```text
-my-project/
-├── README.md
-├── data/ or materials/
-├── scripts/ or notes/
-├── docs/
-└── .gitignore
+VISIBLE ≠ PERMISSION TO REUSE
+RECORDED ≠ CORRECT
+DATA ≠ INTERPRETATION
+HISTORY ≠ COMPLETE CONTEXT
 ```
 
-Not every repository needs this exact structure. The point is intentional organization.
+Learners improve their own README with at least:
 
-The README should answer:
+- what the project is;
+- why it exists;
+- where its material came from;
+- what another person needs to understand it.
 
-- What is this project?
-- Why does it exist?
-- Where did its material or data come from?
-- What did I do?
-- How can another person understand or reproduce the work?
-- What skills does this repository demonstrate?
+Discuss license/citation as decisions, not decorations.
 
-Where appropriate, add licensing and citation information.
+## GitHub review prompt
 
-### Portfolio framing
+Model:
+
+> "I see this line changed from ___ to ___. What were you trying to accomplish?"
+
+> "What evidence would help us decide between these approaches?"
+
+Avoid "you did this wrong."
+
+### Teams prompt
+
+**What is one thing your repository needs so another person can understand it six months from now?**
+
+### CHEAT SHEET REMINDER 10: REPOSITORY CONTEXT
+
+```text
+README      → what / why / how
+.gitignore  → intentional exclusions
+LICENSE     → reuse terms
+CITATION    → attribution
+notes       → decisions / provenance / limits
+Git history → recorded change
+```
+
+---
+
+# 3:40–3:50 | Same states, another interface
+
+**MODE: DEMO + TRANSFER**
+
+If learners use RStudio, show the Git pane briefly.
+
+Do not reteach Git as buttons.
 
 Say:
 
-> "This is not a disposable recipe exercise anymore. The repository can become evidence of how you document, reason, collaborate, and preserve your work."
+> "The interface changed. The repository states did not."
+
+Before clicking anything, use:
+
+**READ → LOCATE → PREDICT → ACT → VERIFY**
+
+Ask:
+
+> "What repository is this project connected to?"
+
+> "What is staged?"
+
+> "What exactly am I saying yes to?"
+
+> "How will I verify what happened?"
+
+## Optional GitHub Pages extension
+
+Only if the class is on time.
+
+Explain:
+
+```text
+REPOSITORY → PUBLISHING SOURCE → ENTRY FILE → PUBLIC SITE
+```
+
+Use a learner-owned or prepared repository, never the production OSU workshop site.
+
+Ask:
+
+> "Just because GitHub can publish this, should it be public?"
+
+Reinforce privacy, permission, provenance, licensing, and institutional constraints.
+
+### CHEAT SHEET REMINDER 11: GUI DOES NOT REMOVE SCOPE
+
+**READ → LOCATE → PREDICT → ACT → VERIFY**
 
 ---
 
-# 15. Final transfer: help without taking over
+# 3:50–4:00 | END: explain, transfer, keep
 
-**TALK + BUILD**
+**MODE: BUILD + TALK**
 
-Pair learners one final time.
+## Learner artifact
 
-One learner presents a small Git situation. The other may not take the keyboard.
+Learners finish with a repository they can continue developing.
+
+Minimum useful state:
+
+```text
+README.md
+one meaningful tracked artifact
+a readable commit history
+a known remote
+an intentional next step
+```
+
+## Final explain-back
+
+Pair learners.
+
+Person A explains one repository decision or diagnoses one small Git situation. Person B may ask questions but should not take the keyboard. Switch.
 
 Use:
 
-- What did you expect?
-- What do you observe?
-- What evidence would help?
-- What is the smallest safe test?
-- What action does the evidence support?
-- How will you verify it?
+> "I expected ___. I observed ___. The evidence showed ___. I did ___. I verified it by ___."
 
-Then switch.
+## Whole-room close
 
-### Helper role
+Ask:
 
-Helpers listen for whether learners are reasoning from evidence. Surface recurring questions to the whole room.
+> "What is one thing you can now explain that you could only follow at the beginning?"
 
-### Instructor close
+Invite spoken answers or Teams.
 
-Return to the board:
+Then ask:
 
-**CHANGE → INSPECT → CHOOSE → RECORD → REVIEW → SHARE**
+> "What question do you still have?"
 
-Then:
+Helpers surface one recurring question if useful.
+
+## Final script
+
+> "Version control is not simply saving files. We observed change, decided what it meant, preserved a decision, checked the record, and shared it."
+
+> "Git can record change. It cannot decide whether the change is meaningful, accurate, ethical, or appropriate. That remains human work."
+
+> "The commands may change. The reasoning should become familiar."
+
+---
+
+# Final learner cheat sheet
+
+## Where am I?
+
+```bash
+pwd
+git rev-parse --show-toplevel
+git status
+```
+
+## What happened?
+
+```bash
+git log --oneline
+git show HEAD
+git diff
+git diff --staged
+```
+
+## Where is this connected?
+
+```bash
+git remote -v
+```
+
+## Normal work
+
+```bash
+git pull origin main
+# edit
+git status
+git diff
+git add FILE
+git diff --staged
+git commit -m "Describe the change"
+git log --oneline
+git push origin main
+```
+
+## Something unexpected
 
 **EXPECT → OBSERVE → EXPLAIN → TEST → ACT → VERIFY**
 
-Close with:
+## File decision
 
-> "Git is not valuable because experts never make mistakes. It is valuable because we can inspect what changed, preserve decisions, recover history, collaborate, and make our reasoning easier for the next person to follow."
+**TRACK → IGNORE → INVESTIGATE**
 
----
+## Help sentence
 
-# Continue practicing after the workshop
-
-Offer these after the core lesson so they extend rather than interrupt the Git/GitHub sequence:
-
-- **Exercism** — free coding-literacy practice.
-- **Stack Overflow** — community questions and searchable technical discussions; encourage learners to read context and evaluate answers rather than copy commands blindly.
-- **Alliance for Data Science and AI** — continuing education, community events, hackathons, practice, and workshops.
-- **sandbox.bio** — interactive practice with Carpentries Programming with Python exercises.
-
-Invite learners to keep using the same reasoning outside this workshop:
-
-**EXPECT → OBSERVE → EXPLAIN → TEST → ACT → VERIFY**
+> "I expected ___, but I observed ___. I think ___ may explain it. I can test that by ___."
 
 ---
 
-# Instructor safety boundaries
+# Helper quick strip
 
-Do not use destructive commands casually for demonstrations.
+Helpers use:
 
-Before cleanup or recovery:
+**LOCATE → OBSERVE → ASK → VERIFY → HAND OFF**
 
-**LOCATE → DEFINE → SCOPE → PREDICT → ACT → VERIFY → HAND OFF**
-
-Stop and escalate when:
-
-- repository scope is unclear;
-- credentials or tokens appear;
-- personal/private information is visible;
-- a command could recursively delete or overwrite files;
-- the machine is institutional, shared, or borrowed and cleanup extends beyond the workshop project;
-- force-pushing or shared-history rewriting appears necessary.
-
-Prefer reversible moves and inspection.
-
----
-
-# Discourse and repetition protocol
-
-The lesson should repeatedly move learners through **hear → predict → try → explain → repeat → transfer**.
-
-For each important concept:
-
-1. **Ask before showing.** "What do you expect?"
-2. **Invite two response routes.** "Say it out loud, or put it in Teams."
-3. **Run the smallest useful command or action.**
-4. **Read the evidence together.** Do not rush past output.
-5. **Ask again.** "What changed? What did not change?"
-6. **Repeat with less support.**
-7. **Transfer responsibility.** "What would you do next, and why?"
-
-Useful whole-group prompts:
-
-> "What are you noticing?"
-
-> "Who got a different result?"
-
-> "Put the exact message you are seeing in Teams if you want us to reason through it together."
-
-> "What evidence supports that answer?"
-
-> "What are we assuming?"
-
-> "Would someone explain that in their own words?"
-
-> "What should we verify before we move on?"
-
-Questions are not gotchas. If nobody answers, pause, model your own reasoning, and continue. Learner silence is not failure.
-
-Teams contributions may be brief: one observation, one command, one error message, one question, or one takeaway. Helpers can watch Teams and surface patterns to the instructor while learners continue working.
-
----
-
-# Helper pulse checks
-
-At natural transitions, ask helpers:
+At each transition, ask:
 
 > "What question are you hearing from more than one person?"
 
-> "Where are learners getting stuck: location, Git state, GitHub, or vocabulary?"
+Do not silently fix repeated problems. Surface the pattern so the room can learn from it.
 
-> "Did anybody solve this differently?"
-
-Helpers should surface patterns, not silently fix every machine.
+Escalate when credentials/private information appear, repository scope is unclear, a command could delete/overwrite files, institutional/shared equipment needs cleanup, or force-pushing/history rewriting appears necessary.
 
 ---
 
-# Student checkpoints
+# Instructor common-mistake index
 
-A learner is ready to continue when they can explain, not merely reproduce:
+Use mistakes only when they expose a durable concept.
 
-### Checkpoint 1
-"I know where my repository is and what Git says its state is."
-
-### Checkpoint 2
-"I can explain the difference between my local repository and GitHub."
-
-### Checkpoint 3
-"I can explain what clone and origin gave me."
-
-### Checkpoint 4
-"I can inspect a change before staging and inspect the staged change before committing."
-
-### Checkpoint 5
-"I can explain why a rejected push is evidence rather than permission to force."
-
-### Checkpoint 6
-"I can read a conflict as a human decision Git refused to make."
-
-### Checkpoint 7
-"I can decide whether a file should be tracked, ignored, or investigated."
-
-### Checkpoint 8
-"I can explain what another person needs in order to understand, reuse, or cite my repository."
-
-### Checkpoint 9
-"I can ask for help using evidence."
-
-### Checkpoint 10
-"I have a repository I can continue developing after class."
+| Symptom | First question | Concept |
+| --- | --- | --- |
+| `not a git repository` | "Where are we?" | location/scope |
+| command typed at `>` | "Which interpreter received this?" | console vs terminal |
+| `git log --online` | "What did we actually type?" | literal syntax |
+| `git add <file>` | "Is that a placeholder or filename?" | examples vs values |
+| output pasted as command | "Who is speaking here?" | OUTPUT ≠ INPUT |
+| wrong filename/pathspec | "What does `ls` show exactly?" | literal paths |
+| rejected push | "What changed remotely?" | shared history |
+| merge conflict | "What human decision is Git refusing to make?" | intent |
+| ignored file surprises learner | "Which rule applies?" | literal patterns |
+| no error but wrong result | "How will we verify?" | success ≠ intended state |
 
 ---
 
-# Relationship to the Carpentries lesson
+# Teaching design notes
 
-This lesson deliberately retains the Software Carpentry progression and concepts:
+This script intentionally follows the Carpentries pattern of **narrative → command → output/evidence → callout → challenge/practice → review/key point**, but makes the instructor's spoken transitions explicit.
 
-- local automated version control;
-- repository creation and `.git`;
-- tracking changes;
-- history and recovery;
-- ignoring files;
-- GitHub remotes;
-- collaboration through clone/pull/push;
-- conflicts;
-- licensing;
-- citation;
-- hosting; and
-- RStudio integration.
+Repetition changes responsibility:
 
-Our added layer makes the reasoning explicit, adds controlled practice and helper behavior, uses authentic mistakes as evidence, strengthens repository-scope safety, and ends with a durable learner artifact.
+1. **follow**;
+2. **recognize**;
+3. **predict**;
+4. **explain**;
+5. **act independently**;
+6. **help someone else reason**.
 
-Use the canonical Software Carpentry lesson for the full reference material and this document for the live Oct. 8 teaching sequence.
+Questions are invitations, not tests. If nobody answers, pause, model your reasoning, and continue. Silence is not failure.
+
+Teams is a shared learning notebook. Learners may contribute one observation, command, non-sensitive error message, question, explanation, or takeaway. Helpers watch for patterns and bring them back to the room.
+
+The course follows the Software Carpentry Git progression and adds an OSU Libraries reasoning, troubleshooting, collaboration, safety, and professional-practice layer. The example repository supports TRY. Learner-owned repositories support BUILD.
