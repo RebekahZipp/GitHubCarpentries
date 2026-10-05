@@ -1,0 +1,9 @@
+# Generated image files
+*.png
+
+# Temporary files
+*.tmp
+*~
+
+# Keep the output folder documentation tracked.
+# Other generated output can be ignored deliberately when added later.
