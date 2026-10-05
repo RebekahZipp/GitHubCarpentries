@@ -1,0 +1,9 @@
+cff-version: 1.2.0
+message: "If you reuse this teaching example, cite the workshop repository."
+title: "GitHub Carpentries Example Repository"
+type: software
+authors:
+  - family-names: "Silverstein"
+    given-names: "Rebekah Z."
+repository-code: "https://github.com/RebekahZipp/GitHubCarpentries"
+license: "CC-BY-4.0"
