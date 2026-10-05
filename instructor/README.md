@@ -174,6 +174,112 @@ Discuss **TRACK → IGNORE → INVESTIGATE**.
 
 **Concept:** Git reports state; humans decide what constitutes the project record.
 
+
+---
+
+## Oct. 8 lesson sequence: Carpentries foundation plus reasoning layer
+
+This workshop continues the Software Carpentry **Version Control with Git** lesson rather than replacing it. Kevin's first session establishes the local Git foundation. This session picks up with GitHub, collaboration, conflicts, professional repository practice, and transfer into RStudio and the learner's own work.
+
+For each segment, teach three layers:
+
+1. **Carpentries foundation** — the canonical Git concept and workflow.
+2. **Reasoning layer** — the question or mental model learners can transfer.
+3. **Live move** — the action, prompt, mistake, or verification learners experience.
+
+### A. Re-orient to the local cycle
+
+**Carpentries foundation:** modify → add → commit; use status, diff, and history.
+
+**Reasoning layer:** **CHANGE → INSPECT → CHOOSE → RECORD → REVIEW → SHARE**
+
+**Live move:** begin with `git status`, not a lecture. Ask what state Git reports and what evidence supports that reading.
+
+### B. Clone and remotes
+
+**Carpentries foundation:** `git clone` creates a local repository and configures `origin`.
+
+**Reasoning layer:** cloning is a relationship, not just a download.
+
+**Live move:** predict what will arrive, clone into an explicitly chosen location, then verify with `git status`, `git log --oneline`, and `git remote -v`.
+
+### C. Owner and Collaborator
+
+**Carpentries foundation:** collaborator access, clone, change, add, commit, push; owner pulls the shared change.
+
+**Reasoning layer:** **PULL → CHANGE → INSPECT → CHOOSE → RECORD → REVIEW → PUSH**
+
+**Live move:** work in pairs where possible. Switch roles so both learners experience ownership and collaboration. Helpers watch repository identity and location rather than taking over keyboards.
+
+### D. Review shared work
+
+**Carpentries foundation:** inspect changes from the command line and GitHub; comment on diffs.
+
+**Reasoning layer:** a commit records a change, but the record does not automatically establish meaning, correctness, or intent.
+
+**Live move:** ask, "What can I know from this record? What can I not know from Git alone?"
+
+### E. Create and resolve a conflict
+
+**Carpentries foundation:** two people make overlapping changes; push is rejected; pull exposes a merge conflict; human reconciles; stage, commit, and push the resolution.
+
+**Reasoning layer:** **EXPECT → OBSERVE → EXPLAIN → TEST → ACT → VERIFY**
+
+**Live move:** preserve the rejected push long enough to read it. Do not jump directly to a fix. Read the conflict markers as evidence and make the content decision explicit.
+
+### F. History and recovery
+
+**Carpentries foundation:** HEAD, commit identifiers, `git show`, `git diff`, `git restore`, and the distinction between restoring working files and reversing shared committed work.
+
+**Reasoning layer:** recovery starts by identifying the intended state.
+
+**Live move:** ask, "Which version are we trying to keep?" before using a recovery command.
+
+### G. Ignore intentionally
+
+**Carpentries foundation:** `.gitignore` records patterns for files that should not be tracked.
+
+**Reasoning layer:** **TRACK → IGNORE → INVESTIGATE**
+
+**Live move:** let generated files appear. Ask whether Git noticing a file means it belongs in the durable record.
+
+### H. License, cite, and host
+
+**Carpentries foundation:** public work needs explicit reuse terms; citation metadata makes work easier to credit; hosting choices do not remove institutional or sensitive-data obligations.
+
+**Reasoning layer:** making work visible, reusable, citable, and appropriate to share are separate decisions.
+
+**Live move:** inspect a real repository for README, LICENSE, CITATION, provenance, and hosting context.
+
+### I. RStudio translation
+
+**Carpentries foundation:** RStudio's Git pane exposes common staging, commit, diff, history, pull, and push operations.
+
+**Reasoning layer:** the interface changes; Git state does not.
+
+**Live move:** before clicking a GUI control, use **READ → LOCATE → PREDICT → ACT → VERIFY**. Ask, "What exactly am I saying yes to?"
+
+### J. Portfolio handoff
+
+**Carpentries foundation:** version control supports work that changes over time and collaboration beyond software.
+
+**Reasoning layer:** the repository is evidence of technical decisions, documentation, provenance, and collaboration.
+
+**Live move:** learners improve a repository they can keep, then explain one decision or diagnose one small Git situation without another person taking over their keyboard.
+
+---
+
+## Safety rule for repository scope
+
+Before any destructive or difficult-to-reverse intervention, use:
+
+**LOCATE → DEFINE → SCOPE → PREDICT → ACT → VERIFY → HAND OFF**
+
+Do not casually demonstrate recursive deletion as repository cleanup. Prefer reversible moves, explicit paths, and verification. On institutional, shared, or borrowed equipment, stop and involve the responsible support staff when the scope extends beyond the learner's project.
+
+See the [Helper Path](../helper/README.md) for the workshop support protocol.
+
+
 ---
 
 ## Instructor principle
