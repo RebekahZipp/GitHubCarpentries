@@ -323,3 +323,49 @@ The log therefore serves four purposes:
 2. provenance for teaching decisions;
 3. evidence of iterative lesson development; and
 4. a record that can support later reflection on teaching and professional/CV documentation.
+
+
+---
+
+## Decision synchronization: Oct. 5, 2026
+
+The repository was synchronized to the current Oct. 8 workshop design after rehearsal and comparison with the Software Carpentry Git collaboration/conflict sequence.
+
+### Decisions recorded
+
+1. **Carpentries remains the conceptual spine.** The OSU lesson adapts examples, pacing, prompts, and small-class mechanics without redefining clone, origin, pull, commit, push, rejected push, or merge conflict.
+2. **Hands-on rhythm is one move at a time.** Use **SAY -> ASK/PREDICT -> DEMO + DO -> STOP -> READ OUTPUT -> ASK WHAT IT MEANS -> SAY THE CONCLUSION -> NEXT MOVE**. Learners normally remain at the same checkpoint as the instructor.
+3. **Shared BUILD replaces separate learner repositories.** Everyone clones `RebekahZipp/GitHubCarpentries-Examples`. The common BUILD artifact is `build-example/books.md`.
+4. **Collaboration is real, not simulated.** During class, Rebekah asks each learner for their **GitHub username only**, adds them as collaborators to the public example repository, and learners accept the invitation before the first push. No password, token, recovery code, or other authentication secret is requested or shared.
+5. **Permission becomes a teaching moment.** Public repository access allows clone/read. A local clone allows local commits. Collaborator write access allows push to the shared GitHub repository.
+6. **No Teams-dependent work.** Spoken prompts, helper conversations, terminal/GitHub evidence, and whole-room discussion carry the lesson.
+7. **No Owner/Collaborator pair setup for the first BUILD.** The small class collaborates on one shared repository. The canonical Owner/Collaborator lesson is acknowledged as the source pattern, but the class mechanics are adapted.
+8. **Pre-break checkpoint.** Learners have a GitHub account, have shared their username only, accepted collaborator access, cloned the repository, identified `origin`, found `build-example/books.md`, and have a clean working tree. No BUILD edit or learner push occurs before the break.
+9. **Post-break collaboration rhythm.** **PULL -> CHANGE -> INSPECT -> ADD -> COMMIT -> REVIEW -> PUSH**. The reading list provides the meaningful shared change.
+10. **Committed is not pushed.** Learners can make valid local commits independently. A push is a separate sharing operation.
+11. **Rejected push is not synonymous with conflict.** A rejected push commonly indicates remote commits missing locally. Learners read the evidence and pull/integrate. A merge conflict is named only when Git cannot automatically reconcile overlapping changes.
+12. **Conflict continuity.** `guacamole.md` remains the familiar Carpentries continuity object and can be used for a deliberate same-line conflict if reading-list changes integrate automatically.
+13. **Helpers recover to the checkpoint.** Frances and Dani use **LOCATE -> OBSERVE -> ASK -> VERIFY -> HAND OFF**, help with GitHub invitation/account navigation when needed, never request credentials, and do not create alternate learner tracks.
+14. **Repository context remains part of Git practice.** README, .gitignore, LICENSE, CITATION.cff, provenance, open/reusable work, and RStudio are taught as later repository decisions or alternate interfaces over the same Git states.
+15. **Safety and recovery remain evidence-first.** Do not reflexively force push, reclone, delete, or run destructive recovery commands. Establish location and state first.
+
+### Resulting workshop arc
+
+```text
+BEGINNING
+orient -> clone -> inspect -> origin -> pull -> find books.md
+-> live collaborator invitation -> BREAK
+
+MIDDLE
+pull -> edit books.md -> status -> diff -> add -> staged diff
+-> commit -> log/show -> push -> read shared-state result
+-> rejected push/integration -> controlled conflict when needed -> BREAK
+
+END
+history/recovery -> track/ignore/investigate -> README/provenance
+-> LICENSE/CITATION/open work -> RStudio transfer -> explain-back
+```
+
+### Repository synchronization
+
+The root README, whole-class cheat sheet, pedagogy rubric, instructor path, helper path, student path, student live lesson, and example-repository guidance were updated to use this shared vocabulary and workflow. The live instructor lesson remains the timing authority for Oct. 8.
