@@ -93,10 +93,11 @@ When surprised:
 
 | Time | Phase | Learner checkpoint |
 | --- | --- | --- |
-| 1:00-1:10 | Re-enter Git | Can locate terminal, repo, state, history |
-| 1:10-1:25 | Clone and inspect | TRY repo cloned and recognized as Git |
-| 1:25-1:40 | Remote and origin | Can explain local vs remote and origin |
-| 1:40-1:53 | Pair setup | BUILD repo and roles ready |
+| 1:00-1:10 | Setup + Code of Conduct | Git/GitHub/terminal ready; knows how we work together |
+| 1:10-1:20 | Re-enter Git | Can locate terminal, repo, state, history |
+| 1:20-1:33 | Clone and inspect | TRY repo cloned and recognized as Git |
+| 1:33-1:43 | Remote and origin | Can explain local vs remote and origin |
+| 1:43-1:53 | Pair setup | BUILD repo and roles ready |
 | **1:53-2:00** | **Break** | |
 | 2:00-2:18 | Collaboration cycle | One meaningful commit shared |
 | 2:18-2:33 | Switch roles | Repeat with less instructor support |
@@ -137,18 +138,82 @@ When surprised:
 
 ---
 
-# 1:00-1:10 | ORIENT: Re-enter Git before GitHub
+# 1:00-1:10 | SETUP + CODE OF CONDUCT
+
+**Goal:** Get every learner to a usable starting point while establishing how we will learn and collaborate.  
+**Mode:** SETUP + TALK
+
+## Say
+
+> "Welcome. Before Git can track our work, we need to make sure Git can find us. Use these first ten minutes to get your computer, terminal, and GitHub account ready. If you are already set up, help us verify rather than racing ahead."
+
+> "While we get everyone connected, I also want to name how we will work together. This workshop follows [The Carpentries Code of Conduct](https://docs.carpentries.org/policies/coc/). It applies here in the room and in the online spaces we use, including Teams and GitHub. The short version is: use welcoming and inclusive language, respect different viewpoints and experience levels, accept constructive feedback, and show courtesy to one another."
+
+> "That matters technically, too. Today we will look at each other's work, ask questions, encounter errors, and sometimes disagree about what a file should say. We critique the work and the evidence, not the person. Ask before touching someone else's keyboard. Do not share passwords, tokens, private repository information, patron information, or other sensitive data."
+
+> "You will see four labels. **DEMO** means I show a move and we read the result together. **TRY** means you experiment in our safe class example. **BUILD** means you make something in a repository you can keep. **TALK** means you can answer aloud or in Teams. You do not need to be the fastest person in the room. You do need to stay curious about what the computer is telling us."
+
+## Setup
+
+Learners verify:
+
+```bash
+git --version
+```
+
+Then confirm:
+
+- Git Bash or another terminal is available;
+- GitHub account can be opened;
+- GitHub authentication/2FA is complete if required;
+- workshop Teams chat is open;
+- student lesson and cheat sheet are available.
+
+If Git is not installed, use the Carpentries setup instructions:  
+https://carpentries.github.io/workshop-template/install_instructions/#git
+
+If GitHub account setup is incomplete, pair the learner with a working partner for the first activity while a helper assists. Do not hold the whole room on account recovery.
+
+## Ask
+
+> "What do you need in place before you can participate: a terminal, Git, GitHub, or all three? Which parts are local to your computer, and which part is on the web?"
+
+Give learners time to answer.
+
+## Expected learner evidence
+
+- `git --version` returns a Git version for learners who are configured;
+- terminal is open;
+- GitHub is reachable;
+- learners know where to ask for setup help;
+- learners can state that Git is local software and GitHub is a web service used later for sharing/collaboration.
+
+## Helper cue
+
+Frances and Dani split setup support. One helper handles installation/account blockers while the other scans for terminal, directory, or authentication problems.
+
+Do not ask a learner to expose a password, token, recovery code, or authentication secret.
+
+## Common mistake
+
+A learner opens the R Console instead of a terminal. Identify the interpreter before troubleshooting Git.
+
+## Transition Say
+
+> "Now we have the room, the tools, and the rules of collaboration in place. Our next question is not 'What command do I type?' It is 'What do I want to know before I act?' That question will carry us through the rest of the workshop."
+
+---
+
+# 1:10-1:20 | ORIENT: Re-enter Git before GitHub
 
 **Goal:** Reconnect today's work to the previous Carpentries session and establish the five reusable questions.  
 **Mode:** TALK + DEMO
 
 ## Say
 
-> "Welcome back. Last time we taught Git how to remember our work. Today we make that record travel."
+> "Last time, Git learned to remember our work. Today we are going to ask where that memory lives, what state it is in, and how to move it without losing the story."
 
-> "Today we are learning how to make work understandable, safe to recover, and easy to share."
-
-Briefly name DEMO, TRY, BUILD, and TALK. Remind learners that the Carpentries Code of Conduct applies in the room, Teams, and GitHub.
+> "I will demonstrate first. You will read the evidence with me. Then you will try the same reasoning yourself. Before every action, we are going to ask what we need to know."
 
 ## Ask
 
@@ -188,14 +253,14 @@ Learner can rejoin when `git status` works in the intended repository.
 
 ---
 
-# 1:10-1:25 | CLONE AND INSPECT
+# 1:20-1:33 | CLONE AND INSPECT
 
 **Goal:** Distinguish Git from GitHub and understand clone as a repository relationship.  
 **Mode:** DEMO -> TRY + TALK
 
 ## Say
 
-> "Git records change. GitHub gives repositories and people a place to connect."
+> "We know Git can remember a project locally. Now we are going to make a second copy without turning it into an emailed attachment. Watch what clone brings with it, then we will ask Git to prove that the copy still has history and a relationship to GitHub."
 
 ```text
 MY COMPUTER             GITHUB              SOMEONE ELSE
@@ -247,14 +312,14 @@ TRY repo exists locally and `git status` works.
 
 ---
 
-# 1:25-1:40 | REMOTE AND ORIGIN
+# 1:33-1:43 | REMOTE AND ORIGIN
 
 **Goal:** Separate local repository, remote repository, commit, push, and pull.  
 **Mode:** DEMO + TRY
 
 ## Say
 
-> "`origin` is a local nickname for a remote repository. It is conventional, not magical."
+> "The clone gave us more than files. It also gave this local repository an address book entry called `origin`. We are going to read that relationship before we use it."
 
 > "Commit records here. Push shares there. Pull brings shared work here."
 
@@ -285,18 +350,18 @@ Treating commit and push as the same action.
 
 ---
 
-# 1:40-1:53 | BUILD SETUP AND PAIRS
+# 1:43-1:53 | BUILD SETUP AND PAIRS
 
 **Goal:** Move from the shared example to learner-owned collaboration.  
 **Mode:** BUILD
 
 ## Say
 
-> "TRY was for inspection. BUILD is where your decisions and collaboration become the record."
+> "We have inspected someone else's repository. Now we change responsibility. BUILD is where you create a reading record you can keep, make a decision worth recording, and then let another person collaborate with you."
 
 ## Build
 
-Each learner creates or chooses a small repository they can keep after class. Use a **Books I Have Read This Year** reading list as the default BUILD artifact. This gives every learner a useful, low-risk document that can continue growing after the workshop. Keep `guacamole.md` in the TRY repository as the familiar Carpentries specimen for continuity, but move substantive learner work into the reading-list repository.
+Each learner creates or chooses a small repository they can keep after class. Use a **Books I Have Read** reading list as the default BUILD artifact. This gives every learner a useful, low-risk document that can continue growing after the workshop. Keep `guacamole.md` in the TRY repository as the familiar Carpentries specimen for continuity, but move substantive learner work into the reading-list repository.
 
 Owner grants access. Collaborator accepts and clones.
 
@@ -352,7 +417,7 @@ git status
 git diff
 git add books.md
 git diff --staged
-git commit -m "Add first books to 2026 reading list"
+git commit -m "Add first books to reading list"
 git log --oneline
 git show HEAD
 git push origin main
@@ -704,14 +769,14 @@ Use:
 
 ---
 
-# Practice challenge: Books I Have Read This Year
+# Practice challenge: Books I Have Read
 
 **Purpose:** Give learners something personally useful to keep, revisit, and grow after class.
 
 Create:
 
 ```text
-books-i-read-2026/
+books-i-have-read/
 ├── README.md
 └── books.md
 ```
@@ -719,17 +784,19 @@ books-i-read-2026/
 Suggested `books.md` starter:
 
 ```markdown
-# Books I Have Read This Year
+# Books I Have Read
 
-| Title | Author | Date Finished | Rating | Notes |
-| --- | --- | --- | --- | --- |
-| Example Book | Example Author | 2026-01-15 | 4/5 | Strong opening chapter |
+| Title | Author | Date Finished | Publisher | Rating | Notes |
+| --- | --- | --- | --- | --- | --- |
+| Such Sharp Teeth | Rachel Harrison | 2022-10-03 | Penguin Publishing Group | | |
+| I, Medusa | Ayana Gray | 2025-11-17 | Random House Publishing Group | | |
+| The Penelopiad | Margaret Atwood | 2014-10-22 | Faber & Faber | | |
 ```
 
 Suggested `README.md` starter:
 
 ```markdown
-# Books I Have Read This Year
+# Books I Have Read
 
 A personal reading log I can keep updating over time.
 
