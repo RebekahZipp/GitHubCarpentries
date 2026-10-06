@@ -857,6 +857,32 @@ Do not create another repository, reclone unnecessarily, or make the learner's f
 
 ---
 
+# Carpentries alignment notes for this workshop
+
+This lesson is a continuation of the Software Carpentry Git curriculum, not a replacement for it. Keep the **observable outputs, sequence logic, and terminology** aligned with the Carpentries Git lesson wherever we teach the same concept.
+
+For this workshop:
+
+- **Clone** should still mean: create a local repository from a remote repository, with `origin` configured automatically.
+- **Collaborative workflow** should still be taught as: `pull -> change -> add -> commit -> push`.
+- **Push rejection** should still be distinguished from a **merge conflict**. A rejected push means the remote has history the local branch does not yet have. A merge conflict appears only when Git cannot automatically reconcile overlapping changes during integration.
+- **Conflict markers** should keep the Carpentries interpretation: local `HEAD`, separator `=======`, incoming version after `>>>>>>>`.
+- **Open work** should preserve the Carpentries framing of version control as a shareable, inspectable record of computational or project history.
+- **LICENSE** and **CITATION.cff** should be used as concrete repository-context examples, consistent with the Carpentries licensing and citation episodes.
+- **RStudio** should be taught as a different interface over the same Git states: status, diff, stage, commit, pull, push, and history.
+
+Where our workshop differs, state the difference explicitly rather than silently changing the model:
+
+- the class is small;
+- learners work from clones of the instructor's example repository rather than pairing as Owner/Collaborator for the first BUILD activity;
+- learners make local commits in their own clones;
+- instructor-controlled push/collaboration demonstrations are used unless learner write access has deliberately been configured;
+- `build-example/books.md` replaces `hummus.md` as the low-risk learner content example, while `guacamole.md` remains the continuity object for conflict reasoning.
+
+The teaching target is still the Carpentries mental model, with our local example substituted for the Carpentries example where useful.
+
+---
+
 # 1:53-2:00 | BREAK 1
 
 Seven minutes. Stop teaching.
