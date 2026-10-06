@@ -645,7 +645,7 @@ Learner can rejoin when they are inside `GitHubCarpentries-Examples`, `git statu
 **Goal:** Move from investigating the class repository to meaningful work inside each learner's own local clone.  
 **Mode:** BUILD
 
-**Important:** Learners do **not** create a second repository here. They already have a complete local Git repository because they cloned `GitHubCarpentries-Examples`. The BUILD work happens in each learner's local clone. Learners can commit locally without changing another learner's clone. Do not require learner pushes to the instructor-owned GitHub repository unless write access has deliberately been configured.
+**Important:** Learners do **not** create a second repository here. They already have a complete local Git repository because they cloned `GitHubCarpentries-Examples`. Before the collaboration exercise, invite each learner as a collaborator on the public example repository. Their local commits remain local until they push, but collaborator access lets the class practice the complete Carpentries workflow against one shared `origin`.
 
 ## Say
 
@@ -787,7 +787,7 @@ PULL -> CHANGE -> INSPECT -> CHOOSE -> RECORD -> REVIEW -> PUSH
 
 ## Say
 
-> "We have already experienced the first word: **PULL** brought later shared work into the clone we already had. After the break, each of us will make one real change to `build-example/books.md`. Then we will follow that change through Git one state at a time."
+> "We have already experienced the first word: **PULL** brought later shared work into the clone we already had. After the break, each of us will make one real change to `build-example/books.md`. Then we will follow that change through Git one state at a time, commit it locally, and use our collaborator access to try to share it back to the common GitHub repository."
 
 > "Do not memorize this line. We are going to build its meaning by doing it. Change first. Then inspect what actually changed. Choose what belongs in the next version. Record it with a commit. Review what we recorded. Only then do we ask what sharing with the remote means."
 
@@ -851,9 +851,23 @@ Do not create another repository, reclone unnecessarily, or make the learner's f
 [ ] no reading-list change has been made yet
 ```
 
+## Instructor access check before break
+
+Before class, collect each learner's GitHub username and invite them to `RebekahZipp/GitHubCarpentries-Examples` as collaborators. Because this is a personal-account repository, collaborator access is repository-wide rather than folder-specific.
+
+During class, verify invitations are accepted before the first learner push. Do not spend the BUILD setup creating separate repositories.
+
+Ask:
+
+> "Being able to see a public repository and being allowed to push to it are different things. What changed when I invited you as a collaborator?"
+
+Expected idea: the repository was already readable; collaborator access adds permission to contribute changes.
+
 ## Transition to break
 
-> "Before the break, we learned to locate and read a repository, follow its relationship back to GitHub, and find the file we are going to work on. When we come back, we are going to change one thing and follow that change all the way from the working directory into Git's history."
+> "Before the break, we learned to locate and read a repository, follow its relationship back to GitHub, and find the file we are going to work on. When we come back, we are going to change one thing and follow that change from the working directory into local history and then try to share it back to our common repository."
+
+> "Because we are now collaborators on one shared repository, somebody else's successful push can change what GitHub knows before your turn. That is not a problem to avoid. It is the collaboration behavior we are here to learn."
 
 ---
 
@@ -876,7 +890,7 @@ Where our workshop differs, state the difference explicitly rather than silently
 - the class is small;
 - learners work from clones of the instructor's example repository rather than pairing as Owner/Collaborator for the first BUILD activity;
 - learners make local commits in their own clones;
-- instructor-controlled push/collaboration demonstrations are used unless learner write access has deliberately been configured;
+- learners are invited as collaborators to the instructor's public example repository before the collaboration exercise, so they can practice the full pull -> change -> add -> commit -> push workflow;
 - `build-example/books.md` replaces `hummus.md` as the low-risk learner content example, while `guacamole.md` remains the continuity object for conflict reasoning.
 
 The teaching target is still the Carpentries mental model, with our local example substituted for the Carpentries example where useful.
