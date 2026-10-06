@@ -296,7 +296,7 @@ Treating commit and push as the same action.
 
 ## Build
 
-Each pair chooses or creates a small repository. Keep `guacamole.md` as the familiar Carpentries specimen so the object stays constant while the collaboration gets harder.
+Each learner creates or chooses a small repository they can keep after class. Use a **Books I Have Read This Year** reading list as the default BUILD artifact. This gives every learner a useful, low-risk document that can continue growing after the workshop. Keep `guacamole.md` in the TRY repository as the familiar Carpentries specimen for continuity, but move substantive learner work into the reading-list repository.
 
 Owner grants access. Collaborator accepts and clones.
 
@@ -347,12 +347,12 @@ Collaborator:
 git status
 git remote -v
 git pull origin main
-# edit guacamole.md
+# edit books.md
 git status
 git diff
-git add guacamole.md
+git add books.md
 git diff --staged
-git commit -m "Clarify guacamole instructions"
+git commit -m "Add first books to 2026 reading list"
 git log --oneline
 git show HEAD
 git push origin main
@@ -380,7 +380,7 @@ git show HEAD
 
 > "What changed? What state are we in? What should we do next? How will we verify?"
 
-> "Six months from now, will this commit message tell another person why this version exists?"
+> "Six months from now, will this commit message tell another person what changed and why this version exists?"
 
 ## Common mistake
 
@@ -436,7 +436,7 @@ Ask: "What is the smallest state we need so you can rejoin the group?"
 
 ## Setup
 
-Both partners change the same line in `guacamole.md` differently.
+Use `guacamole.md` for the instructor's controlled conflict demonstration. Then give learners the same reasoning challenge in their reading-list repository: both partners edit the same book entry or the same `Notes` line differently.
 
 For example:
 
@@ -491,9 +491,9 @@ No. Git can preserve competing versions. People decide intended content.
 Resolve the wording, remove markers, then:
 
 ```bash
-git add guacamole.md
+git add FILE
 git status
-git commit -m "Resolve guacamole wording conflict"
+git commit -m "Resolve conflicting reading-list edit"
 git push origin main
 git status
 git log --oneline
@@ -676,7 +676,7 @@ Minimum repository state:
 
 ```text
 README.md
-guacamole.md or another meaningful tracked artifact
+books.md
 readable commit history
 known remote
 intentional next step
@@ -701,6 +701,292 @@ Use:
 > "Git records change. People decide what the change means."
 
 > "The commands may change. The reasoning should become familiar."
+
+---
+
+# Practice challenge: Books I Have Read This Year
+
+**Purpose:** Give learners something personally useful to keep, revisit, and grow after class.
+
+Create:
+
+```text
+books-i-read-2026/
+├── README.md
+└── books.md
+```
+
+Suggested `books.md` starter:
+
+```markdown
+# Books I Have Read This Year
+
+| Title | Author | Date Finished | Rating | Notes |
+| --- | --- | --- | --- | --- |
+| Example Book | Example Author | 2026-01-15 | 4/5 | Strong opening chapter |
+```
+
+Suggested `README.md` starter:
+
+```markdown
+# Books I Have Read This Year
+
+A personal reading log I can keep updating over time.
+
+## How I use this repository
+
+- Add each finished book to `books.md`.
+- Commit meaningful updates.
+- Use the Git history to see how the list changed over time.
+```
+
+## Challenge 1: What state are we in?
+
+Give learners 2 minutes before discussing.
+
+```bash
+pwd
+git rev-parse --show-toplevel
+git status
+git branch --show-current
+git remote -v
+```
+
+**Answer / instructor workaround**
+
+- `pwd` answers: where is my shell?
+- `git rev-parse --show-toplevel` answers: where does this repository begin?
+- `git status` answers: what branch and file state does Git see?
+- `git branch --show-current` answers: what branch am I on?
+- `git remote -v` answers: where can this local repository fetch from or push to?
+
+If `not a git repository` appears, do not start fixing Git. Check `pwd`, then move to the repository directory.
+
+## Challenge 2: Add a book without blindly staging everything
+
+Ask learners to add one real or fictional book to `books.md`.
+
+Before showing the answer, ask:
+
+> "What changed? What does Git say? What should we inspect before recording it?"
+
+**Answer / instructor workaround**
+
+```bash
+git status
+git diff
+git add books.md
+git diff --staged
+git commit -m "Add The Left Hand of Darkness to reading list"
+git log --oneline
+```
+
+**Expected evidence**
+
+- before `git add`: `books.md` appears modified;
+- `git diff` shows the new row;
+- after `git add`: the change is staged;
+- `git diff --staged` shows exactly what the commit will preserve;
+- after commit: a new commit appears in `git log --oneline`.
+
+**Common wrong turn**
+
+```bash
+git add .
+```
+
+Workaround: ask whether every visible file belongs to the same decision. Prefer `git add books.md` for this exercise.
+
+## Challenge 3: Commit versus push
+
+Ask:
+
+> "I committed my new book. Can my partner see it on GitHub yet?"
+
+Give them time to answer before running anything.
+
+**Answer**
+
+Not necessarily. A commit records locally. A push shares recorded commits with the remote.
+
+```bash
+git status
+git log --oneline
+git push origin main
+```
+
+**Verify**
+
+Open GitHub and confirm the commit and changed `books.md` are visible.
+
+## Challenge 4: Partner collaboration
+
+Partner A adds one book and pushes. Partner B does not edit yet.
+
+Ask Partner B:
+
+> "What should we do before starting new shared work?"
+
+**Answer**
+
+```bash
+git pull origin main
+git status
+git log --oneline
+```
+
+Then Partner B adds another book, inspects, stages, commits, reviews, and pushes.
+
+**Concept answer:** pull brings shared history into the local repository. It does not replace the need to inspect local state.
+
+## Challenge 5: Rejected push or conflict?
+
+Have both partners begin from the same version.
+
+- Partner A changes the Notes cell for one book, commits, and pushes.
+- Partner B changes the **same Notes cell** differently, commits locally, and tries to push.
+
+Ask:
+
+> "What happened first: a rejected push or a merge conflict?"
+
+**Answer**
+
+First, the push is rejected because the remote contains history Partner B does not have.
+
+Then:
+
+```bash
+git pull origin main
+```
+
+If the edits overlap, Git may produce a merge conflict.
+
+**Concept answer**
+
+- **Rejected push:** remote history is ahead of this local branch.
+- **Merge conflict:** after trying to combine histories, Git finds incompatible content choices that require a human decision.
+
+If conflict markers appear:
+
+```text
+<<<<<<< HEAD
+my version
+=======
+their version
+>>>>>>> commit
+```
+
+Resolve the intended text, then:
+
+```bash
+git add books.md
+git status
+git commit -m "Resolve conflicting reading-list note"
+git push origin main
+git status
+git log --oneline
+```
+
+**Instructor line:** Git can preserve both proposed notes. It cannot decide which interpretation belongs in the final reading record.
+
+## Challenge 6: History and recovery
+
+Ask learners to make a harmless uncommitted edit to one rating or note.
+
+Ask:
+
+> "How can we inspect before deciding whether to keep it?"
+
+**Answer**
+
+```bash
+git diff
+git log --oneline
+git show HEAD
+```
+
+If they decide to discard the uncommitted change:
+
+```bash
+git restore books.md
+git status
+```
+
+**Concept answer:** decide which state you intend to keep before choosing a recovery command.
+
+## Challenge 7: Track, ignore, or investigate?
+
+Create or point to a harmless temporary file such as `scratch.txt`.
+
+Ask:
+
+> "Should this become part of the durable reading record?"
+
+Give learners three choices:
+
+**TRACK -> IGNORE -> INVESTIGATE**
+
+**Possible answer**
+
+If it is temporary and not useful to future readers, ignore it.
+
+Add to `.gitignore`:
+
+```text
+scratch.txt
+```
+
+Then verify:
+
+```bash
+git status --ignored
+git check-ignore -v scratch.txt
+```
+
+If learners are unsure whether a file matters, choose **investigate** before staging or ignoring.
+
+## Challenge 8: Make the repository useful six months from now
+
+Ask learners to improve `README.md` so another person can understand the project without asking the instructor.
+
+A strong answer includes:
+
+- what the repository is;
+- what year or period it covers;
+- how books are added;
+- what the fields mean;
+- whether ratings are personal;
+- what a future update should look like.
+
+**Verification question**
+
+> "Could someone who was not in this workshop add the next book correctly?"
+
+## Answer bank: the questions you ask repeatedly
+
+**What changed?**  
+Use `git status` and `git diff`.
+
+**What state are we in?**  
+Use `git status`, `git branch --show-current`, and when needed `git diff --staged`.
+
+**What does Git say?**  
+Read the exact output before choosing another command.
+
+**What should we do next?**  
+Choose the smallest action supported by the evidence.
+
+**How will we verify?**  
+Use `git status`, `git log --oneline`, `git show HEAD`, the remote view on GitHub, or the collaborator's pull.
+
+## Instructor rule for challenges
+
+Give learners quiet time first. Then ask for one explanation aloud or in Teams. Only after they have reasoned should you reveal the answer/workaround.
+
+The teaching sequence is:
+
+**PREDICT -> TRY -> READ THE EVIDENCE -> EXPLAIN -> REVEAL WORKAROUND -> VERIFY**
 
 ---
 
