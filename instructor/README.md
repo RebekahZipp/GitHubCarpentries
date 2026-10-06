@@ -203,13 +203,13 @@ For each segment, teach three layers:
 
 **Live move:** predict what will arrive, clone into an explicitly chosen location, then verify with `git status`, `git log --oneline`, and `git remote -v`.
 
-### C. Owner and Collaborator
+### C. Shared class collaborators
 
 **Carpentries foundation:** collaborator access, clone, change, add, commit, push; owner pulls the shared change.
 
 **Reasoning layer:** **PULL → CHANGE → INSPECT → CHOOSE → RECORD → REVIEW → PUSH**
 
-**Live move:** work in pairs where possible. Switch roles so both learners experience ownership and collaboration. Helpers watch repository identity and location rather than taking over keyboards.
+**Live move:** use the small class as collaborators on one shared public example repository. Collect GitHub usernames only during class, invite learners live, and have them accept before the first push. Helpers watch repository identity and location rather than taking over keyboards.
 
 ### D. Review shared work
 
@@ -322,3 +322,25 @@ Keep `guacamole.md` visible across the handoff instead of replacing it with disc
 **Commit-message prompt:** "Six months from now, will this message tell another person why this version exists?"
 
 This continuity preserves the Carpentries learning progression while increasing learner responsibility: **FOLLOW -> RECOGNIZE -> PREDICT -> EXPLAIN -> ACT -> HELP OTHERS.**
+
+
+## Shared-repository distinction
+
+A **rejected push is not automatically a merge conflict**. A rejection commonly means GitHub has commits the local clone does not yet contain. Pull first and read the integration result. A merge conflict occurs only when Git cannot automatically reconcile overlapping changes. Preserve that distinction in explanations and recovery prompts.
+
+
+## Oct. 8 synchronized decisions
+
+- This workshop continues the canonical Software Carpentry Git concepts and observable states while adapting examples and small-class mechanics.
+- **DEMO + DO** means instructor and learners make one small move together, then stop and read the evidence.
+- **TRY** means inspect, predict, or safely repeat in the local clone.
+- **BUILD** means meaningful work in `build-example/books.md` inside each learner's clone of the shared `GitHubCarpentries-Examples` repository.
+- There is **no Teams-dependent activity** and no Owner/Collaborator pair setup for the first BUILD.
+- Learners are asked in advance to create GitHub accounts. During class, Rebekah collects **GitHub usernames only**, invites learners as collaborators, and learners accept before the first push. Passwords, tokens, recovery codes, and other authentication secrets are never collected.
+- Public access explains why learners can clone before invitation. Collaborator access explains why they can later push.
+- The class practices the full Carpentries collaboration rhythm: **PULL -> CHANGE -> INSPECT -> ADD -> COMMIT -> REVIEW -> PUSH**.
+- Local commits are valid before a push. **COMMITTED != PUSHED**.
+- A rejected push and a merge conflict are different states. Read the rejection, integrate remote work, and only call it a conflict when Git reports an unresolved merge.
+- `guacamole.md` remains the continuity object for a deliberate conflict demonstration when needed; `books.md` is the common BUILD artifact.
+- Helpers recover learners to the current checkpoint rather than creating alternate tracks or taking over keyboards.
+- RStudio is another interface over the same Git states, not a separate Git workflow.
