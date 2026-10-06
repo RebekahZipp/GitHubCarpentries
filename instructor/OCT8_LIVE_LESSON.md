@@ -851,17 +851,86 @@ Do not create another repository, reclone unnecessarily, or make the learner's f
 [ ] no reading-list change has been made yet
 ```
 
-## Instructor access check before break
+## LIVE COLLABORATOR SETUP BEFORE BREAK
 
-Before class, collect each learner's GitHub username and invite them to `RebekahZipp/GitHubCarpentries-Examples` as collaborators. Because this is a personal-account repository, collaborator access is repository-wide rather than folder-specific.
+**This happens during class.** Learners are asked in advance to create a GitHub account, but the instructor does not need or collect passwords, tokens, recovery codes, or other authentication secrets.
 
-During class, verify invitations are accepted before the first learner push. Do not spend the BUILD setup creating separate repositories.
+### Reminder prompt: ask for GitHub usernames
 
-Ask:
+Before the break, pause and say:
 
-> "Being able to see a public repository and being allowed to push to it are different things. What changed when I invited you as a collaborator?"
+> "Before we go to break, I need one piece of GitHub information from each of you so that we can collaborate after the break: your **GitHub username**. Please do not give me your password, token, recovery code, or any other login credential. I only need the public username attached to your GitHub account."
 
-Expected idea: the repository was already readable; collaborator access adds permission to contribute changes.
+If useful, ask learners to open GitHub and verify the username shown on their profile rather than guessing it.
+
+### Say: public access versus collaborator access
+
+> "You were able to clone this repository before I gave you any special access because the repository is public. Public means you can read and clone it. It does not mean everyone on the internet can push changes into it."
+
+> "You can also make commits in your local clone without my permission because those commits happen on your computer. What we are changing now is your permission to contribute those commits back to our shared GitHub repository."
+
+Show:
+
+```text
+CLONE       local copy       public access is enough
+COMMIT      local history    happens on your computer
+PUSH        shared history   GitHub write permission is required
+```
+
+### DEMO + DO: collaborator invitation
+
+On the instructor's projected GitHub repository, open:
+
+`RebekahZipp/GitHubCarpentries-Examples`
+
+Then use the repository's collaborator/access settings to invite each learner by **GitHub username**.
+
+As each invitation is sent, have that learner open their GitHub notifications or invitation page and accept it.
+
+**Helper role:** Frances and Dani help learners locate their GitHub username, find the invitation, sign in to their own account, and accept. Helpers never ask learners to reveal a password or token and never type a learner's credentials for them.
+
+### Ask
+
+> "Before I invited you, could you clone this repository?"
+
+Expected: **Yes.**
+
+> "Before I invited you, could you make a local commit?"
+
+Expected: **Yes.**
+
+> "So what did the collaborator invitation actually change?"
+
+Give learners time to answer.
+
+### Say
+
+> "It changed what GitHub will allow your account to do when you try to share work back. Your clone did not become a different repository. Your relationship to the shared GitHub repository gained write permission."
+
+### Verify before break
+
+Ask each learner to confirm only:
+
+> "Invitation accepted?"
+
+Do **not** have learners test `push` yet. Preserve that as the post-break teaching event.
+
+If someone has not completed GitHub account setup, do not hold the local Git lesson. A helper can assist with account setup while the learner continues with the local clone. They can still inspect, edit, stage, and commit locally; collaborator access is needed when we reach the shared push.
+
+### Before-break collaboration checkpoint
+
+```text
+[ ] GitHub account is available
+[ ] instructor has the learner's GitHub USERNAME only
+[ ] collaborator invitation was sent
+[ ] learner accepted the invitation
+[ ] public repository is already cloned locally
+[ ] origin is understood
+[ ] build-example/books.md is visible
+[ ] working tree is clean
+[ ] no learner BUILD change has been made yet
+[ ] no learner push has been attempted yet
+```
 
 ## Transition to break
 
@@ -890,7 +959,7 @@ Where our workshop differs, state the difference explicitly rather than silently
 - the class is small;
 - learners work from clones of the instructor's example repository rather than pairing as Owner/Collaborator for the first BUILD activity;
 - learners make local commits in their own clones;
-- learners are invited as collaborators to the instructor's public example repository before the collaboration exercise, so they can practice the full pull -> change -> add -> commit -> push workflow;
+- during the live workshop, learners share their GitHub **usernames only**, the instructor invites them as collaborators to the public example repository, and learners accept before the collaboration exercise so they can practice the full pull -> change -> add -> commit -> push workflow;
 - `build-example/books.md` replaces `hummus.md` as the low-risk learner content example, while `guacamole.md` remains the continuity object for conflict reasoning.
 
 The teaching target is still the Carpentries mental model, with our local example substituted for the Carpentries example where useful.
