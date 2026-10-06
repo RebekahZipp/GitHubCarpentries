@@ -44,10 +44,14 @@ This is the **day-of teaching script**. Teach it top to bottom. Each phase uses 
 
 ## Activity labels
 
-**DEMO** = watch, predict, discuss.  
-**TRY** = use the local class example.  
-**BUILD** = work in a learner-owned or partner-owned repository.  
-**TALK** = speak or contribute to Teams.
+**DEMO + DO** = I model one small move; you make the same move with me.  
+**TRY** = we pause after a move so you can inspect, predict, or repeat it in the safe class example.  
+**BUILD** = we use the same hands-on rhythm in a learner-owned or partner-owned repository.  
+**TALK** = we stop typing long enough to explain what the evidence means aloud or in Teams.
+
+**Default workshop rhythm:** **WATCH ONE MOVE -> DO THE MOVE -> STOP -> READ THE OUTPUT -> ASK WHAT IT MEANS -> CONTINUE.**
+
+Do not demonstrate a long command sequence and then ask learners to reproduce it from memory. Commands are taught in small synchronized chunks.
 
 ## Standard prompts
 
@@ -88,6 +92,22 @@ When surprised:
 **EXPECT -> OBSERVE -> EXPLAIN -> TEST -> ACT -> VERIFY**
 
 ---
+
+## Hands-on facilitation rule
+
+The Carpentries lesson is taught by doing. Mirror that flow here.
+
+For every technical sequence:
+
+1. **SAY** what question the next move answers.
+2. **ASK** learners to predict when useful.
+3. **DEMO + DO** one command or one small command pair.
+4. **STOP** typing.
+5. **READ** the output together.
+6. **ASK** what the output tells us.
+7. **SAY** the conclusion and connect it to the next move.
+
+The instructor and learners should usually be at the same checkpoint. Use helpers to recover learners to the current checkpoint rather than letting the class become two separate tracks.
 
 # Run of show
 
@@ -256,59 +276,259 @@ Learner can rejoin when `git status` works in the intended repository.
 # 1:20-1:33 | CLONE AND INSPECT
 
 **Goal:** Distinguish Git from GitHub and understand clone as a repository relationship.  
-**Mode:** DEMO -> TRY + TALK
+**Mode:** DEMO + DO -> STOP + READ -> TALK
 
 ## Say
 
-> "We know Git can remember a project locally. Now we are going to make a second copy without turning it into an emailed attachment. Watch what clone brings with it, then we will ask Git to prove that the copy still has history and a relationship to GitHub."
+> "We know Git can remember a project locally. Now we are going to make a second copy without turning it into an emailed attachment. I will make one move, then you will make the same move. We will stop and read what Git tells us before moving on."
 
 ```text
 MY COMPUTER             GITHUB              SOMEONE ELSE
 local repository  <-->  remote repository  <--> local repository
 ```
 
-Open the TRY repository.
+Open the TRY repository together:
+
+https://github.com/RebekahZipp/GitHubCarpentries-Examples
 
 > "Do not edit yet. Investigate first."
 
+## Ask before typing
+
+> "Where is this repository right now?"
+
+> "Where on your computer do you want the local copy to live?"
+
+> "What do you predict clone will bring with it: only the visible files, or something more?"
+
+Take one or two answers. Then begin the synchronized hands-on sequence.
+
+## DEMO + DO 1: locate ourselves
+
+Instructor runs:
+
+```bash
+pwd
+```
+
+Learners run:
+
+```bash
+pwd
+```
+
+## Stop and read
+
+**Expected evidence:** each person sees the directory where the shell is currently located.
+
 ## Ask
 
-> "Where is the repository now? Where do we want another copy? What do you predict clone will bring with it?"
+> "If we clone now, where will Git create the new repository folder?"
 
-## Try
+If someone is in the wrong parent directory, fix location now, before cloning.
+
+## Say
+
+> "Good. We know where the copy will land. Now we can clone intentionally instead of hunting for it afterward."
+
+## DEMO + DO 2: clone
+
+Instructor runs:
 
 ```bash
 git clone https://github.com/RebekahZipp/GitHubCarpentries-Examples.git
-cd GitHubCarpentries-Examples
-pwd
-git rev-parse --show-toplevel
-git status
-git log --oneline
-git remote -v
+```
+
+Learners run the same command.
+
+## Stop and read
+
+Do not immediately type the next command.
+
+Ask:
+
+> "What did Git say it was doing?"
+
+Look for language about **cloning**, **receiving objects**, or completion.
+
+Then:
+
+```bash
 ls
 ```
 
-## Expected learner evidence
+Learners run `ls`.
 
-- repository directory exists locally;
-- `git status` identifies a branch and working-tree state;
-- `git log --oneline` shows history from before the clone;
-- `git remote -v` shows `origin` with fetch and push URLs;
-- `guacamole.md` is visible.
+**Expected evidence:** `GitHubCarpentries-Examples` now appears as a local directory.
 
-**Concept check:** clone is not a ZIP download. It brings Git history and configures a remote relationship.
+## Say
+
+> "We asked Git for another repository, and now we have a new local directory. But a directory alone does not prove that its Git history came with it. Let's go inside and ask."
+
+## DEMO + DO 3: enter and establish repository scope
+
+Instructor:
+
+```bash
+cd GitHubCarpentries-Examples
+pwd
+git rev-parse --show-toplevel
+```
+
+Learners do the same.
+
+## Stop and read
+
+**Expected evidence:**
+
+- `pwd` ends in `GitHubCarpentries-Examples`;
+- `git rev-parse --show-toplevel` identifies that directory as the repository root.
+
+## Ask
+
+> "What did `pwd` tell us?"
+
+Take an answer.
+
+> "What did Git tell us that `pwd` could not?"
+
+## Say
+
+> "`pwd` tells us where the shell is. Git tells us where the repository begins. Now that we know where we are, we can ask what state and history came with the clone."
+
+## DEMO + DO 4: inspect state
+
+Instructor:
+
+```bash
+git status
+```
+
+Learners run it.
+
+## Stop and read
+
+**Expected evidence:** branch information and a clean or otherwise described working-tree state.
+
+## Ask
+
+> "What state does Git think this repository is in right now?"
+
+Do not translate the output before learners have a chance to read it.
+
+## DEMO + DO 5: inspect history
+
+Instructor:
+
+```bash
+git log --oneline
+```
+
+Learners run it.
+
+## Stop and read
+
+**Expected evidence:** commits exist from before anyone in the room cloned the repository.
+
+## Ask
+
+> "Did we create those commits just now?"
+
+> "So what came with the clone besides the visible files?"
+
+## Say
+
+> "That is our first important piece of evidence: clone brought the project's recorded history with it."
+
+## DEMO + DO 6: inspect the remote relationship
+
+Instructor:
+
+```bash
+git remote -v
+```
+
+Learners run it.
+
+## Stop and read
+
+**Expected evidence:** `origin` appears with the GitHub URL for fetch and push.
+
+## Ask
+
+> "We have a local repository. What evidence tells us it still knows about the GitHub repository it came from?"
+
+Take an answer pointing to `origin` and the URL.
+
+## DEMO + DO 7: inspect the files
+
+```bash
+ls
+```
+
+Learners locate `guacamole.md`.
+
+## Ask
+
+> "What familiar file do you see?"
+
+Use guacamole to connect this session to the earlier Carpentries Git work.
+
+## Build the concept together
+
+Ask:
+
+> "Based on the evidence we just collected, finish this sentence: cloning gave me ______."
+
+Listen for **files**, **history**, **repository**, and **remote/origin relationship**.
+
+Then summarize:
+
+> "Exactly. Clone did not just download files. It created a local Git repository with recorded history and a configured relationship back to GitHub."
+
+## Concept check
+
+**Clone != ZIP download**
+
+A clone gives us:
+
+```text
+FILES + GIT HISTORY + LOCAL REPOSITORY + REMOTE RELATIONSHIP
+```
 
 ## Helper cue
 
-For a failed clone, check terminal, `pwd`, existing folder, then exact error.
+Stay synchronized with the room. If one learner fails at a step, a helper works only to the current checkpoint. Check:
+
+1. terminal;
+2. `pwd`;
+3. whether the target folder already exists;
+4. exact error text.
+
+Do not run later commands for them while the room moves ahead.
 
 ## Common mistake
 
 Cloning in an unintended directory or inside another project.
 
+Ask:
+
+> "Where did the shell say we were before we cloned?"
+
 ## Catch-up
 
-TRY repo exists locally and `git status` works.
+Learner can rejoin when:
+
+```bash
+cd GitHubCarpentries-Examples
+git status
+```
+
+works.
+
+## Transition Say
+
+> "We have proved that clone brought history with it and left a relationship back to GitHub. Next we are going to inspect that relationship more closely. The name Git gives us for it is `origin`."
 
 ---
 
