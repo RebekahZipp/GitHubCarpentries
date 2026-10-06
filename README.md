@@ -12,7 +12,7 @@ This repository is the course front door. **You should not have to hunt through 
 | **Learner** | **[OPEN THE STUDENT LESSON](student/CLONE_INVESTIGATE_BUILD.md)** | Follow-along GitHub lesson, catch-up checkpoints, collaboration, conflict, recovery, and BUILD work. |
 | **Helper** | **[OPEN THE HELPER CUE SHEET](helper/README.md)** | Timed room cues, learner checkpoints, common problems, Teams monitoring, and safe handoff. |
 | **Everyone** | **[OPEN THE GIT & GITHUB CHEAT SHEET](GIT_CHEAT_SHEET.md)** | Commands and reasoning in lesson order. Keep this open during class. |
-| **TRY practice** | **[OPEN / CLONE THE EXAMPLE REPOSITORY](https://github.com/RebekahZipp/GitHubCarpentries-Examples)** | Safe shared example to clone and investigate locally. Do substantive BUILD work in your own repository. |
+| **TRY practice** | **[OPEN / CLONE THE EXAMPLE REPOSITORY](https://github.com/RebekahZipp/GitHubCarpentries-Examples)** | Safe shared example to clone and investigate locally. After live collaborator setup, use it for the shared BUILD and collaboration exercise. |
 
 ## The course in one map
 
@@ -32,7 +32,7 @@ This repository is the course front door. **You should not have to hunt through 
                     +----------+----------+
                     |                     |
                    TRY                  BUILD
-          class example repo      learner-owned repo
+          class example repo      shared class repo
           clone + investigate     change + collaborate
                     |                     |
                     +----------+----------+
@@ -46,7 +46,7 @@ This repository is the course front door. **You should not have to hunt through 
 **DEMO** — watch, predict, discuss.  
 **TRY** — use your local clone of the class example.  
 **BUILD** — work in your own or your partner's repository.  
-**TALK** — speak up or add your thought/question to Teams.
+**TALK** — speak up, ask a question, or share an observation.
 
 ### 1:00–1:53 — Beginning
 **WHERE AM I? → WHERE CAN THE WORK GO?**
@@ -163,3 +163,25 @@ Keep `guacamole.md` visible across the handoff instead of replacing it with disc
 **Commit-message prompt:** "Six months from now, will this message tell another person why this version exists?"
 
 This continuity preserves the Carpentries learning progression while increasing learner responsibility: **FOLLOW -> RECOGNIZE -> PREDICT -> EXPLAIN -> ACT -> HELP OTHERS.**
+
+
+## Shared-repository distinction
+
+A **rejected push is not automatically a merge conflict**. A rejection commonly means GitHub has commits the local clone does not yet contain. Pull first and read the integration result. A merge conflict occurs only when Git cannot automatically reconcile overlapping changes. Preserve that distinction in explanations and recovery prompts.
+
+
+## Oct. 8 synchronized decisions
+
+- This workshop continues the canonical Software Carpentry Git concepts and observable states while adapting examples and small-class mechanics.
+- **DEMO + DO** means instructor and learners make one small move together, then stop and read the evidence.
+- **TRY** means inspect, predict, or safely repeat in the local clone.
+- **BUILD** means meaningful work in `build-example/books.md` inside each learner's clone of the shared `GitHubCarpentries-Examples` repository.
+- There is **no Teams-dependent activity** and no Owner/Collaborator pair setup for the first BUILD.
+- Learners are asked in advance to create GitHub accounts. During class, Rebekah collects **GitHub usernames only**, invites learners as collaborators, and learners accept before the first push. Passwords, tokens, recovery codes, and other authentication secrets are never collected.
+- Public access explains why learners can clone before invitation. Collaborator access explains why they can later push.
+- The class practices the full Carpentries collaboration rhythm: **PULL -> CHANGE -> INSPECT -> ADD -> COMMIT -> REVIEW -> PUSH**.
+- Local commits are valid before a push. **COMMITTED != PUSHED**.
+- A rejected push and a merge conflict are different states. Read the rejection, integrate remote work, and only call it a conflict when Git reports an unresolved merge.
+- `guacamole.md` remains the continuity object for a deliberate conflict demonstration when needed; `books.md` is the common BUILD artifact.
+- Helpers recover learners to the current checkpoint rather than creating alternate tracks or taking over keyboards.
+- RStudio is another interface over the same Git states, not a separate Git workflow.
