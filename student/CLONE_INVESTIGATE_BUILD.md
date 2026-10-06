@@ -33,7 +33,7 @@ The lesson uses four simple labels:
 
 - **DEMO:** watch, predict, and discuss.
 - **TRY:** work in your own local clone of the class example. You are not changing the instructor's source repository.
-- **BUILD:** work in a repository you own or share with your partner.
+- **BUILD:** work in a shared class example repository.
 - **TALK:** answer aloud or add your observation, question, error message, or takeaway to the Teams chat.
 
 If you are unsure where a command belongs, ask before running it.
@@ -136,13 +136,13 @@ Read those commands as questions:
 
 ## BUILD project: Books I Have Read
 
-For the learner-owned repository, use a reading log you can keep after class.
+For the shared class repository, use a reading log you can keep after class.
 
-Create a repository with:
+The shared example already contains:
 
 ```text
-README.md
-books.md
+build-example/README.md
+build-example/books.md
 ```
 
 Starter `books.md`:
@@ -168,7 +168,7 @@ Do not put passwords, access tokens, private reading information you do not want
 
 ## 3. Collaborate: pull before new shared work
 
-In the Carpentries Owner/Collaborator exercise, one person owns the GitHub repository and another person works from a clone.
+The canonical Carpentries lesson uses Owner/Collaborator pairs. Our small class keeps the same Git workflow while adapting the mechanics: everyone clones the same public example repository, then receives collaborator access live in class.
 
 A basic shared workflow is:
 
@@ -416,3 +416,8 @@ Keep `guacamole.md` visible across the handoff instead of replacing it with disc
 **Commit-message prompt:** "Six months from now, will this message tell another person why this version exists?"
 
 This continuity preserves the Carpentries learning progression while increasing learner responsibility: **FOLLOW -> RECOGNIZE -> PREDICT -> EXPLAIN -> ACT -> HELP OTHERS.**
+
+
+## Shared-repository distinction
+
+A **rejected push is not automatically a merge conflict**. A rejection commonly means GitHub has commits the local clone does not yet contain. Pull first and read the integration result. A merge conflict occurs only when Git cannot automatically reconcile overlapping changes. Preserve that distinction in explanations and recovery prompts.
