@@ -25,7 +25,7 @@ git remote -v
 
 Read the README, data, notes, ignore rules, license, and citation file.
 
-**TALK:** Add one observation to Teams or say it aloud.
+**TALK:** Say one observation aloud or share it with a helper.
 
 ## 4. Test an ignore rule locally
 
@@ -65,3 +65,8 @@ Keep `guacamole.md` visible across the handoff instead of replacing it with disc
 **Commit-message prompt:** "Six months from now, will this message tell another person why this version exists?"
 
 The responsibility progression is **FOLLOW -> RECOGNIZE -> PREDICT -> EXPLAIN -> ACT -> HELP OTHERS.**
+
+
+## Shared-repository distinction
+
+A **rejected push is not automatically a merge conflict**. A rejection commonly means GitHub has commits the local clone does not yet contain. Pull first and read the integration result. A merge conflict occurs only when Git cannot automatically reconcile overlapping changes. Preserve that distinction in explanations and recovery prompts.
