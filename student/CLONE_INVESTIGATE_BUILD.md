@@ -132,6 +132,37 @@ Read those commands as questions:
 - What happened before I arrived?
 - Where did this repository come from?
 
+
+
+## BUILD project: Books I Have Read This Year
+
+For the learner-owned repository, use a reading log you can keep after class.
+
+Create a repository with:
+
+```text
+README.md
+books.md
+```
+
+Starter `books.md`:
+
+```markdown
+# Books I Have Read This Year
+
+| Title | Author | Date Finished | Rating | Notes |
+| --- | --- | --- | --- | --- |
+```
+
+This project is intentionally simple. The content can grow all year while the Git history records when and why the reading list changed.
+
+Use the normal rhythm:
+
+**PULL -> CHANGE -> INSPECT -> CHOOSE -> RECORD -> REVIEW -> PUSH**
+
+Do not put passwords, access tokens, private reading information you do not want shared, or sensitive personal data in the repository.
+
+
 ## 3. Collaborate: pull before new shared work
 
 In the Carpentries Owner/Collaborator exercise, one person owns the GitHub repository and another person works from a clone.
@@ -151,7 +182,7 @@ git status
 git diff
 git add FILE
 git diff --staged
-git commit -m "Clarify guacamole instructions"
+git commit -m "Add first books to 2026 reading list"
 git log --oneline
 git push origin main
 ```
