@@ -12,7 +12,7 @@ Our rhythm remains:
 
 ## How we work together
 
-This workshop follows The Carpentries Code of Conduct in class and in our GitHub collaboration.
+This workshop follows [The Carpentries Code of Conduct](https://docs.carpentries.org/policies/coc/) in class, Teams, and GitHub collaboration.
 
 Mistakes, questions, rejected pushes, and conflicts are normal learning material. We review the **work and evidence**, not the person.
 
@@ -134,7 +134,7 @@ Read those commands as questions:
 
 
 
-## BUILD project: Books I Have Read This Year
+## BUILD project: Books I Have Read
 
 For the learner-owned repository, use a reading log you can keep after class.
 
@@ -148,10 +148,13 @@ books.md
 Starter `books.md`:
 
 ```markdown
-# Books I Have Read This Year
+# Books I Have Read
 
-| Title | Author | Date Finished | Rating | Notes |
-| --- | --- | --- | --- | --- |
+| Title | Author | Date Finished | Publisher | Rating | Notes |
+| --- | --- | --- | --- | --- | --- |
+| Such Sharp Teeth | Rachel Harrison | 2022-10-03 | Penguin Publishing Group | | |
+| I, Medusa | Ayana Gray | 2025-11-17 | Random House Publishing Group | | |
+| The Penelopiad | Margaret Atwood | 2014-10-22 | Faber & Faber | | |
 ```
 
 This project is intentionally simple. The content can grow all year while the Git history records when and why the reading list changed.
@@ -182,7 +185,7 @@ git status
 git diff
 git add FILE
 git diff --staged
-git commit -m "Add first books to 2026 reading list"
+git commit -m "Add first books to reading list"
 git log --oneline
 git push origin main
 ```
