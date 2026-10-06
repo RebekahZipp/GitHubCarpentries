@@ -8,8 +8,8 @@ Learners should not use the instructor's source as their permanent workspace. Du
 
 - **DEMO:** watch, predict, and discuss.
 - **TRY:** inspect or experiment in your own local clone of the example.
-- **BUILD:** do meaningful work in a repository you own or share with your partner.
-- **TALK:** speak up or add a note, question, observation, or non-sensitive error message to Teams.
+- **BUILD:** do meaningful work in a shared class example repository.
+- **TALK:** speak up, ask a question, or share an observation.
 
 ## Start by investigating
 
@@ -48,7 +48,7 @@ The data are fictional and contain no patron or personal information.
 
 You may experiment with your **local clone**. If it becomes confusing, stop, inspect, explain what happened, and decide whether recovery or a fresh clone is the better learning move.
 
-Do not paste credentials, tokens, private project information, or personal data into this repository or Teams.
+Do not paste credentials, tokens, private project information, or personal data into this repository.
 
 ## Reasoning rhythm
 
@@ -76,3 +76,8 @@ Keep `guacamole.md` visible across the handoff instead of replacing it with disc
 **Commit-message prompt:** "Six months from now, will this message tell another person why this version exists?"
 
 The responsibility progression is **FOLLOW -> RECOGNIZE -> PREDICT -> EXPLAIN -> ACT -> HELP OTHERS.**
+
+
+## Shared-repository distinction
+
+A **rejected push is not automatically a merge conflict**. A rejection commonly means GitHub has commits the local clone does not yet contain. Pull first and read the integration result. A merge conflict occurs only when Git cannot automatically reconcile overlapping changes. Preserve that distinction in explanations and recovery prompts.
