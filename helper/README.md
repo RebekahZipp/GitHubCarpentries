@@ -43,7 +43,7 @@ Ask:
 - What directory are we in?
 - What repository does Git think we are in?
 - What branch are we on?
-- Is this the learner's repository, a collaborator's clone, or another project?
+- Is this the shared class clone or another project?
 
 ### OBSERVE
 
@@ -135,9 +135,9 @@ On institutional, shared, or borrowed equipment, involve the responsible IT staf
 
 Never teach `rm -rf` as a casual recovery command. Prefer reversible moves and explicit verification of the target.
 
-## Teams and whole-room discourse
+## Whole-room discourse
 
-Learners can answer aloud or contribute to the Teams chat. Treat both as participation.
+Learners can answer aloud or contribute when invited. Treat both as participation.
 
 While the instructor is teaching, helpers can watch for:
 
@@ -155,7 +155,7 @@ rather than:
 
 > "Jordan did this wrong."
 
-When useful, invite a learner to add the **exact non-sensitive error message** to Teams so the group can reason from the same evidence.
+When useful, invite a learner to read or show the **exact non-sensitive error message** so the group can reason from the same evidence.
 
 At the 7-minute breaks around 2:00 and 3:00, stop active troubleshooting unless a learner specifically asks to continue. Use the break to collect patterns for the instructor and let learners step away.
 
@@ -168,10 +168,10 @@ Use these as place points so you know what the room should be doing without need
 | **1:00–1:10** | Re-entry | Console, directory, repository root, status |
 | **1:10–1:25** | TRY clone | Clone location, exact error, verify remote/history |
 | **1:25–1:40** | Remotes | Help learners explain `origin`; do not overteach remote commands |
-| **1:40–1:53** | BUILD setup | Owner/Collaborator identity, access, correct clone |
+| **1:40–1:53** | BUILD setup | GitHub username only, collaborator invitation accepted, correct shared clone |
 | **1:53–2:00** | **BREAK** | Stop active troubleshooting; give Rebekah pattern report |
 | **2:00–2:18** | First collaboration | State transitions: modified → staged → committed → pushed |
-| **2:18–2:33** | Role switch | Reduce help; ask learner for next move and evidence |
+| **2:18–2:33** | Shared push/pull | Reduce help; ask learner for next move and evidence |
 | **2:33–2:53** | Conflict | Preserve rejection/conflict evidence; no reflex force push |
 | **2:53–3:00** | **BREAK** | Identify learners mid-conflict and recurring misconceptions |
 | **3:00–3:15** | History/recovery | Intended target state before recovery command |
@@ -274,3 +274,25 @@ Keep `guacamole.md` visible across the handoff instead of replacing it with disc
 **Commit-message prompt:** "Six months from now, will this message tell another person why this version exists?"
 
 This continuity preserves the Carpentries learning progression while increasing learner responsibility: **FOLLOW -> RECOGNIZE -> PREDICT -> EXPLAIN -> ACT -> HELP OTHERS.**
+
+
+## Shared-repository distinction
+
+A **rejected push is not automatically a merge conflict**. A rejection commonly means GitHub has commits the local clone does not yet contain. Pull first and read the integration result. A merge conflict occurs only when Git cannot automatically reconcile overlapping changes. Preserve that distinction in explanations and recovery prompts.
+
+
+## Oct. 8 synchronized decisions
+
+- This workshop continues the canonical Software Carpentry Git concepts and observable states while adapting examples and small-class mechanics.
+- **DEMO + DO** means instructor and learners make one small move together, then stop and read the evidence.
+- **TRY** means inspect, predict, or safely repeat in the local clone.
+- **BUILD** means meaningful work in `build-example/books.md` inside each learner's clone of the shared `GitHubCarpentries-Examples` repository.
+- There is **no Teams-dependent activity** and no Owner/Collaborator pair setup for the first BUILD.
+- Learners are asked in advance to create GitHub accounts. During class, Rebekah collects **GitHub usernames only**, invites learners as collaborators, and learners accept before the first push. Passwords, tokens, recovery codes, and other authentication secrets are never collected.
+- Public access explains why learners can clone before invitation. Collaborator access explains why they can later push.
+- The class practices the full Carpentries collaboration rhythm: **PULL -> CHANGE -> INSPECT -> ADD -> COMMIT -> REVIEW -> PUSH**.
+- Local commits are valid before a push. **COMMITTED != PUSHED**.
+- A rejected push and a merge conflict are different states. Read the rejection, integrate remote work, and only call it a conflict when Git reports an unresolved merge.
+- `guacamole.md` remains the continuity object for a deliberate conflict demonstration when needed; `books.md` is the common BUILD artifact.
+- Helpers recover learners to the current checkpoint rather than creating alternate tracks or taking over keyboards.
+- RStudio is another interface over the same Git states, not a separate Git workflow.
