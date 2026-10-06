@@ -25,19 +25,15 @@ This is the **day-of teaching script**. Teach it top to bottom. Each phase uses 
 - [ ] TRY repository opens in the browser.
 - [ ] TRY repository is cloned locally.
 - [ ] `guacamole.md` is present.
-- [ ] Teams workshop chat is open.
 - [ ] Student lesson and whole-class cheat sheet are open.
 - [ ] RStudio is available for the transfer demo.
-- [ ] Pair plan is ready.
-- [ ] Owner/Collaborator access can be granted.
-- [ ] One fallback BUILD repository is available if an account is blocked.
+- [ ] `build-example/books.md` is present in the TRY repository on GitHub.
 - [ ] Frances and Dani know the catch-up checkpoints and escalation rule.
 
 ## Accessibility and inclusion
 
 - Give quiet think time before taking answers.
-- Accept spoken or Teams responses.
-- Let pairs reason before whole-room correction.
+- Accept spoken responses and give learners time to think before whole-room correction.
 - Treat mistakes as evidence about the work, never as evidence about a learner.
 - Ask before touching another person's keyboard.
 - Do not require public disclosure of errors, credentials, private repositories, or sensitive data.
@@ -46,8 +42,8 @@ This is the **day-of teaching script**. Teach it top to bottom. Each phase uses 
 
 **DEMO + DO** = I model one small move; you make the same move with me.  
 **TRY** = we pause after a move so you can inspect, predict, or repeat it in the safe class example.  
-**BUILD** = we use the same hands-on rhythm in a learner-owned or partner-owned repository.  
-**TALK** = we stop typing long enough to explain what the evidence means aloud or in Teams.
+**BUILD** = we make meaningful local changes in each learner's clone of the class repository.  
+**TALK** = we stop typing long enough to explain what the evidence means aloud.
 
 **Default workshop rhythm:** **WATCH ONE MOVE -> DO THE MOVE -> STOP -> READ THE OUTPUT -> ASK WHAT IT MEANS -> CONTINUE.**
 
@@ -70,8 +66,6 @@ Use these when useful, not in every section.
 > "Git is literal. It does exactly what we tell it, not what we mean."
 
 > "The commands may change. The reasoning should become familiar."
-
-> "Say it out loud, or put your thought in Teams."
 
 > "Commit records here. Push shares there. Pull brings shared work here."
 
@@ -117,7 +111,7 @@ The instructor and learners should usually be at the same checkpoint. Use helper
 | 1:10-1:20 | Re-enter Git | Can locate terminal, repo, state, history |
 | 1:20-1:33 | Clone and inspect | TRY repo cloned and recognized as Git |
 | 1:33-1:43 | Remote and origin | Can explain local vs remote and origin |
-| 1:43-1:53 | Pair setup | BUILD repo and roles ready |
+| 1:43-1:53 | From TRY to BUILD | Reading-list artifact located; clean local clone ready for first change |
 | **1:53-2:00** | **Break** | |
 | 2:00-2:18 | Collaboration cycle | One meaningful commit shared |
 | 2:18-2:33 | Switch roles | Repeat with less instructor support |
@@ -133,31 +127,6 @@ The instructor and learners should usually be at the same checkpoint. Use helper
 
 ---
 
-# Role cards
-
-## Owner
-
-- owns or controls the BUILD repository;
-- grants Collaborator access;
-- pulls and reviews the collaborator's work;
-- discusses intent before resolving shared changes.
-
-## Collaborator
-
-- accepts access;
-- clones the Owner repository;
-- pulls before shared work;
-- changes, inspects, stages, commits, reviews, and pushes.
-
-## Both
-
-- know whose repository they are in;
-- use `status`, diff, and history as evidence;
-- discuss intent rather than guessing;
-- verify after every shared-state change.
-
----
-
 # 1:00-1:10 | SETUP + CODE OF CONDUCT
 
 **Goal:** Get every learner to a usable starting point while establishing how we will learn and collaborate.  
@@ -167,11 +136,11 @@ The instructor and learners should usually be at the same checkpoint. Use helper
 
 > "Welcome. Before Git can track our work, we need to make sure Git can find us. Use these first ten minutes to get your computer, terminal, and GitHub account ready. If you are already set up, help us verify rather than racing ahead."
 
-> "While we get everyone connected, I also want to name how we will work together. This workshop follows [The Carpentries Code of Conduct](https://docs.carpentries.org/policies/coc/). It applies here in the room and in the online spaces we use, including Teams and GitHub. The short version is: use welcoming and inclusive language, respect different viewpoints and experience levels, accept constructive feedback, and show courtesy to one another."
+> "While we get everyone connected, I also want to name how we will work together. This workshop follows [The Carpentries Code of Conduct](https://docs.carpentries.org/policies/coc/). It applies here in the room and in the GitHub spaces we use. The short version is: use welcoming and inclusive language, respect different viewpoints and experience levels, accept constructive feedback, and show courtesy to one another."
 
 > "That matters technically, too. Today we will look at each other's work, ask questions, encounter errors, and sometimes disagree about what a file should say. We critique the work and the evidence, not the person. Ask before touching someone else's keyboard. Do not share passwords, tokens, private repository information, patron information, or other sensitive data."
 
-> "You will see four labels. **DEMO** means I show a move and we read the result together. **TRY** means you experiment in our safe class example. **BUILD** means you make something in a repository you can keep. **TALK** means you can answer aloud or in Teams. You do not need to be the fastest person in the room. You do need to stay curious about what the computer is telling us."
+> "You will see four labels. **DEMO + DO** means I make one small move and you make the same move with me. **TRY** means we pause to inspect, predict, or repeat something safely. **BUILD** means we make meaningful changes in the local clone you already have. **TALK** means we stop typing and explain what the evidence means aloud. You do not need to be the fastest person in the room. You do need to stay curious about what the computer is telling us."
 
 ## Setup
 
@@ -186,7 +155,6 @@ Then confirm:
 - Git Bash or another terminal is available;
 - GitHub account can be opened;
 - GitHub authentication/2FA is complete if required;
-- workshop Teams chat is open;
 - student lesson and cheat sheet are available.
 
 If Git is not installed, use the Carpentries setup instructions:  
@@ -532,78 +500,360 @@ works.
 
 ---
 
-# 1:33-1:43 | REMOTE AND ORIGIN
+# 1:33-1:43 | REMOTE, ORIGIN, AND PULL
 
-**Goal:** Separate local repository, remote repository, commit, push, and pull.  
-**Mode:** DEMO + TRY
+**Goal:** Separate the local repository from the GitHub remote and use evidence to explain what `origin`, fetch/push addresses, commit, and pull mean.  
+**Mode:** DEMO + DO -> STOP + READ -> TALK
 
 ## Say
 
-> "The clone gave us more than files. It also gave this local repository an address book entry called `origin`. We are going to read that relationship before we use it."
+> "The clone gave us more than files and history. It also gave this local repository an address-book entry called `origin`. Before we use that relationship, we are going to read it."
 
-> "Commit records here. Push shares there. Pull brings shared work here."
+> "The question is not 'What Git command comes next?' The question is 'What relationship does this local repository already know about?'"
 
-## Demo
+## DEMO + DO 1: read the remote relationship
+
+Instructor and learners run:
 
 ```bash
 git remote -v
 ```
 
+## Stop and read
+
+Expected evidence resembles:
+
 ```text
-LOCAL COMMIT --push--> GITHUB
-LOCAL REPO   <--pull-- GITHUB CHANGES
+origin  https://github.com/RebekahZipp/GitHubCarpentries-Examples.git (fetch)
+origin  https://github.com/RebekahZipp/GitHubCarpentries-Examples.git (push)
 ```
 
 ## Ask
 
-> "What is local? What is remote? What has been committed? What has actually been shared?"
+> "What name did Git give this remote relationship?"
 
-## Expected learner evidence
+Listen for **origin**.
 
-`git remote -v` shows `origin` twice, normally once for fetch and once for push.
+> "What repository does that name point to?"
 
-**Concept check:** committed is not pushed. Removing a local remote nickname does not delete GitHub.
-
-## Common mistake
-
-Treating commit and push as the same action.
-
----
-
-# 1:43-1:53 | BUILD SETUP AND PAIRS
-
-**Goal:** Move from the shared example to learner-owned collaboration.  
-**Mode:** BUILD
+> "Why do we see the address twice?"
 
 ## Say
 
-> "We have inspected someone else's repository. Now we change responsibility. BUILD is where you create a reading record you can keep, make a decision worth recording, and then let another person collaborate with you."
+> "`origin` is a local nickname for this remote repository. It is conventional, not magical. One line is the address Git can fetch from and one is the address it can push to."
 
-## Build
+Draw or point to:
 
-Each learner creates or chooses a small repository they can keep after class. Use a **Books I Have Read** reading list as the default BUILD artifact. This gives every learner a useful, low-risk document that can continue growing after the workshop. Keep `guacamole.md` in the TRY repository as the familiar Carpentries specimen for continuity, but move substantive learner work into the reading-list repository.
+```text
+MY LOCAL CLONE                         GITHUB
+GitHubCarpentries-Examples  <------>  RebekahZipp/GitHubCarpentries-Examples
+                         origin
+```
 
-Owner grants access. Collaborator accepts and clones.
+> "Commit records a version in my local repository. Push attempts to share my local commits with the remote. Pull brings remote work into this existing local clone. Those are different actions."
+
+## ASK: predict before contacting GitHub
+
+> "Our working tree is clean. Does that prove GitHub has nothing newer than our local clone?"
+
+Take answers before running anything.
+
+## DEMO + DO 2: inspect local state
+
+```bash
+git status
+```
+
+## Stop and read
+
+If Git reports the branch as up to date, ask:
+
+> "What does this tell us about the state our local Git currently knows? Has this command contacted GitHub to discover brand-new work?"
+
+## Say
+
+> "Status is evidence about our local repository and its locally stored knowledge of the remote-tracking branch. To ask GitHub for newer work, we need to contact the remote."
+
+## DEMO + DO 3: pull
+
+```bash
+git pull origin main
+```
+
+## Stop and read
+
+Do not type the next command yet.
+
+If the prepared BUILD update has not already been pulled, learners should see Git contact GitHub and bring in the `build-example` files. Read the output together. Look for:
+
+- `From https://github.com/...`;
+- `main -> origin/main`;
+- `Fast-forward` when applicable;
+- `build-example/README.md`;
+- `build-example/books.md`.
+
+If a learner already has the newest version, Git may instead report **Already up to date.** That is also valid evidence.
+
+## Ask
+
+> "What did `pull` do that `status` did not?"
+
+> "If files arrived, what evidence tells us exactly what arrived?"
+
+## Say
+
+> "Pull contacted the remote. In our prepared example, it can bring the reading-list material into a clone that existed before those files were added. We did not clone again. We updated the clone we already had."
+
+### Teaching moment: output is not input
+
+If someone copies a line such as:
+
+```text
+From https://github.com/RebekahZipp/GitHubCarpentries-Examples
+```
+
+back into Bash and receives `command not found`, use it.
+
+> "That line was Git talking to us. It was output, not another command. Part of terminal literacy is learning which text we type and which text we read."
+
+## Concept check
+
+```text
+COMMIT = record here
+PUSH   = attempt to share there
+PULL   = bring remote work here
+```
+
+**Committed != pushed.**
+
+## Helper cue
+
+If a pull does not behave as expected, first check `pwd`, `git status`, and `git remote -v`. Do not reclone as the first repair.
+
+## Catch-up
+
+Learner can rejoin when they are inside `GitHubCarpentries-Examples`, `git status` works, and `git remote -v` identifies the class repository as `origin`.
+
+## Transition Say
+
+> "We now know where this clone came from and how later shared work can arrive. Everything so far has been observation. Next we are going to find the reading-list example and prepare to make our first local change."
+
+---
+
+# 1:43-1:53 | FROM TRY TO BUILD: FIND THE READING LIST
+
+**Goal:** Move from investigating the class repository to meaningful work inside each learner's own local clone.  
+**Mode:** BUILD
+
+**Important:** Learners do **not** create a second repository here. They already have a complete local Git repository because they cloned `GitHubCarpentries-Examples`. The BUILD work happens in each learner's local clone. Learners can commit locally without changing another learner's clone. Do not require learner pushes to the instructor-owned GitHub repository unless write access has deliberately been configured.
+
+## Say
+
+> "Everything we have done so far has been observation. Now we are going to make this clone ours locally. Each of you has your own local copy of the same starting repository. That means we can begin from the same history and make different local changes without changing the person sitting next to us."
+
+> "Our BUILD artifact is a simple reading record called **Books I Have Read**. The content is intentionally uncomplicated. I want us thinking about what Git sees when a meaningful file changes, not spending the Git lesson learning a complicated dataset."
+
+> "The reading list gives us decisions a human can make: add a book, add a rating, or add a note. Git can record that a rating changed. Git cannot decide whether your opinion of the book is correct."
+
+## DEMO + DO 1: find what arrived
+
+Instructor and learners run:
+
+```bash
+ls
+```
+
+## Stop and read
+
+Expected evidence includes:
+
+```text
+build-example/
+```
+
+## Ask
+
+> "What do you see now that gives us something new to work with?"
+
+Do not type `build-example/` by itself. If that happens and Bash says `Is a directory`, use the output:
+
+> "Bash is telling us this is a directory name, not a command. What command have we already used to look inside a directory?"
+
+## DEMO + DO 2: inspect the BUILD directory
+
+```bash
+ls build-example
+```
+
+## Stop and read
+
+Expected:
+
+```text
+books.md  README.md
+```
+
+## Ask
+
+> "What two files do we have to work with?"
+
+## DEMO + DO 3: read before changing
+
+```bash
+cat build-example/books.md
+```
+
+## Stop and read
+
+Learners should see:
+
+```markdown
+# Books I Have Read
+
+| Title | Author | Date Finished | Publisher | Rating | Notes |
+| --- | --- | --- | --- | --- | --- |
+| Such Sharp Teeth | Rachel Harrison | 2022-10-03 | Penguin Publishing Group | | |
+| I, Medusa | Ayana Gray | 2025-11-17 | Random House Publishing Group | | |
+| The Penelopiad | Margaret Atwood | 2014-10-22 | Faber & Faber | | |
+```
+
+## Ask
+
+> "What do you notice about this file?"
+
+Give learners time to inspect the table.
+
+Then:
+
+> "What is one small change you could make that would actually mean something to you?"
+
+Listen for adding a book, rating, or note.
+
+## Say
+
+> "Those are content decisions. Git does not decide what you should read, what rating a book deserves, or what your note should say. Git helps us see and record the change we decide to make."
+
+> "Before we change anything, we need a baseline. If we know the starting state, the next status message will have something meaningful to compare against."
+
+## DEMO + DO 4: establish the clean baseline
+
+```bash
+git status
+```
+
+## Stop and read
+
+Expected evidence:
+
+```text
+nothing to commit, working tree clean
+```
+
+## Ask
+
+> "Have we changed the reading list yet?"
+
+> "What exact evidence supports your answer?"
+
+## DEMO + DO 5: verify the relationship and history one last time
+
+Run one move at a time:
+
+```bash
+git remote -v
+```
+
+Stop and ask:
+
+> "Where did our common starting repository come from?"
+
+Then:
+
+```bash
+git log --oneline
+```
+
+Stop and ask:
+
+> "Does this clone already have a history? Which commits existed before we make our own change?"
+
+## Build the next workflow together
+
+Show:
 
 ```text
 PULL -> CHANGE -> INSPECT -> CHOOSE -> RECORD -> REVIEW -> PUSH
 ```
 
-## Ask
+## Say
 
-> "Whose repository is this? What role are you in? What remote does this clone point to?"
+> "We have already experienced the first word: **PULL** brought later shared work into the clone we already had. After the break, each of us will make one real change to `build-example/books.md`. Then we will follow that change through Git one state at a time."
+
+> "Do not memorize this line. We are going to build its meaning by doing it. Change first. Then inspect what actually changed. Choose what belongs in the next version. Record it with a commit. Review what we recorded. Only then do we ask what sharing with the remote means."
+
+## Ask before break
+
+> "Right now, before we edit, what state are we in?"
+
+Expected answer: clean working tree in a local clone with existing history and a known `origin`.
+
+> "After we edit `books.md`, what do you predict `git status` will say?"
+
+Do **not** test the prediction yet. Preserve it for the first move after break.
 
 ## Expected learner evidence
 
-Each pair can identify Owner, Collaborator, repository, branch, and remote.
+By the break, each learner can show:
+
+- a local clone of `GitHubCarpentries-Examples`;
+- branch `main`;
+- `build-example/books.md`;
+- a clean working tree;
+- `origin` pointing to the class GitHub repository;
+- existing Git history;
+- one predicted meaningful change they can make after break.
 
 ## Helper cue
 
-If account access fails, use the fallback BUILD repository or pair with a functioning account. Do not let permissions consume the lesson.
+Frances and Dani recover learners only to the common checkpoint:
 
-## Catch-up
+> "Get the learner to a clean clone where they can see `build-example/books.md`. Stop there."
 
-A BUILD repository is available and each learner knows their role.
+Check, in order:
+
+1. terminal;
+2. `pwd`;
+3. repository root if needed;
+4. `git status`;
+5. `ls build-example`.
+
+Do not create another repository, reclone unnecessarily, or make the learner's first reading-list edit for them.
+
+## Common teaching moments from rehearsal
+
+**Cloned inside another repository:** the clone may be healthy even if its location was unintended. Locate it before deciding to delete or reclone.
+
+**Repeated `cd GitHubCarpentries-Examples` while already inside it:** read the prompt and verify with `pwd` before moving again.
+
+**Misspelled path:** compare the typed path with `ls` output. Bash is literal.
+
+**Git output pasted as a command:** identify who is speaking. Output is evidence to read, not necessarily input to type.
+
+## Catch-up checkpoint
+
+```text
+[ ] GitHubCarpentries-Examples is the current repository
+[ ] main is the current branch
+[ ] build-example/books.md is visible
+[ ] working tree is clean
+[ ] origin is known
+[ ] existing history is visible
+[ ] no reading-list change has been made yet
+```
+
+## Transition to break
+
+> "Before the break, we learned to locate and read a repository, follow its relationship back to GitHub, and find the file we are going to work on. When we come back, we are going to change one thing and follow that change all the way from the working directory into Git's history."
 
 ---
 
@@ -1269,7 +1519,7 @@ Use `git status`, `git log --oneline`, `git show HEAD`, the remote view on GitHu
 
 ## Instructor rule for challenges
 
-Give learners quiet time first. Then ask for one explanation aloud or in Teams. Only after they have reasoned should you reveal the answer/workaround.
+Give learners quiet time first. Then ask for one explanation aloud. Only after they have reasoned should you reveal the answer/workaround.
 
 The teaching sequence is:
 
