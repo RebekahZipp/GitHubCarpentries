@@ -976,39 +976,15 @@ Helpers identify only the highest-value pattern to surface after break.
 
 # 2:00-4:00 | BUILD ONE USEFUL REPOSITORY
 
-**Post-break outcome:** Stop treating the second half as a sequence of Git topics. The class now has one job: **turn the example reading list into a small, understandable, shared research-data-style repository and leave evidence of how it changed.**
+By the end of class, we will have improved the shared reading-list repository, recorded why it changed, moved work between computers through GitHub, solved one collaboration problem, and left documentation another person can understand.
 
-By 4:00, learners should be able to point to a tangible repository and say:
+# 2:00-2:25 | FIX THE READING LIST
 
-```text
-WE READ IT
--> WE FOUND A MEANING PROBLEM
--> WE CHANGED IT
--> WE INSPECTED THE CHANGE
--> WE RECORDED WHY
--> WE SHARED IT
--> SOMEONE ELSE RECEIVED IT
--> WE DOCUMENTED THE PROJECT
--> WE READ THE HISTORY
-```
+**SAY**
 
-The Carpentries Git lesson places collaboration after learners already know how to record changes, then moves from shared push/pull to conflicts, open science, licensing, citation, hosting, and RStudio. Keep that conceptual order, but make every new idea serve the repository we are actually building. Do not create a disconnected "owner/collaborator" role-play unless it is needed to explain GitHub permission. Do not make every learner manufacture a conflict.
+> "Before the break, we learned where this repository came from and how our local copy is connected to GitHub. Now we are going to use Git to do actual work. By the end of class, this repository should be better than when we opened it."
 
----
-
-# 2:00-2:25 | BUILD 1: FIX THE DATA MEANING AND SHARE THE RESULT
-
-**Tangible result:** the shared `books.md` has a clearer schema and Git history records why.
-
-**Mode:** DEMO + DO -> STOP + READ -> BUILD
-
-## Re-enter after break
-
-**Say**
-
-> "Before the break we learned where this repository came from and how our local copy is connected to GitHub. Now we are going to use Git for actual work. By the end of class, this repository should be better than when we opened it."
-
-Run together:
+**DO TOGETHER**
 
 ```bash
 pwd
@@ -1017,52 +993,58 @@ git pull origin main
 cat build-example/books.md
 ```
 
-**Ask**
+**ASK**
 
 > "What does this table mean to you as you read it?"
 
 > "What is one small thing you would change that would mean something to you?"
 
-Let the room inspect the artifact before typing.
+Pause.
 
-## Instructor's real change
+**SAY**
 
-**Say**
+> "I noticed something I actually want to fix. I read these existing dates as publication dates, but the heading says Date Finished. That means the structure is telling me something different from what I understood."
 
-> "I read these existing dates as publication dates, even though the heading says Date Finished. That is a meaning problem I actually want to fix."
+> "I am going to change Date Finished to Publication Date. Then I am going to add a separate Date Finished field after Rating."
 
-Current:
+**CHANGE**
 
 ```text
+BEFORE
 Title | Author | Date Finished | Publisher | Rating | Notes
-```
 
-Change to:
-
-```text
+AFTER
 Title | Author | Publication Date | Publisher | Rating | Date Finished | Notes
 ```
 
-Update the separator row and existing rows so the table remains valid Markdown. Keep the existing dates under `Publication Date`; leave the new `Date Finished` cells empty unless the actual finish date is known.
+Edit `build-example/books.md`. Update the separator row and each existing row so the table has seven columns. Keep the existing dates under `Publication Date`. Leave `Date Finished` empty unless we actually know it.
 
-## Inspect before recording
+Save the file.
+
+**SAY**
+
+> "I made a change. I am not going to record it yet. First I want Git to show me what I actually did."
+
+**DO TOGETHER**
 
 ```bash
 git status
 git diff -- build-example/books.md
 ```
 
-**STOP. Read the diff.**
-
-**Ask**
+**ASK**
 
 > "What changed?"
 
+> "Does the diff show the change I intended?"
+
 > "Did I change the values, the structure, the meaning, or more than one?"
 
-> "Does this diff show the decision I intended?"
+**SAY**
 
-Then:
+> "Git can show me the difference. Git cannot decide what these fields mean. That decision is ours."
+
+**DO**
 
 ```bash
 git add build-example/books.md
@@ -1070,11 +1052,15 @@ git status
 git diff --staged
 ```
 
-**Say**
+**ASK**
 
-> "Staged means I have chosen this change for the next record. It is not committed yet."
+> "What changed when I used `git add`?"
 
-Record the reason:
+**SAY**
+
+> "The change is staged. I have chosen it for the next commit. Staged != committed."
+
+**DO**
 
 ```bash
 git commit -m "Clarify publication and finished dates"
@@ -1082,33 +1068,43 @@ git log --oneline
 git show HEAD
 ```
 
-**Ask**
+**ASK**
 
-> "Where does this commit exist right now?"
+> "Where does that commit exist right now?"
 
-Answer: in this local repository.
+Pause.
 
-Then share:
+**SAY**
+
+> "It is recorded here in my local repository. Committed != pushed."
+
+> "If I want this change to become part of our shared GitHub repository, what do I need to do?"
+
+**DO**
 
 ```bash
 git push origin main
 ```
 
-Open GitHub and verify the commit and table.
+Open the GitHub repository and find the commit.
 
-**Say**
+**ASK**
 
-> "Now we have a result worth sharing: we changed the meaning of the data deliberately, inspected the evidence, recorded why, and sent that history to GitHub."
+> "What evidence tells us the change is now on GitHub?"
+
+**SAY**
+
+> "We changed the meaning deliberately, inspected the evidence, recorded why, and shared the record."
 
 ---
 
-# 2:25-2:45 | BUILD 2: RECEIVE SOMEONE ELSE'S WORK
+# 2:25-2:45 | RECEIVE MY CHANGE
 
-**Tangible result:** every learner's local clone contains the instructor's new schema. This is the first collaboration cycle.
+**SAY**
 
-**Mode:** DEMO + DO -> VERIFY
+> "My change is on GitHub. It is not automatically in your local copy. Let's prove that by bringing it to you."
 
-Learners run:
+**DO TOGETHER**
 
 ```bash
 git pull origin main
@@ -1116,229 +1112,245 @@ cat build-example/books.md
 git log --oneline
 ```
 
-**Ask**
+**ASK**
 
-> "Did you make my metadata change?"
+> "Did you make my change?"
 
-No.
+Pause.
 
 > "Is it on your computer now?"
 
-Yes.
+Pause.
 
-> "What traveled: only the changed text, or recorded history too?"
+> "Where do you see the change?"
 
-Use the evidence in `git log --oneline`.
+> "Where do you see the record of the change?"
 
-Draw:
+**SAY**
+
+> "That is collaboration. I changed and committed something here. I pushed it to GitHub. You pulled it into your repository. The file and its recorded history traveled."
 
 ```text
-REBEKAH'S LOCAL REPO        GITHUB        LEARNER LOCAL REPO
+MY COMPUTER             GITHUB             YOUR COMPUTER
 change
 commit
-push ---------------------> shared
-                              |
-                              +----------> pull
-                                           read file
-                                           read history
+push -----------------> shared
+                           |
+                           +--------------> pull
+                                            file + history
 ```
 
-**Say**
+**ASK**
 
-> "This is collaboration before we add any permission vocabulary: one person recorded and shared work; another person received the work and its history."
+> "This repository is public. You were able to see it, clone it, and pull from it. Should everyone on the internet also be allowed to push changes into it?"
 
-## Permission only when it becomes relevant
+Pause.
 
-Now ask:
+**SAY**
 
-> "You could clone and pull this public repository. Does that mean anyone on the internet should also be able to push into it?"
+> "No. Public means people can read and clone it. GitHub still controls who can contribute back."
 
-No.
+> "For today's exercise, I have added you as collaborators. A collaborator is someone who has permission to contribute to this repository."
 
-**Say**
+If anyone still needs access, handle the invitation now. Ask only for a GitHub username.
 
-> "GitHub separates being able to read a public repository from being allowed to contribute back to it. For today's shared exercise, I have added you as collaborators, which means GitHub gives your account permission to push to this repository."
+**SAY**
 
-Do not teach "Owner" as a learner role. If an invitation still needs acceptance, handle it here with a helper. Collect GitHub usernames only. Never collect passwords, tokens, authentication codes, or recovery codes.
-
-**Concept check**
-
-```text
-PUBLIC = can see/clone/pull
-COLLABORATOR = has permission to contribute/push here
-```
+> "Being able to read a repository != having permission to change the shared repository."
 
 ---
 
-# 2:45-3:05 | BUILD 3: MAKE ONE CONTRIBUTION THAT SURVIVES CLASS
+# 2:45-3:05 | MAKE A CONTRIBUTION
 
-**Tangible result:** learners contribute useful content to the shared reading-list project.
+**SAY**
 
-**Mode:** BUILD + formative assessment
+> "Now you are going to improve the project. Do not make a disposable change just because I told you to type something. Make one small change you can explain."
 
-Learners choose **one small meaningful contribution**. Examples:
+> "You can add a book you have read, add a rating or useful note to your own entry, improve a field label, or improve one sentence in the README."
 
-- add one book they have read;
-- add a rating to their own new row;
-- add a useful note;
-- suggest a clearer field label;
-- improve one sentence in `build-example/README.md`.
-
-Before editing, everyone:
+**DO TOGETHER BEFORE EDITING**
 
 ```bash
 git pull origin main
 git status
 ```
 
-**Say**
+Make one change and save it.
 
-> "Do not copy my change just to prove you can type it. Make one change you can explain."
-
-After editing:
+**DO**
 
 ```bash
 git status
 git diff
 ```
 
-STOP.
+**STOP.**
 
-Learners explain to a partner:
+**TALK TO A PARTNER**
 
 > "I changed ___ because ___."
+
+**SAY**
+
+> "If you cannot explain the change yet, do not commit it yet."
+
+Stage the file you actually changed:
+
+```bash
+git add build-example/books.md
+```
+
+or:
+
+```bash
+git add build-example/README.md
+```
 
 Then:
 
 ```bash
-git add build-example/books.md
-# OR, if the learner changed the README:
-# git add build-example/README.md
-
 git diff --staged
 git status
 ```
 
-Learners write their own meaningful commit message. Before committing, ask:
+**ASK**
 
-> "If I read your message six months from now, will I know why this version exists?"
+> "Is this exactly what you want the next commit to remember?"
 
-Then:
+Write a short commit message that describes your actual change.
 
 ```bash
-git commit -m "YOUR MEANINGFUL MESSAGE"
+git commit -m "YOUR MESSAGE"
 git log --oneline
 ```
 
-## Share without turning the room into a race
+**SAY**
 
-Do **not** tell the entire room to push simultaneously.
+> "Everyone has now made and recorded a meaningful contribution locally. We are going to send one contribution through the shared repository together so we can see the whole collaboration cycle."
 
-Choose one learner whose repository is ready. That learner runs:
+Choose one ready learner.
+
+**LEARNER DOES**
 
 ```bash
 git pull origin main
 git push origin main
 ```
 
-Everyone else then runs:
+**EVERYONE ELSE DOES**
 
 ```bash
 git pull origin main
 ```
 
-Open the shared file and find the learner's contribution.
+Open `build-example/books.md` or `build-example/README.md`.
 
-**Ask the contributor**
+**ASK THE CONTRIBUTOR**
 
-> "What did you change, and why?"
+> "What did you change and why?"
 
-**Ask the room**
+**ASK THE ROOM**
 
-> "What evidence proves that contribution is now part of shared history?"
+> "Who can find that change on their own computer?"
 
-Use GitHub and `git log --oneline`.
+> "Who can find its commit in the history?"
 
-If time permits, repeat with another ready learner. The learning target is not "everyone successfully pushed during the same five minutes." The target is that everyone makes and records a meaningful change, and the class witnesses a contribution move through the shared workflow.
+**SAY**
+
+> "That contribution started on one person's computer and is now part of our shared project."
 
 ---
 
-# 3:05-3:25 | INVESTIGATE A REAL COLLABORATION PROBLEM
+# 3:05-3:25 | WHAT HAPPENS WHEN GITHUB MOVES FIRST?
 
-**Tangible lesson:** learners can read a rejected push without treating it as data loss or immediately trying random fixes.
+**SAY**
 
-**Mode:** instructor/helper role-play + learner prediction
+> "So far our collaboration has been orderly: pull, work, commit, push. Real shared work is not always that tidy."
 
-The official Carpentries instructor notes recommend role-play for collaboration/conflicts and explicitly warn that learners commonly push before pulling. Use two prepared clones or the instructor and one helper so the class can study the evidence without every learner becoming stuck in a manufactured conflict.
+> "I am going to show you a situation you will eventually see. Do not fix anything yet. Your job is to read what Git tells us."
 
-Start both copies from the same history.
+Use two prepared clones, or work with a helper. Both begin from the same shared history.
 
-Copy A makes a small change, commits, and pushes.
+In the first copy, make a small change, commit it, and push it.
 
-Copy B, without pulling A's new commit, makes a different small change and commits.
+In the second copy, without pulling that new commit, make a different small change and commit it.
 
-Before Copy B pushes, ask:
+**ASK BEFORE PUSHING THE SECOND COPY**
 
-> "What do you predict GitHub will do?"
+> "GitHub now has work that this copy does not have. What do you predict will happen if I try to push?"
 
-Copy B:
+**DO**
 
 ```bash
 git push origin main
 ```
 
-STOP at the rejection.
+**STOP. READ THE MESSAGE.**
 
-**Ask**
+**ASK**
 
-> "Did Git say our local work disappeared?"
+> "Did Git say my local work disappeared?"
 
 > "Did Git say merge conflict?"
 
-> "What does the message tell us has changed somewhere else?"
+> "What is Git refusing to do?"
 
-**Say**
+**SAY**
 
-> "A rejected push is Git refusing to overwrite shared history we do not yet have. Rejected push != merge conflict."
+> "Git is refusing to let this copy overwrite shared history it does not have."
 
-Now:
+> "This is a rejected push. Rejected push != merge conflict."
+
+**ASK**
+
+> "What does this copy need before it can safely share its work?"
+
+**DO**
 
 ```bash
 git pull origin main
 ```
 
-If the changes are on different lines and merge cleanly, celebrate that result.
+If the two changes are on different lines, let Git combine them.
+
+Then:
 
 ```bash
 git status
 git log --oneline
 ```
 
-**Ask**
+**ASK**
 
-> "What problem did pull solve?"
+> "What did pull bring into this copy?"
 
-Then push the integrated history:
+> "Do we still have our local commit?"
+
+If the history is integrated:
 
 ```bash
 git push origin main
 ```
 
-This completes a real collaboration problem without requiring a conflict.
+**SAY**
+
+> "The rejection was useful evidence. It told us the shared history had moved and we needed to receive that work before sharing ours."
 
 ---
 
-# 3:25-3:40 | CONFLICT: WHEN GIT CANNOT DECIDE MEANING
+# 3:25-3:40 | WHEN GIT CANNOT DECIDE
 
-**Tangible lesson:** learners see exactly where Git stops and human interpretation begins.
+**SAY**
 
-**Mode:** controlled demonstration + class decision
+> "The last example could be combined because the changes did not require us to choose between two meanings. Now we are going to make Git face a decision it cannot make for us."
 
-Use `guacamole.md` as the familiar Carpentries conflict specimen. This follows the canonical Carpentries pattern: two copies change the same content differently, one pushes first, the other pulls and receives conflict markers.
+Open `guacamole.md`.
 
-Show the competing wording and let the class predict what should happen.
+Use two copies to change the same line differently. Commit both changes. Push the first change. In the second copy, pull.
 
-After the second copy pulls, inspect the file:
+**STOP when the conflict appears.**
+
+Open the file and read:
 
 ```text
 <<<<<<< HEAD
@@ -1348,17 +1360,23 @@ incoming version
 >>>>>>> commit
 ```
 
-**Say**
+**ASK**
 
-> "Git can preserve both versions. Git cannot decide which meaning we intend."
+> "What is Git showing us?"
 
-**Ask**
+> "Which version is ours?"
 
-> "What should the final line say?"
+> "Which version came from the other history?"
 
-Let the room make the content decision. Edit to the agreed result and remove the markers.
+> "Can Git decide which guacamole we intended?"
 
-Then:
+**SAY**
+
+> "No. Git can preserve both pieces of evidence. A person has to decide the final meaning."
+
+Ask the room what the final wording should be. Edit the file to that decision and remove the conflict markers.
+
+**DO**
 
 ```bash
 git status
@@ -1368,46 +1386,45 @@ git commit -m "Resolve guacamole wording"
 git push origin main
 ```
 
-Everyone who is following can pull the resolved version.
+**ASK**
 
-**Concept check**
+> "What did `git add` mean this time?"
 
-```text
-REJECTED PUSH != MERGE CONFLICT
-CONFLICT != FAILURE
-GIT SHOWS THE COMPETING EVIDENCE
-PEOPLE DECIDE THE INTENDED CONTENT
-```
+Guide toward: we are telling Git that we resolved the file.
 
-Do not make every learner reproduce the conflict. The class has already practiced the workflow; here the learning objective is to interpret and resolve the evidence.
+**SAY**
+
+> "Conflict != failure. A conflict is Git refusing to invent human intent."
 
 ---
 
-# 3:40-3:52 | MAKE THE REPOSITORY UNDERSTANDABLE TO THE NEXT PERSON
+# 3:40-3:52 | EXPLAIN THE PROJECT TO SOMEONE WHO WAS NOT HERE
 
-**Tangible result:** improve `build-example/README.md` so the repository explains itself.
+**SAY**
 
-**Mode:** BUILD + TALK
+> "We have changed the data, shared contributions, and made decisions about competing changes. But right now we know more about this project than the files may tell the next person."
 
-Open:
+> "Imagine someone finds this repository six months from now. None of us are standing beside them. What would they need to know?"
+
+**DO**
 
 ```bash
 cat build-example/README.md
 ```
 
-**Ask**
+**ASK**
 
-> "If someone finds this repository six months from now and none of us are standing beside them, what do they need to know?"
+> "Does this README explain what Publication Date means?"
 
-As a class, identify missing context. Improve the README with only information the project can support, such as:
+> "Does it explain what Date Finished means?"
 
-- what `books.md` records;
-- what `Publication Date` means;
-- what `Date Finished` means;
-- how to add a new entry;
-- that changes should be inspected and committed with a meaningful message.
+> "Does it tell someone how to add another entry?"
 
-Make the README change using the same workflow:
+As a class, improve the README so it explains the reading list and the fields we changed today.
+
+Save it.
+
+**DO TOGETHER**
 
 ```bash
 git status
@@ -1418,27 +1435,31 @@ git commit -m "Document reading list fields and workflow"
 git push origin main
 ```
 
-**Say**
+**SAY**
 
-> "The README is part of the research record. The table contains information; the README preserves enough context for another person to interpret and reuse the work."
+> "The table holds information. The README helps another person interpret that information."
 
-Briefly point to the repository-level `LICENSE` and `CITATION.cff`.
+Point briefly to `LICENSE` and `CITATION.cff`.
 
-**Ask**
+**ASK**
 
-> "Does putting a file on GitHub automatically tell another person how it may be reused or how its creators should be credited?"
+> "If something is visible on GitHub, does that automatically tell us how we may reuse it?"
 
-Use this to connect to the Carpentries sequence on open science, licensing, and citation without turning the final twenty minutes into a lecture.
+> "Does visibility automatically tell us how to credit the people who made it?"
+
+**SAY**
+
+> "No. That is why research repositories also need reuse and citation information. Git history tells us how the project changed. Documentation, licensing, and citation tell other people how to understand, reuse, and credit it."
 
 ---
 
-# 3:52-4:00 | READ THE THING WE BUILT
+# 3:52-4:00 | READ WHAT WE BUILT
 
-**Tangible result:** learners leave by inspecting the finished artifact and explaining its history.
+**SAY**
 
-**Mode:** VERIFY + EXPLAIN-BACK
+> "We are not going to end by adding another command. We are going to read the thing we built."
 
-Everyone:
+**DO TOGETHER**
 
 ```bash
 git pull origin main
@@ -1448,9 +1469,9 @@ cat build-example/books.md
 cat build-example/README.md
 ```
 
-Open the GitHub repository as the shared version.
+Open the GitHub repository.
 
-**Ask learners to point to evidence, not recite commands.**
+**ASK**
 
 > "Show me one change we made today."
 
@@ -1458,52 +1479,21 @@ Open the GitHub repository as the shared version.
 
 > "Show me evidence that somebody else's work reached your computer."
 
-> "Show me where the project explains what its fields mean."
+> "Show me where we documented what our fields mean."
 
 > "What is the difference between commit and push?"
 
 > "What is the difference between a rejected push and a conflict?"
 
-Final explain-back:
+**SAY**
 
-> "I expected ___. I observed ___. I decided ___. I acted ___. I verified it by ___."
+> "At the beginning, we had a repository somebody else had prepared. Now we have a shared project that we actually changed."
 
-## End state
-
-The class leaves with something concrete:
-
-```text
-GitHubCarpentries-Examples/
-|
-|-- build-example/
-|   |-- books.md       <- corrected schema + real contributions
-|   `-- README.md      <- field meaning + contribution context
-|
-|-- guacamole.md       <- visible conflict-resolution example
-|-- LICENSE            <- reuse context
-|-- CITATION.cff       <- credit context
-`-- Git history        <- decisions, contributors, and sequence
-```
-
-**Close**
-
-> "We did not practice Git by making disposable changes. We used Git to improve a small shared information project. The commands gave us evidence. We made the decisions."
+> "We read the information. We noticed a meaning problem. We changed it. We inspected the change. We recorded why. We shared it. We received somebody else's work. We solved a collaboration problem. And we documented enough of the project for another person to understand it."
 
 > "Git records change. People decide what the change means."
 
-## If time slips
-
-Protect, in this order:
-
-1. meaningful `books.md` change;
-2. commit -> push -> someone else pulls;
-3. one learner contribution;
-4. rejected-push reasoning;
-5. conflict interpretation;
-6. README context;
-7. final explain-back.
-
-RStudio transfer is now optional after-class material. Do not sacrifice the shared BUILD to demonstrate another interface.
+> "The commands may change. The reasoning should become familiar."
 
 ---
 
