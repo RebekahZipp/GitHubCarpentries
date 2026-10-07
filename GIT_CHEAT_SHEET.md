@@ -310,3 +310,28 @@ DOES it need preservation, a DOI, restricted access, or a disciplinary repositor
 ```
 
 **Rule:** Git noticing a file does not mean GitHub is the right place for that file.
+
+
+## Research repository reference
+
+OSF Project workflows are changing: new Projects and child Components stop November 16, 2026, and existing Projects become read-only February 19, 2027. Registrations, preregistrations, and Preprints continue.
+
+GitHub can be a research repository for appropriate versionable work such as documentation, code, scripts, methods, metadata, configuration, and small data files. It is not the right repository for every dataset.
+
+```text
+Git history       change record
+README.md         project explanation
+.gitignore        intentional exclusions
+LICENSE           reuse terms
+CITATION.cff      credit and citation
+GitHub repository active versioned research work when appropriate
+GitHub remote     shared Git history
+Data repository   data deposit and preservation
+Registration      fixed study plan or research record
+```
+
+Before adding research material ask: What is it? Should Git version it? May it be shared here? Is it appropriate in size and format? Does it need preservation, a DOI, restricted access, or a disciplinary repository?
+
+**Rule:** Git noticing a file does not mean GitHub is the right place for that file.
+
+**Teaching rhythm:** SAY -> ASK -> DO -> STOP -> READ -> EXPLAIN -> VERIFY -> NEXT.
