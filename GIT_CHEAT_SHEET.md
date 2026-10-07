@@ -277,3 +277,36 @@ A **rejected push is not automatically a merge conflict**. A rejection commonly 
 - `guacamole.md` remains the continuity object for a deliberate conflict demonstration when needed; `books.md` is the common BUILD artifact.
 - Helpers recover learners to the current checkpoint rather than creating alternate tracks or taking over keyboards.
 - RStudio is another interface over the same Git states, not a separate Git workflow.
+
+
+## Plain-text research workflow reference
+
+Keep the teaching literal: **say the action, do one action, stop, read the evidence, say what it means, verify, then move on.** The student and instructor paths use the same actions and vocabulary; the instructor path adds timing, prompts, expected evidence, recovery, and helper cues.
+
+OSF Project workflows are being phased out: new Projects and child Components stop on **November 16, 2026**, and existing Projects become read-only on **February 19, 2027**. Registrations, preregistrations, and Preprints continue.
+
+GitHub is one research repository option for appropriate versionable material such as plain-text documentation, code, scripts, methods, metadata, configuration, and small data files. It is not a one-for-one OSF replacement or the right data repository for every project. Large, sensitive, restricted, preservation-focused, DOI-dependent, or disciplinary data may belong elsewhere.
+
+```text
+Git history       What changed, when, and by whom?
+README.md         What is this project? How do I use it?
+.gitignore        What should NOT enter this Git record?
+LICENSE           What may another person reuse?
+CITATION.cff      How should this work be credited?
+GitHub repository Where can appropriate active research files be versioned and shared?
+GitHub remote     Where can collaborators exchange recorded Git work?
+Data repository   Where should research data be deposited and preserved?
+Registration      Where can a fixed study plan or research record be registered?
+```
+
+Before adding research material:
+
+```text
+WHAT is the material?
+SHOULD it be versioned with Git?
+MAY it be shared here?
+IS it small and appropriate for a Git repository?
+DOES it need preservation, a DOI, restricted access, or a disciplinary repository?
+```
+
+**Rule:** Git noticing a file does not mean GitHub is the right place for that file.
