@@ -1983,6 +1983,62 @@ CLONE = NEW LOCAL COPY OF SHARED REPOSITORY/HISTORY
 ```
 
 
+
+
+### Transition before 1:33: read `origin` in plain language
+
+Use this immediately before the **1:33 Remote, Origin, Pull** section.
+
+```bash
+git remote -v
+```
+
+**Do not begin with:** "The name Git gives us for the remote is origin."
+
+**Ask**
+
+> "What GitHub address do you see?"
+
+Pause and let learners locate the HTTPS address.
+
+Then ask:
+
+> "What short word appears beside it?"
+
+Learners: `origin`.
+
+**Say**
+
+> "`origin` is a short name for the GitHub repository we cloned from."
+
+Point to the screen while reading it:
+
+```text
+origin   https://github.com/.../GitHubCarpentries-Examples.git   (fetch)
+origin   https://github.com/.../GitHubCarpentries-Examples.git   (push)
+
+origin = the GitHub repository this copy came from
+fetch  = get work from GitHub
+push   = send work to GitHub
+```
+
+Use the visual:
+
+```text
+MY COMPUTER  <---- origin ---->  GITHUB
+                  short name
+```
+
+**Say**
+
+> "When we see `origin` today, read it as: the GitHub repository this copy came from."
+
+Do not introduce `remote-tracking reference`, `remote alias`, or other advanced vocabulary here.
+
+**Transition into 1:33**
+
+> "Now we know where our local copy is and what GitHub repository it is connected to. Next we will use that connection to bring shared work here and later send our recorded work back."
+
 ## CLASS ENTRY POINT: DIGITAL SCHOLARSHIP CENTER INSTRUCTOR COMPUTER
 
 Use this as Rebekah's normal Oct. 8 starting point. The expected machine is the same Digital Scholarship Center computer used for rehearsal, but verify the state rather than assuming a restart preserved it.
