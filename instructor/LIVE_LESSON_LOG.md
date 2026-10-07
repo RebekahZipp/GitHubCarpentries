@@ -307,3 +307,18 @@ history/recovery -> track/ignore/investigate -> README/provenance
 ### Repository synchronization
 
 The root README, whole-class cheat sheet, pedagogy rubric, instructor path, helper path, student path, student live lesson, and example-repository guidance were updated to use this shared vocabulary and workflow. The live instructor lesson remains the timing authority for Oct. 8.
+
+
+## Decision update: OSF transition and plain-text teaching
+
+The Oct. 8 lesson now includes a current open-science teaching moment about the OSF Projects transition.
+
+- November 16, 2026: no new OSF Projects or child Components.
+- February 19, 2027: existing OSF Projects become read-only.
+- OSF Registrations, preregistrations, and Preprints continue.
+- GitHub is identified as one research repository option for appropriate versionable materials, not as a universal replacement for OSF or a preservation repository for every dataset.
+- Repository choice remains a research-data-management decision involving sensitivity, size, preservation, persistent identifiers, disciplinary expectations, and institutional requirements.
+- The lesson explicitly connects Git history, README, .gitignore, LICENSE, CITATION.cff, GitHub repositories/remotes, data repositories, and registrations.
+- Plain-text continuity is now a teaching requirement: instructor and learner materials follow the same actions and vocabulary. Instructor materials add timing, expected evidence, prompts, recovery, and helper cues.
+- Live rhythm: **SAY -> ASK -> DO -> STOP -> READ -> EXPLAIN -> VERIFY -> NEXT**.
+- Research-data rule: **Git noticing a file does not mean GitHub is the right place for that file.**
