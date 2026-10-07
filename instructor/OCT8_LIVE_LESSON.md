@@ -121,12 +121,12 @@ The instructor and learners should usually be at the same checkpoint. Use helper
 | **1:53-2:00** | **Break** | Clean checkpoint |
 | 2:00-2:25 | Fix book-list meaning | Better schema + shared commit |
 | 2:25-2:45 | Pull the instructor change | Everyone receives file + history |
-| 2:45-3:05 | Learner contribution | A class contribution in shared history |
-| 3:05-3:25 | Read a rejected push | Collaboration problem understood |
-| 3:25-3:40 | Resolve one conflict | Human decision recorded |
-| 3:40-3:50 | Document + archive | README + lasting GitHub record |
-| 3:50-3:57 | Same Git in RStudio | Another practical workflow |
-| 3:57-4:00 | Advice + takeaway | Sweet book list + next questions |
+| 2:45-2:53 | Learner contribution | A class contribution in shared history |\n| **2:53-3:00** | **Break** | Clean shared checkpoint |
+| 3:00-3:18 | Read a rejected push | Collaboration problem understood |
+| 3:18-3:33 | Resolve one conflict | Human decision recorded |
+| 3:33-3:45 | Document + archive | README + lasting GitHub record |
+| 3:45-3:55 | Same Git in RStudio | Another practical workflow |
+| 3:55-4:00 | Advice + takeaway | Sweet book list + next questions |
 
 **If behind:** protect the guacamole recap, meaningful book-list change, push/pull, one learner contribution, README/archive, RStudio transfer, and closing advice. Demonstrate rather than reproduce the conflict if time is tight.
 
@@ -804,7 +804,7 @@ If anyone still needs access, handle the invitation now. Ask only for a GitHub u
 
 ---
 
-# 2:45-3:05 | MAKE A CONTRIBUTION
+# 2:45-2:53 | MAKE A CONTRIBUTION
 
 **SAY**
 
@@ -905,7 +905,15 @@ Open `build-example/books.md` or `build-example/README.md`.
 
 ---
 
-# 3:05-3:25 | WHAT HAPPENS WHEN GITHUB MOVES FIRST?
+# 2:53-3:00 | BREAK
+
+**SAY**
+
+> "Take seven minutes. Leave your repository where it is. When we come back, we are going to deliberately make collaboration messy and learn how to read what Git tells us."
+
+---
+
+# 3:00-3:18 | WHAT HAPPENS WHEN GITHUB MOVES FIRST?
 
 **SAY**
 
@@ -982,7 +990,7 @@ git push origin main
 
 ---
 
-# 3:25-3:40 | WHEN GIT CANNOT DECIDE
+# 3:18-3:33 | WHEN GIT CANNOT DECIDE
 
 **SAY**
 
@@ -1042,7 +1050,7 @@ Guide toward: we are telling Git that we resolved the file.
 
 ---
 
-# 3:40-3:50 | DOCUMENT -> SHARE -> ARCHIVE
+# 3:33-3:45 | DOCUMENT -> SHARE -> ARCHIVE
 
 **BUILD + TALK**
 
@@ -1118,7 +1126,7 @@ The local repository is current, the working tree is clean, the class commits ap
 
 ---
 
-# 3:50-3:57 | SAME GIT, ANOTHER WAY: RSTUDIO
+# 3:45-3:55 | SAME GIT, ANOTHER WAY: RSTUDIO
 
 **DEMO + DO**
 
@@ -1189,7 +1197,7 @@ CHANGE -> INSPECT -> CHOOSE -> RECORD -> REVIEW -> SHARE
 
 ---
 
-# 3:57-4:00 | READ OUR BOOK LIST -> ASK THE WORKSHOP -> TAKE IT WITH YOU
+# 3:55-4:00 | READ OUR BOOK LIST -> ASK THE WORKSHOP -> TAKE IT WITH YOU
 
 **TALK + VERIFY**
 
