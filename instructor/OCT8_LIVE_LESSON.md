@@ -278,69 +278,162 @@ Git reports cloning/receiving objects, the new directory appears, and `git statu
 
 ---
 
-# 1:20-1:33 | INVESTIGATE THE CLONE
+# 1:20-1:33 | LOOK AROUND -> MAKE SOMETHING HAPPEN
 
-**TRY + DEMO + DO**
+**TRY + BUILD + DEMO + DO**
 
 **SAY**
 
-> "Do not edit yet. Investigate first. We want evidence that this is more than a folder full of downloaded files."
+> "We are inside the repository. Let's look around just long enough to find something we recognize, and then we are going to change it."
 
 ```bash
-git status
-git log --oneline
 ls
+cat guacamole.md
 ```
 
 **EXPECTED OUTPUT**
 
-- `git status` names the current branch and state.
-- `git log --oneline` shows commits that existed before today's work.
-- `ls` shows repository files including `guacamole.md` and `build-example`.
+`ls` shows repository files including `guacamole.md`. Then the recipe prints in the terminal.
 
 **ASK**
 
-> "Did we create those older commits just now?"
+> "What do you recognize?"
 
 Pause.
 
-> "So what came with this repository besides the visible files?"
+> "What is one thing we could add to this recipe?"
 
-Pause.
+Take a real suggestion from the room: an ingredient, preparation note, serving note, or other small useful addition.
 
 **SAY**
 
-> "The recorded history came with it."
+> "Good. Let's make that happen. This is our first change today."
+
+Open `guacamole.md` in the editor, add the class suggestion, and save.
+
+**DO TOGETHER**
+
+```bash
+git status
+```
+
+**EXPECTED OUTPUT**
+
+Git reports:
+
+```text
+modified: guacamole.md
+```
+
+**ASK**
+
+> "What changed?"
+
+> "How does Git know something happened?"
+
+**SAY**
+
+> "Git noticed that the file is different. Modified != recorded. We have changed the working file, but we have not made a new commit."
 
 **DO**
 
 ```bash
-git rev-parse --show-toplevel
+git diff -- guacamole.md
 ```
 
 **EXPECTED OUTPUT**
 
-The repository root ending in:
+The diff shows the exact line or lines the class added, with the new content marked by `+`.
+
+**ASK**
+
+> "Can you find our addition?"
+
+> "Does the diff show what we intended to change?"
+
+**SAY**
+
+> "This is why we inspect before we record. We made something happen, and now Git gives us evidence of exactly what happened."
+
+**DO**
+
+```bash
+git add guacamole.md
+git status
+```
+
+**EXPECTED OUTPUT**
+
+`guacamole.md` moves from a modified, unstaged change to **Changes to be committed**.
+
+**ASK**
+
+> "Did the words in the recipe change again when we used `git add`?"
+
+Pause.
+
+**SAY**
+
+> "No. The file content did not change. Its Git state changed. We chose this change for the next record."
 
 ```text
-GitHubCarpentries-Examples
+MODIFIED != STAGED
+```
+
+**DO**
+
+```bash
+git diff --staged
+```
+
+**EXPECTED OUTPUT**
+
+The staged diff shows the same recipe addition we just chose.
+
+**ASK**
+
+> "Is this what we want Git to remember?"
+
+If yes:
+
+```bash
+git commit -m "Add class suggestion to guacamole recipe"
+```
+
+**EXPECTED OUTPUT**
+
+Git reports a new commit with one file changed and the insertion count.
+
+**DO**
+
+```bash
+git log --oneline
+git show HEAD
 ```
 
 **ASK**
 
-> "What did `pwd` tell us earlier, and what did Git tell us now?"
+> "Where is our change now?"
+
+Guide toward: in the file **and** in the local Git history.
 
 **SAY**
 
-> "`pwd` tells us where the shell is. Git tells us where this repository begins."
+> "We did not just look at a repository. We changed something, inspected it, chose it, recorded it, and verified the record."
+
+```text
+CHANGE -> INSPECT -> CHOOSE -> RECORD -> REVIEW
+```
+
+> "That is our working lifecycle. We are going to use it again on more meaningful data after the break."
 
 **COMMON MISTAKE CUE**
 
-> "A folder name is not a command. `cat Carpentries` fails if Carpentries is a directory. `cd` enters directories; `cat` reads files."
+> "If `git add <file>` appears in notes, do not type the angle brackets literally. They mean replace the placeholder with the real filename. Here our filename is `guacamole.md`."
 
-**SAY**
+**TRANSITION**
 
-> "We have proved that the repository contains files and recorded history. Next we are going to inspect its connection back to GitHub."
+> "We have made a local commit. The next question is: where is that commit? Is it only here on this computer, or has GitHub received it? To answer that, we need to inspect the relationship between this repository and GitHub."
 
 ---
 
