@@ -1731,6 +1731,18 @@ Ask:
 7. Preserve the Carpentries foundation while adding OSU Libraries collaboration, troubleshooting, safety, and professional practice.
 
 
+### Define `!=` once
+
+At its first use, say:
+
+> "`!=` means **is not equal to** or **is not the same as**. You may recognize it from R. I will define it once here, and after this we will use the symbol as shorthand."
+
+```text
+!=  =  IS NOT EQUAL TO / IS NOT THE SAME AS
+```
+
+After this definition, use `!=` consistently rather than repeatedly translating it.
+
 ## PLAIN-TEXT TEACHING RULE
 
 Carpentries teaching and Git both work best when we are literal. Keep the explanation next to the action.
@@ -1985,23 +1997,25 @@ CLONE = NEW LOCAL COPY OF SHARED REPOSITORY/HISTORY
 
 
 
-### Transition before 1:33: read `origin` in plain language
+### Transition into 1:33-1:43: Remote, Origin, and Pull
 
-Use this immediately before the **1:33 Remote, Origin, Pull** section.
+**Say**
+
+> "We have proved that clone brought history with it and a connection back to GitHub. Next we are going to inspect that relationship more closely."
+
+> "Where did these files originate? Git tells us with `origin`."
+
+Then run:
 
 ```bash
 git remote -v
 ```
-
-**Do not begin with:** "The name Git gives us for the remote is origin."
 
 **Ask**
 
 > "What GitHub address do you see?"
 
 Pause and let learners locate the HTTPS address.
-
-Then ask:
 
 > "What short word appears beside it?"
 
@@ -2010,8 +2024,6 @@ Learners: `origin`.
 **Say**
 
 > "`origin` is a short name for the GitHub repository we cloned from."
-
-Point to the screen while reading it:
 
 ```text
 origin   https://github.com/.../GitHubCarpentries-Examples.git   (fetch)
@@ -2022,22 +2034,14 @@ fetch  = get work from GitHub
 push   = send work to GitHub
 ```
 
-Use the visual:
-
 ```text
 MY COMPUTER  <---- origin ---->  GITHUB
                   short name
 ```
 
-**Say**
-
 > "When we see `origin` today, read it as: the GitHub repository this copy came from."
 
 Do not introduce `remote-tracking reference`, `remote alias`, or other advanced vocabulary here.
-
-**Transition into 1:33**
-
-> "Now we know where our local copy is and what GitHub repository it is connected to. Next we will use that connection to bring shared work here and later send our recorded work back."
 
 ## CLASS ENTRY POINT: DIGITAL SCHOLARSHIP CENTER INSTRUCTOR COMPUTER
 
