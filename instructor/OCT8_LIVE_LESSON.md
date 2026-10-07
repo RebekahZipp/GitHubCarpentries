@@ -1981,3 +1981,144 @@ CONFIGURATION != REPOSITORY
 COMMITTED != PUSHED
 CLONE = NEW LOCAL COPY OF SHARED REPOSITORY/HISTORY
 ```
+
+
+## CLASS ENTRY POINT: DIGITAL SCHOLARSHIP CENTER INSTRUCTOR COMPUTER
+
+Use this as Rebekah's normal Oct. 8 starting point. The expected machine is the same Digital Scholarship Center computer used for rehearsal, but verify the state rather than assuming a restart preserved it.
+
+### Say
+
+> "Before we do Git work, I want to know where this computer and this repository actually are. I am going to read the state before I change the state."
+
+### Demo + do: locate the existing class clone
+
+```bash
+pwd
+ls
+```
+
+Expected starting location:
+
+```text
+/c/Users/libpatron/Carpentries
+```
+
+Expected directory:
+
+```text
+GitHubCarpentries-Examples
+```
+
+If it exists, do **not** clone another copy.
+
+```bash
+cd GitHubCarpentries-Examples
+pwd
+git status
+ls
+```
+
+Expected repository root:
+
+```text
+/c/Users/libpatron/Carpentries/GitHubCarpentries-Examples
+```
+
+Expected lesson objects include:
+
+```text
+CITATION.cff
+LICENSE
+README.md
+TRY_PROMPTS.md
+build-example/
+guacamole.md
+```
+
+### Stop + read
+
+Ask:
+
+> "What changed between 'not a Git repository' and Git recognizing this repository?"
+
+Answer: our location changed. We entered the directory that contains the repository.
+
+If `git status` says the branch is up to date with `origin/main`, ask:
+
+> "Has this command just contacted GitHub, or is Git reporting the remote-tracking information it already has locally?"
+
+Then verify shared state:
+
+```bash
+git pull origin main
+```
+
+If the result ends with:
+
+```text
+Already up to date.
+```
+
+say:
+
+> "Now we have contacted the remote. We did not assume the shared state; we checked it."
+
+Then inspect the relationship:
+
+```bash
+git remote -v
+```
+
+### Instructor checkpoint
+
+```text
+LOCATE             pwd
+LOOK               ls
+ENTER REPOSITORY   cd GitHubCarpentries-Examples
+VERIFY LOCAL       git status
+CHECK SHARED       git pull origin main
+SEE RELATIONSHIP   git remote -v
+```
+
+This is the normal class entry point.
+
+### Restart/fallback
+
+A computer restart does not by itself mean the repository must be cloned again. First repeat `pwd` and `ls`. If `GitHubCarpentries-Examples` is still present, enter it and verify it.
+
+Only if the class clone is actually absent, use the fresh-machine path:
+
+```text
+Teams -> Links -> GitHubCarpentries-Examples
+GitHub -> Code -> HTTPS -> Copy
+Git Bash -> git clone [paste copied HTTPS address]
+cd GitHubCarpentries-Examples
+git status
+git pull origin main
+git remote -v
+```
+
+### Teaching connection
+
+```text
+GIT KNOWS MY NAME/EMAIL
+        !=
+THIS COMPUTER HAS MY REPOSITORY
+
+REPOSITORY EXISTS
+        !=
+I AM CURRENTLY INSIDE IT
+
+STATUS SAYS UP TO DATE WITH origin/main
+        !=
+I JUST CONTACTED GITHUB
+
+PULL
+        =
+CHECK REMOTE + BRING SHARED WORK HERE
+```
+
+**Transition**
+
+> "We have located our local copy and verified its relationship to the shared repository. Now we can investigate what is in it before we change anything."
