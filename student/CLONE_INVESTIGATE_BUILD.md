@@ -421,3 +421,49 @@ This continuity preserves the Carpentries learning progression while increasing 
 ## Shared-repository distinction
 
 A **rejected push is not automatically a merge conflict**. A rejection commonly means GitHub has commits the local clone does not yet contain. Pull first and read the integration result. A merge conflict occurs only when Git cannot automatically reconcile overlapping changes. Preserve that distinction in explanations and recovery prompts.
+
+
+## Research workflow reference: why this matters now
+
+OSF Project workflows are changing. New OSF Projects and child Components stop on **November 16, 2026**. Existing OSF Projects become read-only on **February 19, 2027**. OSF Registrations, preregistrations, and Preprints continue.
+
+GitHub is one research repository option for appropriate work that changes over time, including plain-text documentation, code, scripts, methods, metadata, configuration, and small data files.
+
+GitHub is not the right home for every research dataset. Large files, sensitive or restricted data, long-term preservation, DOI needs, disciplinary expectations, or institutional rules may require another repository or storage system.
+
+Read this literally:
+
+```text
+Git history       What changed, when, and by whom?
+README.md         What is this project? How do I use it?
+.gitignore        What should NOT enter this Git record?
+LICENSE           What may another person reuse?
+CITATION.cff      How should this work be credited?
+GitHub repository Where can appropriate active research files be versioned and shared?
+GitHub remote     Where can collaborators exchange recorded Git work?
+Data repository   Where should research data be deposited and preserved?
+Registration      Where can a fixed study plan or research record be registered?
+```
+
+Before adding research material, ask:
+
+```text
+WHAT is the material?
+SHOULD it be versioned with Git?
+MAY it be shared here?
+IS it small and appropriate for a Git repository?
+DOES it need preservation, a DOI, restricted access, or a disciplinary repository?
+```
+
+**Rule:** Git noticing a file does not mean GitHub is the right place for that file.
+
+Keep using the same class pattern:
+
+```text
+DO one action
+STOP
+READ what happened
+SAY what it means
+VERIFY
+NEXT action
+```
