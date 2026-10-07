@@ -1,3 +1,23 @@
+
+
+## Teams workshop-space checkpoint
+
+At arrival, help learners open **Git & GitHub Workshop | OSU Libraries** in Teams and keep it available.
+
+The distinction is:
+
+```text
+TEAMS       course links, notes, slides, cheat sheet, questions, ideas
+GITHUB      shared versioned project history
+LOCAL       learner working copy
+```
+
+If a learner cannot find a workshop resource, help them return to the Teams tabs before sending them through another route. Encourage learners to use chat for questions, ideas, observations, and non-sensitive error messages.
+
+Do not ask learners to put credentials, tokens, authentication codes, private data, or sensitive research information in chat.
+
+During teaching prompts, watch both spoken participation and chat contributions. Surface useful patterns to Rebekah without requiring every learner to speak aloud.
+
 # Helper Path
 
 ## Help learners reason without taking over
