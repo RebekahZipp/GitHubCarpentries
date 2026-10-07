@@ -1729,3 +1729,83 @@ Ask:
 5. Keep `guacamole.md` as the familiar specimen while the collaboration complexity changes.
 6. Treat errors as evidence. Diagnose before acting.
 7. Preserve the Carpentries foundation while adding OSU Libraries collaboration, troubleshooting, safety, and professional practice.
+
+
+## PLAIN-TEXT TEACHING RULE
+
+Carpentries teaching and Git both work best when we are literal. Keep the explanation next to the action.
+
+```text
+SAY what we are doing
+ASK what we expect
+DO one action
+STOP
+READ what Git or GitHub says
+SAY what that means
+VERIFY the state
+MOVE to the next action
+```
+
+Use short sentences. Name the file, repository, branch, and state. The student lesson should follow the same actions in the same order. The instructor lesson adds timing, expected evidence, prompts, recovery, and helper cues.
+
+## WHY THIS MATTERS NOW: OSF PROJECTS ARE CHANGING
+
+Use this immediately before the repository-context and open-science section.
+
+### Say
+
+> "Here is a current reason this matters for research. OSF Project workflows are being phased out. Starting November 16, 2026, new OSF Projects and child Components cannot be created. Starting February 19, 2027, existing OSF Projects become read-only. Registrations, preregistrations, and Preprints continue."
+
+> "That means researchers who used OSF Projects as an active workspace need to decide where changing research materials should live. GitHub is one research repository option for appropriate versionable work: plain-text documentation, code, scripts, configuration, methods, metadata, and small data files."
+
+> "GitHub is not a one-for-one replacement for OSF, and it is not the right repository for every research dataset. Large files, sensitive or restricted data, preservation requirements, DOI needs, disciplinary expectations, and institutional policy can point somewhere else."
+
+### Read this map together
+
+```text
+Git history       What changed, when, and by whom?
+README.md         What is this project? How do I use it?
+.gitignore        What should NOT enter this Git record?
+LICENSE           What may another person reuse?
+CITATION.cff      How should this work be credited?
+GitHub repository Where can appropriate active research files be versioned and shared?
+GitHub remote     Where can collaborators exchange recorded Git work?
+Data repository   Where should research data be deposited and preserved?
+Registration      Where can a fixed study plan or research record be registered?
+```
+
+### Ask
+
+> "If an OSF Project became read-only tomorrow, which parts of an active research workflow would need somewhere new to live?"
+
+Let learners name code, documentation, data, collaboration, provenance, citation, preservation, preregistration, and sensitive information. Sort the answers rather than treating them all as GitHub material.
+
+### Say
+
+> "Git noticing a file does not mean GitHub is the right place for that file."
+
+Connect this directly to:
+
+```text
+TRACK -> IGNORE -> INVESTIGATE
+```
+
+Then ask:
+
+```text
+WHAT is the material?
+SHOULD it be versioned with Git?
+MAY it be shared here?
+IS it small and appropriate for a Git repository?
+DOES it need preservation, a DOI, restricted access, or a disciplinary repository?
+```
+
+### Teaching conclusion
+
+GitHub can be an active research collaboration and version-control repository for appropriate material. Repository choice is still a research-data-management decision.
+
+Use this final open-science rhythm:
+
+```text
+PRACTICE -> DOCUMENT -> SHARE -> PRESERVE -> REUSE
+```
