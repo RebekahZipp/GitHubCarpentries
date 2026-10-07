@@ -9,7 +9,9 @@
 **Foundation:** Software Carpentry, *Version Control with Git*  
 **TRY repository:** https://github.com/RebekahZipp/GitHubCarpentries-Examples
 
-This is the **day-of teaching script**. Teach it top to bottom. Each phase uses the same structure so you can find the next move quickly.
+This is the **day-of teaching script and instructor safety net**. Teach it top to bottom. You should not need another document or a live assistant to know what to say, what to type, what output to expect, or how to recover from the common mistake at that point.
+
+The class builds one lasting artifact: a small shared **book-list repository** with understandable fields, contributions, documentation, and history. We recover Kevin's local Git lifecycle, extend it through GitHub collaboration, archive the work, ask the workshop for advice, and finish by showing the same Git lifecycle in RStudio.
 
 > **Course refrain:** The commands may change. The reasoning should become familiar.
 
@@ -29,6 +31,10 @@ This is the **day-of teaching script**. Teach it top to bottom. Each phase uses 
 - [ ] RStudio is available for the transfer demo.
 - [ ] `build-example/books.md` is present in the TRY repository on GitHub.
 - [ ] Frances and Dani know the catch-up checkpoints and escalation rule.
+- [ ] GitHub collaborator invitations are ready or learner GitHub usernames can be collected.
+- [ ] Teams workshop chat is open for questions and end-of-class advice.
+- [ ] A second clean clone is available for the controlled rejected-push/conflict demonstration.
+- [ ] The final class repository will remain on GitHub as the archived workshop artifact.
 
 ## Accessibility and inclusion
 
@@ -105,25 +111,24 @@ The instructor and learners should usually be at the same checkpoint. Use helper
 
 # Run of show
 
-| Time | Phase | Learner checkpoint |
+| Time | We do | We leave behind |
 | --- | --- | --- |
-| 1:00-1:10 | Setup + Code of Conduct | Git/GitHub/terminal ready; knows how we work together |
-| 1:10-1:20 | Re-enter Git | Can locate terminal, repo, state, history |
-| 1:20-1:33 | Clone and inspect | TRY repo cloned and recognized as Git |
-| 1:33-1:43 | Remote and origin | Can explain local vs remote and origin |
-| 1:43-1:53 | From TRY to BUILD | Reading-list artifact located; clean local clone ready for first change |
-| **1:53-2:00** | **Break** | |
-| 2:00-2:18 | Collaboration cycle | One meaningful commit shared |
-| 2:18-2:33 | Switch roles | Repeat with less instructor support |
-| 2:33-2:53 | Rejection and conflict | Can distinguish rejection from conflict |
-| **2:53-3:00** | **Break** | |
-| 3:00-3:15 | History and recovery | Can inspect before restoring |
-| 3:15-3:27 | Track/Ignore/Investigate | Can justify one file decision |
-| 3:27-3:40 | Repository context | README improved for another reader |
-| 3:40-3:50 | RStudio transfer | Recognizes same Git states in GUI |
-| 3:50-4:00 | Explain-back | Can explain one decision and verification |
+| 1:00-1:10 | Open Teams, policies, tools | Room ready and shared working rules |
+| 1:10-1:20 | Find last week's work | Everyone back inside the repository |
+| 1:20-1:33 | Recap Kevin by changing guacamole | A new local commit |
+| 1:33-1:43 | Find origin and contact GitHub | Local/remote relationship understood |
+| 1:43-1:53 | Find and read the book list | A real data decision waiting for us |
+| **1:53-2:00** | **Break** | Clean checkpoint |
+| 2:00-2:25 | Fix book-list meaning | Better schema + shared commit |
+| 2:25-2:45 | Pull the instructor change | Everyone receives file + history |
+| 2:45-3:05 | Learner contribution | A class contribution in shared history |
+| 3:05-3:25 | Read a rejected push | Collaboration problem understood |
+| 3:25-3:40 | Resolve one conflict | Human decision recorded |
+| 3:40-3:50 | Document + archive | README + lasting GitHub record |
+| 3:50-3:57 | Same Git in RStudio | Another practical workflow |
+| 3:57-4:00 | Advice + takeaway | Sweet book list + next questions |
 
-**If behind:** protect collaboration, conflict reasoning, both breaks, verification, and explain-back. Cut Pages first, then shorten RStudio.
+**If behind:** protect the guacamole recap, meaningful book-list change, push/pull, one learner contribution, README/archive, RStudio transfer, and closing advice. Demonstrate rather than reproduce the conflict if time is tight.
 
 ---
 
@@ -1037,15 +1042,13 @@ Guide toward: we are telling Git that we resolved the file.
 
 ---
 
-# 3:40-3:52 | EXPLAIN THE PROJECT TO SOMEONE WHO WAS NOT HERE
+# 3:40-3:50 | DOCUMENT -> SHARE -> ARCHIVE
+
+**BUILD + TALK**
 
 **SAY**
 
-> "We have changed the data, shared contributions, and made decisions about competing changes. But right now we know more about this project than the files may tell the next person."
-
-> "Imagine someone finds this repository six months from now. None of us are standing beside them. What would they need to know?"
-
-**DO**
+> "We have changed the data, shared contributions, and made decisions about competing changes. Before we leave it, we need to make the project understandable to somebody who was not in this room."
 
 ```bash
 cat build-example/README.md
@@ -1053,15 +1056,13 @@ cat build-example/README.md
 
 **ASK**
 
-> "Does this README explain what Publication Date means?"
+> "Does this explain what Publication Date means?"
 
 > "Does it explain what Date Finished means?"
 
-> "Does it tell someone how to add another entry?"
+> "Could someone who missed today's workshop add the next book correctly?"
 
-As a class, improve the README so it explains the reading list and the fields we changed today.
-
-Save it.
+Use the answers to improve `build-example/README.md`. Keep it short and useful. Save it.
 
 **DO TOGETHER**
 
@@ -1074,65 +1075,171 @@ git commit -m "Document reading list fields and workflow"
 git push origin main
 ```
 
+**EXPECTED OUTPUT**
+
+A new README commit is created and pushed to the shared GitHub repository.
+
 **SAY**
 
-> "The table holds information. The README helps another person interpret that information."
+> "The table holds information. The README preserves enough context for another person to interpret and continue the work."
 
-Point briefly to `LICENSE` and `CITATION.cff`.
+Point to `LICENSE` and `CITATION.cff`.
 
 **ASK**
 
-> "If something is visible on GitHub, does that automatically tell us how we may reuse it?"
+> "Does being visible on GitHub automatically tell somebody how they may reuse the work?"
 
-> "Does visibility automatically tell us how to credit the people who made it?"
-
-**SAY**
-
-> "No. That is why research repositories also need reuse and citation information. Git history tells us how the project changed. Documentation, licensing, and citation tell other people how to understand, reuse, and credit it."
-
----
-
-# 3:52-4:00 | READ WHAT WE BUILT
+> "Does visibility automatically tell them how to credit it?"
 
 **SAY**
 
-> "We are not going to end by adding another command. We are going to read the thing we built."
+> "No. Git history, documentation, licensing, and citation answer different parts of the reuse question."
 
-**DO TOGETHER**
+Open the GitHub repository.
+
+> "This is also how we archive today's work. We are not ending with a worksheet that disappears after class. The example, its README, and the history of how we built it stay together in the workshop repository."
+
+**VERIFY**
 
 ```bash
 git pull origin main
 git status
 git log --oneline
 cat build-example/books.md
-cat build-example/README.md
 ```
 
-Open the GitHub repository.
+**EXPECTED OUTPUT**
+
+The local repository is current, the working tree is clean, the class commits appear in history, and the final book list contains today's work.
+
+**COMMON MISTAKE CUE**
+
+> "A successful push is not the same thing as understanding what we archived. We verify the file, the history, and the documentation."
+
+---
+
+# 3:50-3:57 | SAME GIT, ANOTHER WAY: RSTUDIO
+
+**DEMO + DO**
+
+**SAY**
+
+> "We have done the work in Git Bash because the commands make the states visible. Many of us also work in RStudio. I want you to leave knowing this is not a second kind of Git."
+
+Open this repository in RStudio and show the **Git** pane.
+
+> "Look for the same things we have been reading all afternoon: changed files, staged files, commit, pull, push, and history."
+
+Make one useful README addition:
+
+```text
+Workshop: OSU Libraries Git & GitHub, October 8, 2026
+```
+
+Save it.
+
+**ASK**
+
+> "What changed in the Git pane?"
+
+Open the RStudio diff.
+
+> "Where is our diff now?"
+
+Stage the README.
+
+> "What state did we just move into?"
+
+Commit in RStudio:
+
+```text
+Record Oct 8 workshop
+```
+
+Push from RStudio.
+
+Return to Git Bash:
+
+```bash
+git status
+git log --oneline
+```
+
+**EXPECTED OUTPUT**
+
+The working tree is clean and the RStudio-created commit appears at the top of the same history.
+
+**ASK**
+
+> "If I commit in RStudio and then open Git Bash, did I create two histories?"
+
+Pause.
+
+**SAY**
+
+> "No. Different interface, same repository, same history, same lifecycle."
+
+```text
+CHANGE -> INSPECT -> CHOOSE -> RECORD -> REVIEW -> SHARE
+```
+
+**COMMON MISTAKE CUE**
+
+> "The R Console is not the Terminal. A Git command typed at the R `>` prompt is being given to R. Use the Git pane or Terminal for Git work."
+
+---
+
+# 3:57-4:00 | READ OUR BOOK LIST -> ASK THE WORKSHOP -> TAKE IT WITH YOU
+
+**TALK + VERIFY**
+
+**SAY**
+
+> "We are going to end with the thing we made, not another command."
+
+Open `build-example/books.md` and the GitHub repository.
+
+> "This is our book list. It started as an example. We clarified what its data means, added to it, moved those changes between people, handled competing work, documented it, and archived the history."
 
 **ASK**
 
 > "Show me one change we made today."
 
-> "Show me where Git recorded why a change happened."
+> "Show me where Git recorded why it happened."
 
 > "Show me evidence that somebody else's work reached your computer."
 
-> "Show me where we documented what our fields mean."
-
-> "What is the difference between commit and push?"
-
-> "What is the difference between a rejected push and a conflict?"
+> "Show me where another person can learn what these fields mean."
 
 **SAY**
 
-> "At the beginning, we had a repository somebody else had prepared. Now we have a shared project that we actually changed."
+> "Kevin gave us the tools to make a change and see the change. Today we made that record travel."
 
-> "We read the information. We noticed a meaning problem. We changed it. We inspected the change. We recorded why. We shared it. We received somebody else's work. We solved a collaboration problem. And we documented enough of the project for another person to understand it."
+```text
+CHANGE -> INSPECT -> CHOOSE -> RECORD -> REVIEW
+                                      |
+                                      v
+                              SHARE -> RECEIVE
+                                      |
+                                      v
+                         COLLABORATE -> EXPLAIN
+                                      |
+                                      v
+                              ARCHIVE -> REUSE
+```
+
+> "Before we go, I want one piece of advice from you for this workshop. What should we keep, change, explain better, or practice more next time? You can say it aloud or leave it in the Teams workshop chat."
+
+Give them a moment.
+
+> "And leave one question or one thing you want to try next. That becomes part of the workshop record too."
+
+**TAKEAWAY**
+
+> "You leave with a sweet little book list you helped build, a GitHub repository you can return to, and another way to do the same Git work from RStudio."
 
 > "Git records change. People decide what the change means."
 
 > "The commands may change. The reasoning should become familiar."
 
 ---
-
