@@ -278,48 +278,89 @@ Git reports cloning/receiving objects, the new directory appears, and `git statu
 
 ---
 
-# 1:20-1:33 | LOOK AROUND -> MAKE SOMETHING HAPPEN
+# 1:20-1:33 | RECAP KEVIN'S LESSON -> USE THE TOOLS
 
-**TRY + BUILD + DEMO + DO**
+**TALK + TRY + BUILD**
 
 **SAY**
 
-> "We are inside the repository. Let's look around just long enough to find something we recognize, and then we are going to change it."
+> "We found our work, we have reviewed how we are going to work together, and we are all at the same starting point. Before we add GitHub collaboration, I want to reconnect us to what Kevin gave us in the first lesson."
+
+> "Last time, we learned how to make something happen in a project and then use Git to see and record that change."
+
+**DO TOGETHER**
 
 ```bash
+git status
+git log --oneline
 ls
+```
+
+**EXPECTED OUTPUT**
+
+Git shows our current state and existing history. The file list includes `guacamole.md`.
+
+**ASK**
+
+> "What do you remember doing with Git last time?"
+
+Take answers from the room.
+
+**SAY**
+
+> "The important part was not memorizing a list of commands. We learned a working cycle."
+
+```text
+MAKE A CHANGE
+      ↓
+SEE THE CHANGE
+      ↓
+CHOOSE THE CHANGE
+      ↓
+RECORD THE CHANGE
+      ↓
+LOOK BACK AT THE RECORD
+```
+
+> "In Git, that looked like edit, `status` and `diff`, `add`, `commit`, and then `log` or `show`."
+
+> "Kevin's lesson gave us the tools to change our thing and see what happened. Today we are going to use those same tools and make the record travel between people."
+
+**ASK**
+
+> "Before we make it travel, should we prove we can still use that cycle?"
+
+Pause.
+
+**SAY**
+
+> "Let's find something familiar."
+
+```bash
 cat guacamole.md
 ```
 
 **EXPECTED OUTPUT**
 
-`ls` shows repository files including `guacamole.md`. Then the recipe prints in the terminal.
+The guacamole recipe prints in the terminal.
 
 **ASK**
 
-> "What do you recognize?"
+> "There it is. What is one thing we could add to our recipe?"
 
-Pause.
-
-> "What is one thing we could add to this recipe?"
-
-Take a real suggestion from the room: an ingredient, preparation note, serving note, or other small useful addition.
+Use a real suggestion from the room.
 
 **SAY**
 
-> "Good. Let's make that happen. This is our first change today."
+> "Perfect. Let's make something happen."
 
-Open `guacamole.md` in the editor, add the class suggestion, and save.
-
-**DO TOGETHER**
+Open `guacamole.md`, add the class suggestion, and save.
 
 ```bash
 git status
 ```
 
 **EXPECTED OUTPUT**
-
-Git reports:
 
 ```text
 modified: guacamole.md
@@ -327,15 +368,11 @@ modified: guacamole.md
 
 **ASK**
 
-> "What changed?"
-
-> "How does Git know something happened?"
+> "What does Git notice?"
 
 **SAY**
 
-> "Git noticed that the file is different. Modified != recorded. We have changed the working file, but we have not made a new commit."
-
-**DO**
+> "The file changed. Modified != recorded. We made something happen; now we inspect it."
 
 ```bash
 git diff -- guacamole.md
@@ -343,99 +380,73 @@ git diff -- guacamole.md
 
 **EXPECTED OUTPUT**
 
-The diff shows the exact line or lines the class added, with the new content marked by `+`.
+The class addition appears in the diff with `+`.
 
 **ASK**
 
-> "Can you find our addition?"
+> "Can you find what we added?"
 
-> "Does the diff show what we intended to change?"
+> "Is that the change we intended?"
 
 **SAY**
 
-> "This is why we inspect before we record. We made something happen, and now Git gives us evidence of exactly what happened."
-
-**DO**
+> "Yes. We changed our thing and used Git to see the change. Now we choose what the next commit will remember."
 
 ```bash
 git add guacamole.md
 git status
-```
-
-**EXPECTED OUTPUT**
-
-`guacamole.md` moves from a modified, unstaged change to **Changes to be committed**.
-
-**ASK**
-
-> "Did the words in the recipe change again when we used `git add`?"
-
-Pause.
-
-**SAY**
-
-> "No. The file content did not change. Its Git state changed. We chose this change for the next record."
-
-```text
-MODIFIED != STAGED
-```
-
-**DO**
-
-```bash
 git diff --staged
 ```
 
 **EXPECTED OUTPUT**
 
-The staged diff shows the same recipe addition we just chose.
+`guacamole.md` appears under **Changes to be committed**, and the staged diff shows the class addition.
 
 **ASK**
 
-> "Is this what we want Git to remember?"
+> "Did the recipe change again when we used `git add`?"
 
-If yes:
+**SAY**
+
+> "No. Its Git state changed. We chose this change for the next record."
 
 ```bash
 git commit -m "Add class suggestion to guacamole recipe"
-```
-
-**EXPECTED OUTPUT**
-
-Git reports a new commit with one file changed and the insertion count.
-
-**DO**
-
-```bash
 git log --oneline
 git show HEAD
 ```
 
+**EXPECTED OUTPUT**
+
+A new commit appears at the top of the history, and `git show HEAD` displays the change we just recorded.
+
 **ASK**
 
-> "Where is our change now?"
-
-Guide toward: in the file **and** in the local Git history.
+> "Can you see the whole cycle we used last time?"
 
 **SAY**
 
-> "We did not just look at a repository. We changed something, inspected it, chose it, recorded it, and verified the record."
+> "Change. Inspect. Choose. Record. Review. That is where Kevin's lesson leaves us."
 
 ```text
 CHANGE -> INSPECT -> CHOOSE -> RECORD -> REVIEW
 ```
 
-> "That is our working lifecycle. We are going to use it again on more meaningful data after the break."
-
-**COMMON MISTAKE CUE**
-
-> "If `git add <file>` appears in notes, do not type the angle brackets literally. They mean replace the placeholder with the real filename. Here our filename is `guacamole.md`."
+> "And that gives us today's question: this commit is here on my computer. How do I get this work to you?"
 
 **TRANSITION**
 
-> "We have made a local commit. The next question is: where is that commit? Is it only here on this computer, or has GitHub received it? To answer that, we need to inspect the relationship between this repository and GitHub."
+> "We are not starting over with Git. We are extending the lifecycle. Kevin gave us local change and local history. Today we add SHARE, RECEIVE, COLLABORATE, and EXPLAIN."
+
+```text
+CHANGE -> INSPECT -> CHOOSE -> RECORD -> REVIEW
+                                      ↓
+                                SHARE -> RECEIVE
+```
 
 ---
+
+
 
 # 1:33-1:43 | REMOTE -> ORIGIN -> PULL
 
