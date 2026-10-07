@@ -1809,3 +1809,85 @@ Use this final open-science rhythm:
 ```text
 PRACTICE -> DOCUMENT -> SHARE -> PRESERVE -> REUSE
 ```
+
+
+## TEAMS IS THE WORKSHOP FRONT DOOR
+
+Open the Teams workshop space at the beginning and keep it available during the session. Teams is the class communication and course-material space. GitHub is the versioned project collaboration space.
+
+```text
+TEAMS
+  open workshop space
+  get LINKS
+  review NOTES
+  open SLIDES
+  open CHEAT_SHEET
+  add comments, questions, and ideas in CHAT
+  contribute to the course conversation
+
+GITHUB
+  clone repository
+  inspect history
+  make project changes
+  commit
+  pull and push
+  collaborate on versioned work
+```
+
+### Opening prompt
+
+**Say**
+
+> "Please open our Git & GitHub Workshop space in Teams. Keep it open today. This is our workshop front door."
+
+> "Across the top you will see the materials we use together: Notes, Slides, Links, and the Cheat Sheet. The chat is also part of the workshop. Add questions, observations, ideas, and non-sensitive error messages there as we work."
+
+> "You do not have to remember every command. The reference material stays with the course so you can return to the steps."
+
+### Ask
+
+> "Where would you look if you need today's repository link?"
+
+Answer: the workshop Links area in Teams.
+
+> "Where would you put an idea or question for the group?"
+
+Answer: the workshop chat.
+
+> "Where would you review the teaching notes or slides?"
+
+Answer: the corresponding Teams tabs.
+
+> "If you make a Git commit, does that commit live in Teams?"
+
+Answer: No. Teams supports the people and course conversation. Git/GitHub records the versioned project work.
+
+### Transition to GitHub
+
+**Say**
+
+> "Now we are going to follow a link from our people-and-course space into our versioned project space."
+
+Learners open the GitHubCarpentries-Examples link from Teams, then continue with the clone sequence already in this lesson.
+
+### Contribution prompt during class
+
+After a teaching stop, invite either spoken or chat participation:
+
+> "What did you notice? You can say it aloud or put the observation in our workshop chat."
+
+For a useful error:
+
+> "If the message is not sensitive, paste the exact error into the workshop chat. We can read the same evidence together."
+
+Never ask learners to post passwords, access tokens, authentication codes, private data, or sensitive research information.
+
+### End-of-class return
+
+Return to Teams before the final explain-back.
+
+**Say**
+
+> "We started here because this is the course space, and we are returning here because the workshop should remain usable after today. The links, notes, slides, cheat sheet, questions, and ideas give us a course record. GitHub gives us the versioned project record."
+
+Invite learners to leave one final comment or idea about something they want to practice next.
