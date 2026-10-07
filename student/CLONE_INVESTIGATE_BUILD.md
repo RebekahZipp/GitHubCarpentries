@@ -496,3 +496,39 @@ SAY what it means
 VERIFY
 NEXT action
 ```
+
+
+## First meaningful change: make the list mean what you intend
+
+Before adding something just to practice Git, read `build-example/books.md` and ask:
+
+> **What is one small thing I would change that would mean something to me?**
+
+The instructor example changes the table from:
+
+```text
+Title | Author | Date Finished | Publisher | Rating | Notes
+```
+
+to:
+
+```text
+Title | Author | Publication Date | Publisher | Rating | Date Finished | Notes
+```
+
+The reason matters: the existing dates were interpreted as publication dates, so the field is clarified and a separate Date Finished field is added.
+
+After making a meaningful change:
+
+```bash
+git status
+git diff
+git add build-example/books.md
+git diff --staged
+git commit -m "Clarify publication and finished dates"
+git log --oneline
+```
+
+Your change does not have to match the instructor's. Change something you can explain: a label, a useful field, a book, a rating, or a note.
+
+**Key point:** Git does not decide what the information means. People make that decision. Git records the change.
