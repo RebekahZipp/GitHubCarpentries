@@ -1,3 +1,32 @@
+
+
+## Start here: open the Teams workshop space
+
+Keep the **Git & GitHub Workshop | OSU Libraries** Teams space open during class. It is the workshop front door.
+
+Use Teams to:
+
+- get the workshop and repository links;
+- review the Notes;
+- open the Slides;
+- keep the Cheat Sheet available;
+- add questions, comments, and ideas to the chat; and
+- return to the course material after the live demonstration moves on.
+
+```text
+TEAMS              people + course materials + conversation
+GITHUB             shared versioned project
+LOCAL CLONE        your working copy on your computer
+```
+
+A message in Teams does not change the Git repository. A local Git commit does not automatically appear in Teams.
+
+When invited to participate, you may answer aloud or add an observation to the workshop chat.
+
+If you share an error message in chat, check that it contains no password, token, authentication code, private data, or sensitive research information.
+
+From the Teams **Links** area, open the shared GitHub example repository. Then continue with the clone and investigation steps below.
+
 # Clone → Collaborate → Investigate → Build
 
 ## Your mission
