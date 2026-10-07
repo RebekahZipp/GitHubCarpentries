@@ -218,3 +218,18 @@ DOES it need preservation, a DOI, restricted access, or a disciplinary repositor
 ```
 
 **Rule:** Git noticing a file does not mean GitHub is the right place for that file.
+
+
+## Plain-text teaching and research repository context
+
+The lesson is written to be followed literally. Instructor and learner materials use the same sequence and vocabulary:
+
+```text
+SAY -> ASK -> DO -> STOP -> READ -> EXPLAIN -> VERIFY -> NEXT
+```
+
+OSF Project workflows are changing in 2026-2027. This makes active research workflow choices timely. GitHub is one research repository option for appropriate versionable materials such as documentation, code, methods, metadata, configuration, scripts, and small data files. It is not a one-for-one replacement for OSF or the right data repository for every project.
+
+The training now connects Git history, README, .gitignore, LICENSE, CITATION.cff, GitHub repositories/remotes, data repositories, and registrations as different parts of a research record.
+
+**Rule:** Git noticing a file does not mean GitHub is the right place for that file.
