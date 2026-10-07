@@ -1891,3 +1891,93 @@ Return to Teams before the final explain-back.
 > "We started here because this is the course space, and we are returning here because the workshop should remain usable after today. The links, notes, slides, cheat sheet, questions, and ideas give us a course record. GitHub gives us the versioned project record."
 
 Invite learners to leave one final comment or idea about something they want to practice next.
+
+
+## START FROM THE LAST PLAY SANDBOX OR CLONE A FRESH COPY
+
+Do not assume every learner begins from the same computer state.
+
+### Path A: returning to the computer used in the earlier Carpentries session
+
+**Say**
+
+> "If you are on the computer where you did our last Git practice, start by finding that play sandbox. We are continuing from work that already exists."
+
+**Do + read**
+
+```bash
+pwd
+ls
+git status
+```
+
+If Git recognizes the repository, use that existing work to reconnect the earlier lesson to today's collaboration lesson.
+
+### Path B: loaner computer or Digital Scholarship Center computer
+
+**Say**
+
+> "If you are on a loaner or lab computer, your old local repository may not be here. That is okay. A remote repository lets us make a new local copy."
+
+Open **Teams -> Links -> GitHubCarpentries-Examples**.
+
+On GitHub:
+
+```text
+Code -> HTTPS -> Copy
+```
+
+Return to Git Bash. Type `git clone ` with a space, then paste the copied HTTPS address. Do not manually retype the long URL.
+
+```bash
+git clone [PASTE THE HTTPS ADDRESS HERE]
+cd GitHubCarpentries-Examples
+git status
+git remote -v
+```
+
+### Stop and ask
+
+> "Before the clone, why could Git know my name and email but not show my old Git work?"
+
+Read the distinction:
+
+```text
+GIT CONFIGURATION       name/email Git can write on new commits
+LOCAL REPOSITORY        files + .git history stored on this computer
+GITHUB REMOTE           another copy of repository/history hosted elsewhere
+GITHUB AUTHENTICATION   proves which GitHub account is connecting
+```
+
+**Say**
+
+> "My name and email are configuration. They are not my repository history. Git can know what author name to put on a commit without having any of my old repositories on this computer."
+
+> "My earlier Git work lived inside the .git directories of the repositories on the computer where I made it. A different lab computer does not automatically receive those local repositories."
+
+> "If that work was pushed to GitHub, I can clone the GitHub repository onto this computer and receive the shared history. If it was never pushed anywhere, my name and email cannot reconstruct it."
+
+### Evidence check
+
+After cloning:
+
+```bash
+git status
+git log --oneline
+git remote -v
+```
+
+Ask:
+
+> "What changed? Did Git suddenly remember me, or did we bring a repository and its history onto this computer?"
+
+Answer: the repository and its recorded history were cloned onto this computer.
+
+### Teaching conclusion
+
+```text
+IDENTITY != HISTORY
+CONFIGURATION != REPOSITORY
+COMMITTED != PUSHED
+CLONE = NEW LOCAL COPY OF SHARED REPOSITORY/HISTORY
+```
