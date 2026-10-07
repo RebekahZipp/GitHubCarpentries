@@ -2182,3 +2182,132 @@ CHECK REMOTE + BRING SHARED WORK HERE
 **Transition**
 
 > "We have located our local copy and verified its relationship to the shared repository. Now we can investigate what is in it before we change anything."
+
+
+## FIRST MEANINGFUL BUILD: FIX THE READING-LIST MEANING
+
+Use this as the first live change to `build-example/books.md`, before asking learners to make their own meaningful change.
+
+### Say
+
+> "Before I add anything, I am going to read this list as data. What does it appear to mean?"
+
+Open the file:
+
+```bash
+cat build-example/books.md
+```
+
+Read the current header:
+
+```text
+Title | Author | Date Finished | Publisher | Rating | Notes
+```
+
+### Think aloud
+
+> "I personally interpreted these existing dates as publication dates. But the heading says Date Finished. That tells me the structure is communicating something differently from the way I understood the list."
+
+> "So my first Git change is not just typing something. I am making a small decision about what this data means."
+
+### Ask
+
+> "What is one small thing you would change that would mean something to you?"
+
+Pause before giving your answer.
+
+### Say your decision
+
+> "For me, I would change Date Finished to Publication Date because that is how I interpreted the dates already in the list. Then I would add Date Finished after Rating so I can record when I actually finish each book."
+
+Show the change:
+
+```text
+BEFORE
+Title | Author | Date Finished | Publisher | Rating | Notes
+
+AFTER
+Title | Author | Publication Date | Publisher | Rating | Date Finished | Notes
+```
+
+Update the Markdown separator row to the same seven-column structure, and add an empty Date Finished cell to each existing book row.
+
+### Make the change
+
+Open `build-example/books.md` in the editor being used for the demonstration. Change only the table structure described above and save.
+
+Then return to Git Bash.
+
+### Stop and inspect
+
+```bash
+git status
+git diff -- build-example/books.md
+```
+
+**Ask**
+
+> "What changed?"
+
+> "Does the diff show the decision I intended to make?"
+
+> "Did I change the meaning of the data, the values, or both?"
+
+Expected interpretation: the schema/field meaning changed. Existing date values remain, but they are now explicitly described as Publication Date, and a new empty Date Finished field is available.
+
+### Choose and stage only this change
+
+```bash
+git add build-example/books.md
+git status
+git diff --staged
+```
+
+### Record the reason
+
+**Say**
+
+> "The commit message should tell future me why this version exists."
+
+```bash
+git commit -m "Clarify publication and finished dates"
+```
+
+Then verify:
+
+```bash
+git log --oneline
+git show HEAD
+```
+
+### Teaching meaning
+
+```text
+OBSERVE     I interpreted the field differently.
+IDENTIFY    The heading did not match the meaning I expected.
+DECIDE      Existing dates mean Publication Date.
+CHANGE      Rename the field and add Date Finished.
+INSPECT     Read the diff.
+RECORD      Commit the decision.
+VERIFY      Read the recorded change.
+```
+
+**Say**
+
+> "Git did not decide what this field means. I did. Git records the change and gives us evidence of the decision."
+
+### Learner handoff
+
+Now ask learners:
+
+> "Look at the reading list. What is one small thing you would change that would mean something to you?"
+
+Possible meaningful changes include clarifying a label, adding a useful field, adding a book, recording a rating, or improving a note. Learners do not need to copy the instructor's metadata change.
+
+Use:
+
+```text
+CHANGE -> INSPECT -> CHOOSE -> RECORD -> REVIEW
+```
+
+Do not push yet unless the lesson has reached the shared-push checkpoint.
