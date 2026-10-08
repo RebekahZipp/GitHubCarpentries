@@ -284,7 +284,7 @@ Typical commands are:
 
 ```bash
 git pull origin main
-# edit a file
+nano guacamole.md  # edit, Ctrl+O, Enter, Ctrl+X
 git status
 git diff
 git add FILE
