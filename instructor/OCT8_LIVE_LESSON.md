@@ -1167,74 +1167,70 @@ The local repository is current, the working tree is clean, the class commits ap
 
 ---
 
-# 3:45-3:55 | SAME GIT, ANOTHER WAY: RSTUDIO
+# 3:45-3:55 | SAME GIT, THREE RSTUDIO WORKSPACES
 
-**DEMO + DO**
+**PURPOSE:** Learners should distinguish the R Console, Terminal, and Git pane, and understand that RStudio uses the *same local repository* as Git Bash.
 
-**SAY**
+**SAY:** "RStudio is a place to write and run R code, manage project files, and work with Git and GitHub. We have not created a new Git history by opening the same folder here. We have changed interfaces."
 
-> "We have done the work in Git Bash because the commands make the states visible. Many of us also work in RStudio. I want you to leave knowing this is not a second kind of Git."
+**DEMO + DO: OPEN THE EXISTING PROJECT.** In RStudio choose **File → New Project → Existing Directory**. Browse to `C:\Users\Carpentries\GitHubCarpentries-Examples` and create/open the project. If a project file already exists, open that instead. **STOP:** In the Files pane, find `README.md`, `guacamole.md`, and `build-example`. **ASK:** "Did we clone a second copy?" **EXPECTED:** No, this is the same local folder. If `.Rproj` appears as an untracked file, do not stage it automatically.
 
-Open this repository in RStudio and show the **Git** pane.
+**THREE WORKSPACES, THREE JOBS**
 
-> "Look for the same things we have been reading all afternoon: changed files, staged files, commit, pull, push, and history."
+| RStudio place | What it is for | What to type or click | Expected evidence |
+| --- | --- | --- | --- |
+| **Console** with `>` prompt | Execute R expressions, analysis, and scripts | `getwd()`, `list.files()`, `readLines("README.md", n = 5)` | R prints the current working directory, file names, or README text |
+| **Terminal** with a shell prompt such as `$` | Execute shell commands, including Git | `pwd`, `git status`, `git log --oneline -3` | Shell path, Git branch/status, and commit history |
+| **Git pane** | Inspect and operate Git through buttons | View changes; Diff; Stage; Commit; Pull; Push; History | Same repository states as Git Bash |
 
-Make one useful README addition:
+**SAY:** "The Console speaks R. The Terminal speaks shell commands. The Git pane gives us buttons for Git. GitHub is the remote repository that Git can contact. None of these is the same thing."
+
+**ASK / PREDICT:** "What happens if I type `git status` at the R `>` prompt?" **EXPECTED:** R will not run it as a Git command. **RECOVER:** Do not type Git commands directly at the R prompt; switch to the Terminal or Git pane.
+
+**DEMO + DO IN THE CONSOLE** (enter separately at the `>` prompt):
+
+```r
+getwd()
+list.files()
+readLines("README.md", n = 5)
+```
+
+**STOP / INTERPRET:** `getwd()` shows the current R working directory; `list.files()` lists files; `readLines()` reads the README. These are R commands, not Git operations. If the README is not found, inspect `getwd()` and the Files pane before changing directories.
+
+**DEMO + DO IN THE TERMINAL** (open **Tools → Terminal → New Terminal**, if available):
+
+```bash
+pwd
+git status
+git log --oneline -3
+```
+
+**STOP / INTERPRET:** These are shell/Git commands. The Terminal may use a different shell from Git Bash; check the prompt and directory. If Git reports `not a git repository`, navigate to the existing clone instead of recloning.
+
+**DEMO + DO IN THE GIT PANE:** Open `README.md` and add a short, useful line:
 
 ```text
 Workshop: OSU Libraries Git & GitHub, October 8, 2026
 ```
 
-Save it.
+Save. **ASK:** "What changed?" **EXPECTED:** `README.md` appears modified. Select it and click **Diff** to inspect the line. Stage only `README.md`; check staged content. Click **Commit** and enter `Record Oct 8 workshop`. Verify the new commit in **History**. **If permission and remote state allow**, click **Push**. If the push is rejected, stop and inspect; do not force-push.
 
-**ASK**
-
-> "What changed in the Git pane?"
-
-Open the RStudio diff.
-
-> "Where is our diff now?"
-
-Stage the README.
-
-> "What state did we just move into?"
-
-Commit in RStudio:
-
-```text
-Record Oct 8 workshop
-```
-
-Push from RStudio.
-
-Return to Git Bash:
+**VERIFY IN GIT BASH OR RSTUDIO TERMINAL:**
 
 ```bash
 git status
-git log --oneline
+git log --oneline -3
 ```
 
-**EXPECTED OUTPUT**
+**EXPECTED:** The RStudio commit appears in the same local history. The working tree may contain an untracked `.Rproj` or other files; do not promise a clean tree until these are inspected. A local commit does not prove it was pushed; check the remote response or GitHub history separately.
 
-The working tree is clean and the RStudio-created commit appears at the top of the same history.
+**ASK:** "If I commit in RStudio and inspect in Git Bash, did I create two histories?" **EXPECTED:** No. Same repository, same commits, different interfaces.
 
-**ASK**
+**COMMON MISTAKES:** Opening the wrong folder, using `git status` in the R Console, assuming `getwd()` is always the repository root, staging an unintended `.Rproj`, and mistaking a local commit for a GitHub push. Recover by identifying the interface, locating the project, inspecting Git status, and choosing the next safe action.
 
-> "If I commit in RStudio and then open Git Bash, did I create two histories?"
+**TIME GATE:** Ten minutes is enough for the interface comparison and an instructor-led demonstration, but not a guaranteed independent learner push. If running behind, demonstrate the Console, Terminal, and Git pane and let learners complete the README commit afterward.
 
-Pause.
-
-**SAY**
-
-> "No. Different interface, same repository, same history, same lifecycle."
-
-```text
-CHANGE -> INSPECT -> CHOOSE -> RECORD -> REVIEW -> SHARE
-```
-
-**COMMON MISTAKE CUE**
-
-> "The R Console is not the Terminal. A Git command typed at the R `>` prompt is being given to R. Use the Git pane or Terminal for Git work."
+**TRANSITION:** "We can do our analysis in R, inspect our files in RStudio, and use Git to record and share the work. The tools are connected by the same project, not by magic."
 
 ---
 
