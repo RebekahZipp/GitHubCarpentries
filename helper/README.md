@@ -298,6 +298,58 @@ Useful handoff:
 
 ## Helper checkpoints during the lesson
 
+**LEAD → FOLLOW → CHECK: OPEN THE BOOK FILE WITH NANO (DO NOT SKIP)**
+
+**SAY:** "We have read the table. Now we must open the actual file to change it. `cat` displays a file; `nano` edits it. Watch me open the exact book-list file, then follow."
+
+**DEMO + DO** in Git Bash or RStudio **Terminal** (not the R `>` Console):
+
+```bash
+pwd
+ls build-example
+nano build-example/books.md
+```
+
+**EXPECTED:** Nano opens the existing Markdown reading list. **CHECK:** learners see the heading `# Books I Have Read` and a six-column table. If Nano is blank, do not save: exit with **Ctrl+X**, inspect `pwd` and `ls build-example`, and correct the directory/path.
+
+**EDIT THE REAL TABLE:** Rename `Date Finished` to `Publication Date`. Add a *new* `Date Finished` column after `Rating`, and add one empty cell to the separator and to **each** existing book row. Preserve the original dates as publication dates. The result should have seven columns:
+
+```markdown
+# Books I Have Read
+
+| Title | Author | Publication Date | Publisher | Rating | Date Finished | Notes |
+| --- | --- | --- | --- | --- | --- | --- |
+| Such Sharp Teeth | Rachel Harrison | 2022-10-03 | Penguin Publishing Group | | | |
+| I, Medusa | Ayana Gray | 2025-11-17 | Random House Publishing Group | | | |
+| The Penelopiad | Margaret Atwood | 2014-10-22 | Faber & Faber | | | |
+```
+
+**SAVE:** Press **Ctrl+O**, then **Enter** to confirm the filename. **EXIT:** Press **Ctrl+X**. If prompted `Save modified buffer?`, press **Y**, then **Enter**. **CHECK:** the shell prompt returns.
+
+**VERIFY, one command at a time:**
+
+```bash
+cat build-example/books.md
+git status
+git diff -- build-example/books.md
+```
+
+**EXPECTED:** Seven column headers; `books.md` modified; diff shows the changed heading and added cells. **ASK:** "Did we change the original date values?" **EXPECTED:** No. We corrected their meaning and added a distinct completion-date field.
+
+**RECORD THE CHANGE** only after verifying:
+
+```bash
+git add build-example/books.md
+git diff --staged
+git commit -m "Separate publication and finished dates"
+git log -1 --oneline
+```
+
+**EXPECTED:** a local commit with the table correction. Do not push until collaborators, permissions, and shared branch state have been checked. If Git says `nothing to commit`, inspect `git status` and `git diff`; the edit may not have been saved or may already be present.
+
+**RECOVER:** `nano: command not found` means use Git Bash with Nano or open the file in RStudio's editor. A `Permission denied` on save indicates local file/folder write permissions, not necessarily GitHub authorization. Do not use `sudo`, force-push, or delete work to get past it.
+
+
 ### Before cloning
 
 Confirm the learner knows where the clone will be created and that they are not accidentally cloning inside another repository.
