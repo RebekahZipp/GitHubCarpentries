@@ -1439,3 +1439,97 @@ Give them a moment.
 > "The commands may change. The reasoning should become familiar."
 
 ---
+
+
+---
+
+## October 8 live-teaching corrections: retain in every future edition
+
+This section records what actually had to be taught during the workshop. **Do not remove the executable commands, Nano editing steps, expected output, or conditional recovery paths when revising or exporting this curriculum.** The original shared example repository is the learners' working specimen, not a place to pre-complete their exercise.
+
+**In Git Bash, inside the existing `GitHubCarpentries-Examples` clone:**
+
+```bash
+pwd
+git status
+cat guacamole.md
+nano guacamole.md
+```
+
+In Nano, use arrow keys to edit, **Ctrl+O**, **Enter** to save, **Ctrl+X** to exit. Then:
+
+```bash
+git diff -- guacamole.md
+git add guacamole.md
+git diff --staged
+git commit -m "Improve guacamole recipe"
+git log -1 --oneline
+```
+
+**Book-list correction, with an actual editor command:**
+
+```bash
+cat build-example/books.md
+nano build-example/books.md
+```
+
+Change the mislabeled `Date Finished` column to `Publication Date`; add a *separate* `Date Finished` column after `Rating`; adjust the Markdown separator and all rows; preserve original dates. **Ctrl+O**, **Enter**, **Ctrl+X**.
+
+```bash
+git diff -- build-example/books.md
+git add build-example/books.md
+git status
+git diff --staged
+git commit -m "Separate publication and finished dates"
+git log -1 --oneline
+git show HEAD
+```
+
+**Share and receive, with state checks:**
+
+```bash
+git status
+git remote -v
+git push origin main
+```
+
+Push only if the learner has permission and their local work is ready. On another collaborator's clean working tree:
+
+```bash
+git status
+git pull origin main
+cat build-example/books.md
+git log --oneline -- build-example/books.md
+```
+
+**If collaborators see different files:** check `git remote -v`, `git status`, the branch, and whether the original push succeeded. A public repo and collaborator invitation do **not** synchronize local working copies.
+
+**If `git status` shows `Unmerged paths`:** stop pulling and pushing. Inspect the exact paths, then edit the *conflicted* file with Nano:
+
+```bash
+git status
+nano build-example/books.md
+```
+
+Read `<<<<<<<`, `=======`, `>>>>>>>` as two competing versions. Preserve valid work from both sides, remove markers, **Ctrl+O**, **Enter**, **Ctrl+X**. For a **merge** in progress:
+
+```bash
+git add build-example/books.md
+git status
+git commit -m "Resolve book list merge conflict"
+git status
+```
+
+Only commit if `git status` says all conflicts are fixed and a **merge** is in progress. If it says **rebase**, follow the rebase procedure instead; do not issue the merge commit command. Once clean and complete, `git push origin main` can share the result. Never use force-push, hard reset, or deletion as a catch-up shortcut.
+
+**History lesson after resolution:**
+
+```bash
+git log --oneline
+git show HEAD
+git log --oneline -- build-example/books.md
+```
+
+A merge commit may not display a conventional single-parent diff in `git show HEAD`. Use the path-specific log to trace the book-list history. **Instructor asks:** "Which commits represent the metadata correction and the human resolution? How can we tell the difference between a local commit and a shared commit?"
+
+**Teaching contract for each future module:** **SAY → PREDICT → TYPE THE REAL COMMAND → OBSERVE EXPECTED OUTPUT → INTERPRET → VERIFY → RECOVER → CONTINUE**. Never substitute `# edit`, `FILE`, or "save the file" for the first time a novice must perform an action. RStudio **Console** runs R; **Terminal** runs Git Bash commands; **Git pane** offers Git controls. Keep these distinctions visible.
