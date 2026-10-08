@@ -4,7 +4,7 @@
 
 **Two places to name aloud:**
 
-- **LOCAL, on the Digital Scholarship Center Windows computer:** `C:\Users\libpatron\Carpentries\GitHubCarpentries-Examples`. In Git Bash, Windows `C:\` is written `/c/`.
+- **LOCAL, on the Digital Scholarship Center Windows computer:** `C:\Users\Carpentries\GitHubCarpentries-Examples`. In Git Bash, Windows `C:\` is written `/c/`.
 - **SHARED, on GitHub:** https://github.com/RebekahZipp/GitHubCarpentries-Examples . The local copy can be connected to this address through a remote called `origin`.
 - **Teams:** course links, policies, slides, chat, and help. Teams is not where Git commits live.
 
@@ -18,7 +18,7 @@ ls
 **Expect:** `pwd` prints the current folder; `ls` lists what is in it. Neither command changes anything.
 
 ```bash
-cd /c/Users/libpatron/Carpentries
+cd /c/Users/Carpentries
 ls
 ```
 
@@ -47,7 +47,7 @@ git status
 
 **Expect:** Git contacts GitHub and either reports `Already up to date.` or brings in newer work; status then shows the resulting state. A clean local tree does not guarantee a pull will succeed; authentication, connectivity, branch configuration, or divergent histories can require help. Do not reset, force-push, or delete anything to fix it.
 
-**If the repository folder is truly absent:** use Teams **Links** to open the GitHub repository, choose **Code → HTTPS → Copy**; in Git Bash go to `/c/Users/libpatron/Carpentries` (if it exists), type `git clone ` followed by the pasted HTTPS URL, then `cd GitHubCarpentries-Examples` and `git status`. **Clone only when absent.** If the parent folder is missing, ask the helper to establish the approved workspace location first.
+**If the repository folder is truly absent:** use Teams **Links** to open the GitHub repository, choose **Code → HTTPS → Copy**; in Git Bash go to `/c/Users/Carpentries` (if it exists), type `git clone ` followed by the pasted HTTPS URL, then `cd GitHubCarpentries-Examples` and `git status`. **Clone only when absent.** If the parent folder is missing, ask the helper to establish the approved workspace location first.
 
 **Read errors literally:**
 
