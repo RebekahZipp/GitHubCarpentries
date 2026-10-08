@@ -1,57 +1,17 @@
-## TODAY'S REAL RECOVERY LESSON: A WEB ADDRESS IS NOT A FOLDER
+## START HERE: choose the right command
 
-**SAY:** "We just experienced a common, useful mistake. I tried `cd https://...` to connect to GitHub. Git Bash could not do that because `cd` moves into folders **on this computer**. A GitHub URL is a web address, not a local folder. This is why we always ask what place we are in and what action we actually want."
-
-**ASK:** "Am I trying to enter a folder I already have, download a repository I do not have, or contact GitHub from a repository I already have?"
-
-| Intention | Use | Why |
+| Question | Command | Evidence |
 | --- | --- | --- |
-| Find my location | `pwd` | Shows my current local folder |
-| See folders and files | `ls` | Shows what exists here |
-| Enter a local folder | `cd FOLDER` | Changes local directory only |
-| Get a repository not yet on this computer | `git clone HTTPS_URL` | Downloads files/history and sets up `origin` |
-| See the saved GitHub connection | `git remote -v` | Displays the `origin` URL; does not contact GitHub |
-| Contact GitHub for updates | `git pull origin main` | Fetches/integrates shared work |
-| Share a local commit | `git push origin main` | Sends local commits, if authorized |
+| Where am I? | `pwd` | Local path |
+| What is here? | `ls` | Folder names |
+| How do I reach the DSC workspace? | `cd /c/Users/Carpentries` | `pwd` confirms location |
+| How do I enter the existing project? | `cd GitHubCarpentries-Examples` | `git status` reports branch |
+| How do I obtain a missing repo? | `git clone https://github.com/RebekahZipp/GitHubCarpentries-Examples.git` | New local folder |
+| What GitHub address is saved? | `git remote -v` | `origin` URL; no network check |
+| How do I receive shared work? | `git pull origin main` | Integration result, only after checking local state |
+| How do I share a commit? | `git push origin main` | Remote response, if authorized |
 
-**DEMO + DO.** Start with the real Digital Scholarship Center path:
-
-```bash
-cd /c/Users/Carpentries
-pwd
-ls
-```
-
-**EXPECTED:** `pwd` says `/c/Users/Carpentries`. If `GitHubCarpentries-Examples` is listed, **do not clone again**:
-
-```bash
-cd GitHubCarpentries-Examples
-git status
-git remote -v
-```
-
-**EXPECTED:** `git status` names the branch; `git remote -v` displays `origin` pointing to `https://github.com/RebekahZipp/GitHubCarpentries-Examples.git` (or equivalent URL).
-
-**ONLY IF THE FOLDER IS ABSENT:** Copy the HTTPS URL from GitHub **Code → HTTPS → Copy**, then type `git clone ` followed by the pasted address. For this workshop the complete command is:
-
-```bash
-git clone https://github.com/RebekahZipp/GitHubCarpentries-Examples.git
-cd GitHubCarpentries-Examples
-git status
-```
-
-**EXPECTED:** Clone creates the folder and retrieves the recorded history. It does not create a new empty project.
-
-**IF THE COMPUTER REBOOTED:** Start with `pwd`, `ls`; a reboot alone is not a reason to clone. If `cd` alone sends you home, use the full path above. If `cat Carpentries` says **is a directory**, use `cd Carpentries` to enter it; `cat` is for reading files. If you accidentally type Git's printed output as a command, stop: output is evidence, not a new instruction.
-
-**IF AN ERROR APPEARS:** Do not delete, reset, force-push, or keep guessing. Read the exact error, then check `pwd`, `ls`, `git status` as appropriate. Ask the helper to help locate the smallest correct state.
-
-**SAY:** "The mistake is part of today's lesson because it reveals an important distinction: LOCAL FOLDER != GITHUB WEBSITE. A saved remote address != a live connection. COMMITTED != PUSHED. We can return to our work by checking evidence, not memorizing where we left off."
-
-**TRANSITION:** "Now that we know how to find our project and recognize its GitHub address, we can return to Kevin's change-and-record cycle and make something happen."
-
-
----
+**Do not type `cd https://...`.** A URL is not a folder. **Do not reclone after a reboot without checking `ls`.**
 
 ## Return to our work after a reboot: two places, one project
 
