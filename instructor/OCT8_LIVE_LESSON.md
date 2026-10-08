@@ -121,7 +121,8 @@ The instructor and learners should usually be at the same checkpoint. Use helper
 | **1:53-2:00** | **Break** | Clean checkpoint |
 | 2:00-2:25 | Fix book-list meaning | Better schema + shared commit |
 | 2:25-2:45 | Pull the instructor change | Everyone receives file + history |
-| 2:45-2:53 | Learner contribution | A class contribution in shared history |\n| **2:53-3:00** | **Break** | Clean shared checkpoint |
+| 2:45-2:53 | Learner contribution | A class contribution in shared history |
+| **2:53-3:00** | **Break** | Clean shared checkpoint |
 | 3:00-3:18 | Read a rejected push | Collaboration problem understood |
 | 3:18-3:33 | Resolve one conflict | Human decision recorded |
 | 3:33-3:45 | Document + archive | README + lasting GitHub record |
@@ -186,108 +187,23 @@ Pause.
 
 ---
 
-## 1:10 teaching cue: recover last week's work, not just the window
+## 1:10 instructor recovery cue: make the distinction visible
 
-**SAY:** "Kevin showed us how to change our thing and see the change. First, we have to find our thing again. A reboot changes the window, not necessarily the project. There is a local copy on this computer and a shared copy on GitHub. Let's prove where we are before doing anything."
+**SAY:** "A reboot changes our window, not necessarily our project. Git Bash starts in a local folder. GitHub is the shared website. We must decide whether to enter an existing folder or clone a missing repository."
 
-**ASK:** "Does opening Git Bash automatically open the project?" **EXPECTED:** No.
+**ASK:** "Does `cd https://github.com/...` open GitHub?" **EXPECTED:** No. `cd` enters a local folder, never a web address.
 
-**DEMO + DO:** Follow the exact commands and expected evidence below. Pause after each pair. If the path is missing, use the safe clone fallback, not a guessed fix.
-
-**TRANSITION:** "Now we know where the work lives and how to return to it. We can use Kevin's tools to make a change we can see."
-
-## Return to our work after a reboot: two places, one project
-
-**Why this is in the course:** Last week's files may still be on this computer, but opening Git Bash does not automatically put us inside them. GitHub keeps the shared repository; Git Bash operates in a folder on this computer. We find the local copy before deciding whether to clone. This is a reusable skill whenever we change computers, restart, or return to research.
-
-**Two places to name aloud:**
-
-- **LOCAL, on the Digital Scholarship Center Windows computer:** `C:\Users\Carpentries\GitHubCarpentries-Examples`. In Git Bash, Windows `C:\` is written `/c/`.
-- **SHARED, on GitHub:** https://github.com/RebekahZipp/GitHubCarpentries-Examples . The local copy can be connected to this address through a remote called `origin`.
-- **Teams:** course links, policies, slides, chat, and help. Teams is not where Git commits live.
-
-**Start in Git Bash. Type one command, read its output, then continue.**
+**DEMO + DO:** Type each line, pause, and read the evidence:
 
 ```bash
 pwd
 ls
-```
-
-**Expect:** `pwd` prints the current folder; `ls` lists what is in it. Neither command changes anything.
-
-```bash
-cd /c/Users/Carpentries
-ls
-```
-
-**Expect:** a folder named `GitHubCarpentries-Examples`. If `cd` says **No such file or directory**, stop and inspect the path with File Explorer; do not guess or create a second repository.
-
-```bash
-cd GitHubCarpentries-Examples
-pwd
-git status
-```
-
-**Expect:** `pwd` ends in `/GitHubCarpentries-Examples`; `git status` reports a branch and any local changes. A modified file is not a failure; do not discard it.
-
-```bash
-git remote -v
-```
-
-**Expect:** `origin` with GitHub URL(s) for fetch and push. **This reads the saved connection; it does not contact GitHub.** If the URL differs, stop and check the repository before pushing.
-
-**Only when `git status` shows a clean working tree:**
-
-```bash
-git pull origin main
-git status
-```
-
-**Expect:** Git contacts GitHub and either reports `Already up to date.` or brings in newer work; status then shows the resulting state. A clean local tree does not guarantee a pull will succeed; authentication, connectivity, branch configuration, or divergent histories can require help. Do not reset, force-push, or delete anything to fix it.
-
-**If the repository folder is truly absent:** use Teams **Links** to open the GitHub repository, choose **Code → HTTPS → Copy**; in Git Bash go to `/c/Users/Carpentries` (if it exists), type `git clone ` followed by the pasted HTTPS URL, then `cd GitHubCarpentries-Examples` and `git status`. **Clone only when absent.** If the parent folder is missing, ask the helper to establish the approved workspace location first.
-
-**Read errors literally:**
-
-| Evidence | What it means | Safe next move |
-| --- | --- | --- |
-| `not a git repository` | You are probably outside the project | `pwd`, `ls`, enter the repository |
-| `No such file or directory` | That path/name is not present here | `pwd`, `ls`, check spelling/location |
-| `modified: ...` | A file has uncommitted edits | Inspect `git diff`; do not overwrite |
-| `Already up to date.` | Pull found no newer changes to integrate | Continue with the lesson |
-| Authentication or permission denied | GitHub access is not established | Ask helper; never share passwords/tokens |
-| `rejected` on push | Shared history may have moved or permission is missing | Read full error; do not force-push |
-
-**Five commands, five questions:** `pwd` = Where am I? `ls` = What is here? `cd FOLDER` = Enter that folder. `git status` = What is my local Git state? `git remote -v` = Which shared address is saved? `git pull origin main` = What work can I receive from GitHub?
-
-**Remember:** bare `cd` sends you home; `cd ..` moves up one folder; `cat FILE` reads a file. `COMMITTED != PUSHED`. A reboot != a reason to reclone.
-
-
-## TODAY'S REAL RECOVERY LESSON: A WEB ADDRESS IS NOT A FOLDER
-
-**SAY:** "We just experienced a common, useful mistake. I tried `cd https://...` to connect to GitHub. Git Bash could not do that because `cd` moves into folders **on this computer**. A GitHub URL is a web address, not a local folder. This is why we always ask what place we are in and what action we actually want."
-
-**ASK:** "Am I trying to enter a folder I already have, download a repository I do not have, or contact GitHub from a repository I already have?"
-
-| Intention | Use | Why |
-| --- | --- | --- |
-| Find my location | `pwd` | Shows my current local folder |
-| See folders and files | `ls` | Shows what exists here |
-| Enter a local folder | `cd FOLDER` | Changes local directory only |
-| Get a repository not yet on this computer | `git clone HTTPS_URL` | Downloads files/history and sets up `origin` |
-| See the saved GitHub connection | `git remote -v` | Displays the `origin` URL; does not contact GitHub |
-| Contact GitHub for updates | `git pull origin main` | Fetches/integrates shared work |
-| Share a local commit | `git push origin main` | Sends local commits, if authorized |
-
-**DEMO + DO.** Start with the real Digital Scholarship Center path:
-
-```bash
 cd /c/Users/Carpentries
 pwd
 ls
 ```
 
-**EXPECTED:** `pwd` says `/c/Users/Carpentries`. If `GitHubCarpentries-Examples` is listed, **do not clone again**:
+**EXPECTED:** The local folder is `/c/Users/Carpentries`. **IF** `GitHubCarpentries-Examples` is listed, continue:
 
 ```bash
 cd GitHubCarpentries-Examples
@@ -295,9 +211,9 @@ git status
 git remote -v
 ```
 
-**EXPECTED:** `git status` names the branch; `git remote -v` displays `origin` pointing to `https://github.com/RebekahZipp/GitHubCarpentries-Examples.git` (or equivalent URL).
+**EXPECTED:** Git reports a branch and `origin` identifies the GitHub repository. `git remote -v` only reads the saved address; it does not contact GitHub.
 
-**ONLY IF THE FOLDER IS ABSENT:** Copy the HTTPS URL from GitHub **Code → HTTPS → Copy**, then type `git clone ` followed by the pasted address. For this workshop the complete command is:
+**IF THE FOLDER IS MISSING:** Return to `/c/Users/Carpentries` and run:
 
 ```bash
 git clone https://github.com/RebekahZipp/GitHubCarpentries-Examples.git
@@ -305,16 +221,11 @@ cd GitHubCarpentries-Examples
 git status
 ```
 
-**EXPECTED:** Clone creates the folder and retrieves the recorded history. It does not create a new empty project.
+**COMMON MISTAKE / RECOVER:** `cd https://...` fails because the URL is not a folder. Bare `cd` returns home; `cat Carpentries` fails because `cat` reads files, not directories. Use `pwd` and `ls` before changing anything. Never delete or reclone over existing work.
 
-**IF THE COMPUTER REBOOTED:** Start with `pwd`, `ls`; a reboot alone is not a reason to clone. If `cd` alone sends you home, use the full path above. If `cat Carpentries` says **is a directory**, use `cd Carpentries` to enter it; `cat` is for reading files. If you accidentally type Git's printed output as a command, stop: output is evidence, not a new instruction.
+**VERIFY:** `git status` shows a branch and `git remote -v` shows the expected remote. If files are modified, inspect them rather than resetting. Only pull when local changes are understood and the integration is safe.
 
-**IF AN ERROR APPEARS:** Do not delete, reset, force-push, or keep guessing. Read the exact error, then check `pwd`, `ls`, `git status` as appropriate. Ask the helper to help locate the smallest correct state.
-
-**SAY:** "The mistake is part of today's lesson because it reveals an important distinction: LOCAL FOLDER != GITHUB WEBSITE. A saved remote address != a live connection. COMMITTED != PUSHED. We can return to our work by checking evidence, not memorizing where we left off."
-
-**TRANSITION:** "Now that we know how to find our project and recognize its GitHub address, we can return to Kevin's change-and-record cycle and make something happen."
-
+**SAY / TRANSITION:** "LOCAL FOLDER != GITHUB WEBSITE. COMMITTED != PUSHED. Now we can return to Kevin's change-and-record cycle."
 
 # 1:10-1:20 | LOCATE -> OBSERVE
 
