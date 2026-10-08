@@ -121,7 +121,7 @@ The instructor and learners should usually be at the same checkpoint. Use helper
 | **1:53-2:00** | **Break** | Clean checkpoint |
 | 2:00-2:25 | Fix book-list meaning | Better schema + shared commit |
 | 2:25-2:45 | Pull the instructor change | Everyone receives file + history |
-| 2:45-2:53 | Learner contribution | A class contribution in shared history |
+| 2:45-2:53 | Learner contribution | One meaningful local commit; push if access is ready |
 | **2:53-3:00** | **Break** | Clean shared checkpoint |
 | 3:00-3:18 | Read a rejected push | Collaboration problem understood |
 | 3:18-3:33 | Resolve one conflict | Human decision recorded |
@@ -305,7 +305,7 @@ Open **Teams -> Links -> GitHubCarpentries-Examples**, then on GitHub choose **C
 In Git Bash type `git clone ` with a space and paste the copied address.
 
 ```bash
-git clone [PASTE HTTPS ADDRESS]
+git clone https://github.com/RebekahZipp/GitHubCarpentries-Examples.git
 cd GitHubCarpentries-Examples
 git status
 ```
