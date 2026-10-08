@@ -305,3 +305,83 @@ OSF Project workflows are changing in 2026-2027. This makes active research work
 The training now connects Git history, README, .gitignore, LICENSE, CITATION.cff, GitHub repositories/remotes, data repositories, and registrations as different parts of a research record.
 
 **Rule:** Git noticing a file does not mean GitHub is the right place for that file.
+
+
+---
+
+## Run the workshop, not just its outline
+
+The timed instructor lesson and student workbook contain live commands and evidence checks. This runnable quick-start prevents unexecutable 'edit a file' gaps.
+
+## Executable live lab: every action has a command and a check
+
+**Instructor says:** "We will not skip from 'edit' to 'commit'. First we make a change, then we read what Git actually saw." **Learners:** run one line at a time in **Git Bash** or **RStudio Terminal**, never the R `>` Console.
+
+**0. Locate and inspect, without overwriting work.**
+```bash
+pwd
+ls
+git status
+git remote -v
+```
+**Expected:** a local folder containing `guacamole.md`; Git status names a branch; `origin` shows a GitHub URL. If `not a git repository`, find the existing clone before cloning again. `git remote -v` is a saved address, not proof of live authentication.
+
+**1. Read and edit the guacamole recipe using Nano.**
+```bash
+cat guacamole.md
+nano guacamole.md
+```
+**In Nano:** move with arrow keys; add one meaningful ingredient or instruction; press **Ctrl+O**, **Enter** to save, then **Ctrl+X** to exit. If the file opens empty, stop without saving and inspect `pwd` and `ls`. If Nano is unavailable, edit `guacamole.md` in RStudio's file editor and save.
+
+**2. Inspect, stage, record, verify.**
+```bash
+git status
+git diff -- guacamole.md
+git add guacamole.md
+git diff --staged
+git commit -m "Improve guacamole recipe"
+git log -1 --oneline
+git show HEAD
+```
+**Expected:** modified file before staging; added line prefixed `+` in diff; new commit in log. **Ask:** "Which command edited the file? Which command recorded it?" **Answer:** Nano edits; Git commits. If Git says "nothing to commit", verify the file was saved and whether that exact change already exists. Do not fabricate a change to force a commit.
+
+**3. Share and receive only when permission and network state permit.**
+```bash
+git status
+git pull origin main
+git push origin main
+git status
+```
+**Expected:** pull reports incoming work or "Already up to date"; push reports success if authenticated and authorized. **Caution:** inspect any uncommitted work before pulling. If rejected, stop and read the message; do not force-push. If access is unavailable, the verified local commit is a valid learner checkpoint.
+
+**4. Make metadata meaning visible in the reading list.**
+```bash
+cat build-example/books.md
+nano build-example/books.md
+```
+**Task:** correct the existing publication-date values currently under `Date Finished` by renaming that header `Publication Date`; add a *separate* `Date Finished` column after `Rating`; update the Markdown separator and every row. **Check**:
+```bash
+git diff -- build-example/books.md
+git add build-example/books.md
+git diff --staged
+git commit -m "Separate publication and finish dates in book list"
+git log -1 --oneline
+```
+**Expected:** column count matches across header, separator, and all data rows. **Ask:** "Did we change a value, or clarify the meaning of a field?"
+
+**5. RStudio: three interfaces, one existing repository.** Open the **existing local folder** as an RStudio project. At the **R Console `>`**:
+```r
+getwd()
+list.files()
+readLines("README.md", n = 5)
+visits <- c(12, 15, 18)
+mean(visits)
+```
+**Expected:** R prints the path, files, README lines, and `15`. To make this reproducible, save the two analysis lines in `workshop-analysis.R`; unsaved Console commands are not automatically tracked. In the **RStudio Terminal**:
+```bash
+git status
+git log --oneline -3
+```
+In the **Git pane**, select a changed file → **Diff** → stage only the intended file → **Commit** → **History**; push only if appropriate. **Do not automatically stage** `.Rproj` or optional analysis files. **Ask:** "Are these three different Git histories?" **Answer:** No: Console runs R, Terminal runs Git commands, Git pane provides Git controls on the same repository.
+
+**Recovery checkpoint:** At every surprising result use **EXPECT → OBSERVE → EXPLAIN → TEST → ACT → VERIFY**. Helpers ask learners to read the *exact* error, identify which interface is active, and verify the directory before suggesting a command. Never use `reset --hard`, `push --force`, or deletion to catch up.
