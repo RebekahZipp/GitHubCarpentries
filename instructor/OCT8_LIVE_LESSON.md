@@ -400,7 +400,49 @@ Use a real suggestion from the room.
 
 > "Perfect. Let's make something happen."
 
-Open `guacamole.md`, add the class suggestion, and save.
+**LEAD → FOLLOW → CHECK: EDIT WITH NANO IN GIT BASH**
+
+**SAY**
+
+> "We read the recipe with `cat`. To change it, we need a text editor. Kevin used Nano in the terminal. `cat` reads a file; `nano` opens it so we can edit."
+
+**DO, then learners FOLLOW** (in **Git Bash** or a terminal with Nano installed, *not* at the R Console `>` prompt):
+
+```bash
+nano guacamole.md
+```
+
+**EXPECTED:** The Nano editor opens with the recipe text and shortcut hints along the bottom. If the terminal says `nano: command not found`, use Git Bash with Nano or open the same file in RStudio's editor; do not treat that as a Git error.
+
+**ASK / PREDICT**
+
+> "Are we looking at Git history, or the contents of a file we can edit?"
+
+**FOLLOW:** Use the arrow keys to find an appropriate place. Add one new ingredient or instruction suggested by the class. Keep the original recipe; do not replace its contents.
+
+**CHECK:** Ask learners to point to the line they added. Explain that `^O` displayed in Nano means **Ctrl+O**, not the caret key.
+
+**SAVE:** Press **Ctrl+O** (Write Out), then **Enter** to confirm `guacamole.md` as the filename.
+
+**EXIT:** Press **Ctrl+X**. **EXPECTED:** The normal shell prompt returns.
+
+**RECOVER:** If Nano asks `Save modified buffer?`, press **Y**, then **Enter** to confirm the filename. If a learner sees the shell prompt instead of Nano, ask what command ran and read the output. If Nano opens an empty new file, **stop without saving** and verify `pwd`, `ls`, and the spelling of `guacamole.md`; do not create a second recipe by mistake.
+
+**VERIFY:** Before staging, run these one at a time:
+
+```bash
+cat guacamole.md
+git status
+git diff -- guacamole.md
+```
+
+**EXPECTED:** `cat` displays the new line, `git status` reports `guacamole.md` modified, and `git diff` shows the added line with `+`.
+
+**SAY**
+
+> "We edited the file with Nano, but Git has not recorded a new commit yet. Now we can inspect, choose, and record that change."
+
+**TRANSITION:** Continue with the `git add`, staged diff, and commit steps below.
 
 ```bash
 git status
