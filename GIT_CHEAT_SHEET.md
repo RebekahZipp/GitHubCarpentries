@@ -149,7 +149,7 @@ git push origin main
 **CHANGE → INSPECT → CHOOSE → RECORD → REVIEW → SHARE**
 
 ```bash
-# edit a file
+nano guacamole.md  # edit, Ctrl+O, Enter, Ctrl+X
 git status
 git diff
 git add FILE
@@ -171,7 +171,7 @@ A useful collaboration rhythm:
 
 ```bash
 git pull origin main
-# edit
+nano guacamole.md  # edit, Ctrl+O, Enter, Ctrl+X
 git status
 git diff
 git add FILE
