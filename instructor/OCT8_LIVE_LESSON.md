@@ -1234,6 +1234,65 @@ git log --oneline -3
 
 ---
 
+## Live facilitation: LEAD → FOLLOW → CHECK → EXPLAIN → RECOVER → CONTINUE
+
+**INSTRUCTOR CUE:** This is a guided Carpentries practice, not a lecture. Do not run a whole command block while learners watch. One action at a time: first explain the purpose, invite a prediction, demonstrate, let learners follow, pause, read evidence together, and only then continue.
+
+**LEAD (30 seconds). SAY:** "We have been using Git Bash to see our repository. Now we will open that *same folder* in RStudio. We are not cloning again, and we are not starting over. RStudio lets us run R code in the Console, use Git in a Terminal, or inspect changes in the Git pane."
+
+**FOLLOW (60 seconds). DO:** In RStudio, select **File → New Project → Existing Directory** and browse to `C:\Users\Carpentries\GitHubCarpentries-Examples`. **IF** an `.Rproj` file is already there, open it instead of creating another. **CHECK:** Ask learners to locate `README.md` in the Files pane and hold up a green sticky note or type "ready" in Teams. **RECOVER:** If a different folder appears, inspect the project path. Do not clone. If Git tab is absent, first confirm RStudio opened the existing Git repository; use Terminal as fallback.
+
+**LEAD (30 seconds). SAY:** "Three interfaces, three jobs: Console is for R expressions; Terminal is for shell commands; Git pane is for Git buttons. What does the prompt tell you?" **ASK:** "Where would `git status` go?" **EXPECTED:** Terminal, not the R `>` Console.
+
+**FOLLOW / CHECK (90 seconds).** Point to the **Console** and ask learners to run *one line at a time*:
+
+```r
+getwd()
+```
+
+**STOP:** Ask, "What path did R print?" Explain that this is the R working directory, not a GitHub URL. Then:
+
+```r
+list.files()
+```
+
+**STOP:** Ask learners to find `README.md` in the printed list. If absent, check `getwd()` before proceeding. Then:
+
+```r
+readLines("README.md", n = 5)
+```
+
+**STOP:** Ask, "Did we change the file?" **EXPECTED:** No. We read it using R.
+
+**LEAD / FOLLOW (90 seconds).** Point to the **Terminal**, not Console. Open **Tools → Terminal → New Terminal** (or the Terminal tab and New Terminal menu). Ask learners to type separately:
+
+```bash
+pwd
+git status
+git log --oneline -3
+```
+
+**CHECK after each line:** `pwd` reports a local path; `git status` names the current branch and any changes; `git log` shows recent commits. **ASK:** "Are these new commits?" **EXPECTED:** No, they are the same repository history. **RECOVER:** If `git` is not recognized, check whether Git is installed and use the known-working Git Bash; if `not a git repository`, locate the correct directory rather than cloning again. If the RStudio Terminal uses PowerShell, its path display may differ from Git Bash; do not insist on `/c/...` as the printed format.
+
+**LEAD (30 seconds). SAY:** "Now RStudio can help us do real research work. We can run an R script, save the code that produced a result, and use Git to record how the analysis changes. Git tracks saved files; it does not automatically capture everything typed into the Console."
+
+**FOLLOW / CHECK (90 seconds).** Choose **File → New File → R Script**. Type:
+
+```r
+visits <- c(12, 15, 18)
+mean(visits)
+```
+
+Run the two lines from the script using **Run** or Ctrl+Enter. **EXPECTED:** R prints `15` for the mean. **ASK:** "Where is the code that makes the result reproducible?" **EXPECTED:** In the script *after we save it*, not merely in the Console history. Save as `workshop-analysis.R` in the existing repository. **CHECK:** The file appears in Files and as an untracked change in Git. If class time is short, demonstrate only, and do not commit this optional file to the shared repository without agreeing on its purpose.
+
+**LEAD / FOLLOW / CHECK (90 seconds).** Show the **Git pane**. Select `README.md` and make a useful, deliberate edit if not already present: `Workshop: OSU Libraries Git & GitHub, October 8, 2026`. Save; inspect **Diff**; stage only the intended README change; **Commit** with `Record Oct 8 workshop`. **CHECK:** Confirm the commit in **History** or Terminal `git log --oneline -3`. **DO NOT** stage `.Rproj`, `workshop-analysis.R`, or other files merely because they appear in the Git pane. Push only if remote state, credentials, and permissions have been checked. If no README change remains to commit, inspect the existing commit rather than inventing an empty one.
+
+**EXPLAIN / CHECK (30 seconds). ASK:** "What does RStudio do that Git Bash alone does not?" **EXPECTED:** Edit and execute R scripts, inspect outputs, and work with Git in one project. **ASK:** "What does GitHub add?" **EXPECTED:** Remote collaboration, shared history, review, and publication. **SAY:** "RStudio does not replace Git or GitHub. It helps us do analysis in the same versioned project."
+
+**IF TIME RUNS OUT:** Demonstrate one R Console line (`getwd()`), one Terminal line (`git status`), and one Git pane Diff. State the distinction explicitly; do not rush an unverified push. Ask helpers to assist learners with remaining steps after class.
+
+**INSTRUCTOR SAFETY CARD:** Before each action ask: (1) Which interface am I in? (2) Which folder/repository is active? (3) What will change? (4) What output should I see? (5) How will I verify? For any surprise: stop, read the exact message, inspect location and Git state, then choose a non-destructive next move.
+
 # 3:55-4:00 | READ OUR BOOK LIST -> ASK THE WORKSHOP -> TAKE IT WITH YOU
 
 **TALK + VERIFY**
